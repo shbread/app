@@ -29,10 +29,10 @@ struct Reveal: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
-                Option(icon: "trash.fill") {
+                Option(icon: "trash.square.fill") {
                     
                 }
-                .font(.callout)
+                .font(.title3)
                 .foregroundStyle(.secondary)
                 
                 Option(icon: "doc.on.doc.fill") {

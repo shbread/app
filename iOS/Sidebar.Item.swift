@@ -5,7 +5,16 @@ extension Sidebar {
         let secret: Secret
         
         var body: some View {
-            HStack {
+            HStack(spacing: 0) {
+                if secret.favourite {
+                    Image(systemName: "heart.fill")
+                        .foregroundStyle(.quaternary)
+                        .frame(width: 30)
+                        .padding(.trailing, 10)
+                } else {
+                    Spacer()
+                        .frame(width: 40)
+                }
                 VStack(alignment: .leading, spacing: 0) {
                     Text(verbatim: secret.name)
                         .padding(.vertical, 4)
@@ -16,10 +25,6 @@ extension Sidebar {
                     }
                 }
                 Spacer()
-                if secret.favourite {
-                    Image(systemName: "heart.fill")
-                        .foregroundStyle(.tertiary)
-                }
             }
         }
     }

@@ -33,10 +33,10 @@ struct Sidebar: View {
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Option(icon: session.filter.favourites ? "heart.circle.fill" : "heart.circle") {
+                Option(icon: session.filter.favourites ? "heart.circle.fill" : "heart") {
                     session.filter.favourites.toggle()
                 }
-                .font(.title3)
+                .font(session.filter.favourites ? .title3 : .footnote)
                 .foregroundColor(session.filter.favourites ? .orange : .secondary)
             }
         }
