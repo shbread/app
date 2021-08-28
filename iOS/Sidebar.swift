@@ -37,7 +37,7 @@ struct Sidebar: View {
                     session.filter.favourites.toggle()
                 }
                 .font(.title3)
-                .foregroundStyle(session.filter.favourites ? .primary : .secondary)
+                .foregroundColor(session.filter.favourites ? .orange : .secondary)
             }
         }
         .navigationBarTitle("Secrets", displayMode: .large)

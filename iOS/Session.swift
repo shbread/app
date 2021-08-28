@@ -30,6 +30,15 @@ struct Session {
                 ? $0.1.favourite
                 : true
             }
+            .filter { secret in
+                { components in
+                    components.isEmpty
+                    ? true
+                    : components.contains {
+                        secret.1.name.localizedCaseInsensitiveContains($0)
+                    }
+                } (filter.search.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: " ").filter { !$0.isEmpty })
+            }
             .map(\.0)
     }
 }
@@ -84,7 +93,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 """,
               date: .distantPast,
               favourite: true,
-              tags: [.important])
+              tags: [.important]),
+        .init(name: "Some",
+              value: """
+Something
+""",
+              date: .distantPast,
+              favourite: false,
+              tags: [])
     ]
 }
 
