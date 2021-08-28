@@ -29,7 +29,7 @@ struct Sidebar: View {
                 Spacer()
                 
                 Option(icon: "lock.square.stack") {
-                    
+                    session.modal.send(.safe)
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {

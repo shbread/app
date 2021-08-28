@@ -44,7 +44,7 @@ struct Reveal: View {
                 Spacer()
                 
                 Option(icon: "pencil.circle.fill") {
-                    
+                    session.modal.send(.write(.edit(index)))
                 }
                 .font(.title)
                 .foregroundColor(.orange)
@@ -57,7 +57,7 @@ struct Reveal: View {
                 .foregroundStyle(.secondary)
                 
                 Option(icon: "tag.square.fill") {
-                    
+                    session.modal.send(.tags(index))
                 }
                 .font(.title3)
                 .foregroundStyle(.secondary)
