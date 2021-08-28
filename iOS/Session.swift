@@ -1,17 +1,50 @@
 import Foundation
 
 struct Session {
-    var archive = Archive()
+    var archive = Archive() {
+        didSet {
+            refilter()
+        }
+    }
+    
+    var filter = Filter() {
+        didSet {
+            refilter()
+        }
+    }
+    
+    var filtered = [Int]()
     
     subscript(_ index: Int) -> Secret {
         archive.secrets.count > index
             ? archive.secrets[index]
             : .new
     }
+    
+    private mutating func refilter() {
+        filtered = archive
+            .secrets
+            .enumerated()
+            .filter {
+                filter.favourites
+                ? $0.1.favourite
+                : true
+            }
+            .map(\.0)
+    }
 }
 
+
+
+
+
+
+
+
+
+
+
 struct Archive {
-    var filtered = (0 ..< 4)
     let secrets: [Secret] = [
         .init(name: "Shortbread recipe",
               value: """
@@ -34,6 +67,12 @@ On the left cubboard under the sink in the kitchen, behind the paper towels.
               tags: [.home]),
         .init(name: "Who is the person on the picture",
               value: """
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 """,
               date: .init(timeIntervalSinceNow: -2500),

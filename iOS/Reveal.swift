@@ -8,13 +8,14 @@ struct Reveal: View {
         ScrollView {
             Text(verbatim: session[index].value)
                 .kerning(1)
+                .foregroundStyle(.secondary)
                 .padding(.horizontal)
                 .padding(.top)
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
             
             Text(verbatim: RelativeDateTimeFormatter().string(from: session[index].date))
                 .font(.footnote)
-                .foregroundColor(.secondary)
+                .foregroundStyle(.tertiary)
                 .padding(.horizontal)
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
             
@@ -32,13 +33,13 @@ struct Reveal: View {
                     
                 }
                 .font(.callout)
-                .foregroundColor(.primary)
+                .foregroundStyle(.secondary)
                 
                 Option(icon: "doc.on.doc.fill") {
                     
                 }
                 .font(.footnote)
-                .foregroundColor(.primary)
+                .foregroundStyle(.secondary)
                 
                 Spacer()
                 
@@ -53,13 +54,13 @@ struct Reveal: View {
                 Option(icon: session[index].favourite ? "heart.fill" : "heart") {
                     
                 }
-                .foregroundColor(.primary)
+                .foregroundStyle(.secondary)
                 
                 Option(icon: "tag.square.fill") {
                     
                 }
                 .font(.title3)
-                .foregroundColor(.primary)
+                .foregroundStyle(.secondary)
             }
         }
         .navigationBarTitle(session[index].name, displayMode: .inline)

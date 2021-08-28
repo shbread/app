@@ -9,6 +9,9 @@ import SwiftUI
                 Sidebar(session: $session)
             }
             .navigationViewStyle(.columns)
+            .onAppear {
+                session.archive = .init()
+            }
         }
     }
 }

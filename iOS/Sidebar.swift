@@ -2,48 +2,42 @@ import SwiftUI
 
 struct Sidebar: View {
     @Binding var session: Session
-    @State private var filter = ""
     
     var body: some View {
         List {
-            ForEach(0 ..< session.archive.filtered.count, id: \.self) { index in
+            ForEach(session.filtered, id: \.self) { index in
                 NavigationLink(destination: Reveal(session: $session, index: index)) {
                     Item(secret: session[index])
                 }
             }
         }
         .listStyle(.sidebar)
-        .searchable(text: $filter)
+        .searchable(text: $session.filter.search)
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
-                Button {
+                Option(icon: "slider.horizontal.3") {
                     
-                } label: {
-                    Image(systemName: "slider.horizontal.3")
                 }
                 
                 Spacer()
                 
-                Button {
+                Option(icon: "plus.circle.fill") {
                     
-                } label: {
-                    Image(systemName: "plus")
                 }
+                .font(.title)
                 
                 Spacer()
                 
-                Button {
+                Option(icon: "lock.square.stack") {
                     
-                } label: {
-                    Image(systemName: "lock.square.stack")
                 }
             }
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button {
-                    
-                } label: {
-                    Image(systemName: "heart.fill")
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Option(icon: session.filter.favourites ? "heart.circle.fill" : "heart.circle") {
+                    session.filter.favourites.toggle()
                 }
+                .font(.title3)
+                .foregroundStyle(session.filter.favourites ? .primary : .secondary)
             }
         }
         .navigationBarTitle("Secrets", displayMode: .large)

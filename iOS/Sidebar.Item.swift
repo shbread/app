@@ -18,6 +18,7 @@ extension Sidebar {
                 Spacer()
                 if secret.favourite {
                     Image(systemName: "heart.fill")
+                        .foregroundStyle(.tertiary)
                 }
             }
         }
