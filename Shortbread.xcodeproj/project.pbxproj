@@ -11,6 +11,7 @@
 		CE2DAFC026D8EB880009E974 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DAFBF26D8EB880009E974 /* Sidebar.swift */; };
 		CE2DAFC226D8EB890009E974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2DAFC126D8EB890009E974 /* Assets.xcassets */; };
 		CE3DBE4826DA493C002AE5B0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DBE4726DA493C002AE5B0 /* Media.xcassets */; };
+		CE6F48A826DA5ADC00F778A9 /* Reveal.Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A726DA5ADC00F778A9 /* Reveal.Option.swift */; };
 		CEB5E76026D90BA600648645 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E75F26D90BA600648645 /* Session.swift */; };
 		CEB5E76226D9154600648645 /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76126D9154600648645 /* Reveal.swift */; };
 		CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */; };
@@ -24,6 +25,7 @@
 		CE2DAFBF26D8EB880009E974 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		CE2DAFC126D8EB890009E974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE3DBE4726DA493C002AE5B0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		CE6F48A726DA5ADC00F778A9 /* Reveal.Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.Option.swift; sourceTree = "<group>"; };
 		CEB5E75F26D90BA600648645 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CEB5E76126D9154600648645 /* Reveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
 		CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2DAFBD26D8EB880009E974 /* App.swift */,
+				CE6F48A726DA5ADC00F778A9 /* Reveal.Option.swift */,
 				CEB5E76126D9154600648645 /* Reveal.swift */,
 				CEB5E75F26D90BA600648645 /* Session.swift */,
 				CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */,
@@ -156,6 +159,7 @@
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,
 				CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */,
+				CE6F48A826DA5ADC00F778A9 /* Reveal.Option.swift in Sources */,
 				CEB5E76026D90BA600648645 /* Session.swift in Sources */,
 				CEB5E76626D9227D00648645 /* Tagger.swift in Sources */,
 				CEB5E76926D925E700648645 /* RelativeDateTimeFormatter.swift in Sources */,

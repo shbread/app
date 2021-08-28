@@ -8,7 +8,7 @@ struct Sidebar: View {
         List {
             ForEach(0 ..< session.archive.filtered.count, id: \.self) { index in
                 NavigationLink(destination: Reveal(session: $session, index: index)) {
-                    Item(secret: session.archive.secrets[index])
+                    Item(secret: session[index])
                 }
             }
         }

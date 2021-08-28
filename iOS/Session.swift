@@ -2,6 +2,12 @@ import Foundation
 
 struct Session {
     var archive = Archive()
+    
+    subscript(_ index: Int) -> Secret {
+        archive.secrets.count > index
+            ? archive.secrets[index]
+            : .new
+    }
 }
 
 struct Archive {
@@ -44,6 +50,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 }
 
 struct Secret {
+    static let new = Self(name: "", value: "", date: .init(), favourite: false, tags: [])
+    
     let name: String
     let value: String
     let date: Date

@@ -6,21 +6,21 @@ struct Reveal: View {
     
     var body: some View {
         ScrollView {
-            Text(verbatim: session.archive.secrets[index].value)
+            Text(verbatim: session[index].value)
                 .kerning(1)
                 .padding(.horizontal)
                 .padding(.top)
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
             
-            Text(verbatim: RelativeDateTimeFormatter().string(from: session.archive.secrets[index].date))
+            Text(verbatim: RelativeDateTimeFormatter().string(from: session[index].date))
                 .font(.footnote)
                 .foregroundColor(.secondary)
                 .padding(.horizontal)
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
             
             HStack {
-                ForEach(0 ..< session.archive.secrets[index].tags.count, id: \.self) {
-                    Tagger(tag: session.archive.secrets[index].tags[$0])
+                ForEach(0 ..< session[index].tags.count, id: \.self) {
+                    Tagger(tag: session[index].tags[$0])
                 }
                 Spacer()
             }
@@ -28,32 +28,40 @@ struct Reveal: View {
         }
         .toolbar {
             ToolbarItemGroup(placement: .bottomBar) {
-                Button {
+                Option(icon: "trash.fill") {
                     
-                } label: {
-                    Image(systemName: "trash.fill")
-                        .foregroundColor(.pink)
                 }
+                .font(.callout)
+                .foregroundColor(.primary)
+                
+                Option(icon: "doc.on.doc.fill") {
+                    
+                }
+                .font(.footnote)
+                .foregroundColor(.primary)
                 
                 Spacer()
                 
-                Button {
+                Option(icon: "pencil.circle.fill") {
                     
-                } label: {
-                    Image(systemName: "pencil.circle.fill")
-                        .font(.title)
-                        .foregroundColor(.orange)
                 }
+                .font(.title)
+                .foregroundColor(.orange)
                 
                 Spacer()
                 
-                Button {
+                Option(icon: session[index].favourite ? "heart.fill" : "heart") {
                     
-                } label: {
-                    Image(systemName: "tag.fill")
                 }
+                .foregroundColor(.primary)
+                
+                Option(icon: "tag.square.fill") {
+                    
+                }
+                .font(.title3)
+                .foregroundColor(.primary)
             }
         }
-        .navigationBarTitle(session.archive.secrets[index].name, displayMode: .large)
+        .navigationBarTitle(session[index].name, displayMode: .inline)
     }
 }
