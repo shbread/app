@@ -1,9 +1,9 @@
 import Foundation
 
-extension App {
+extension App.Modal {
     enum Write: Equatable {
         case
         create,
-        edit(Int)
+        edit
     }
 }

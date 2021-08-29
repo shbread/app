@@ -15,16 +15,28 @@ struct Session {
     }
     
     var filtered = [Int]()
+    var selected: Int?
+    var secret: Secret {
+        selected
+            .flatMap {
+                archive.secrets.count > $0
+                    ? archive.secrets[$0]
+                    : nil
+            }
+        ?? .new
+    }
     
     let modal = PassthroughSubject<App.Modal, Never>()
     
-    subscript(_ index: Int) -> Secret {
-        archive.secrets.count > index
-            ? archive.secrets[index]
-            : .new
+    func create() {
+        if archive.available {
+            modal.send(.write(.create))
+        } else {
+            modal.send(.purchase)
+        }
     }
     
-    func finish(text: String, write: App.Write) {
+    func finish(text: String, write: App.Modal.Write) {
 //        switch write {
 //        case .create:
 //            cloud.new(board: text.isEmpty ? "Project" : text) {
@@ -86,6 +98,7 @@ struct Session {
 
 
 struct Archive {
+    let available = true
     let secrets: [Secret] = [
         .init(name: "Shortbread recipe",
               value: """

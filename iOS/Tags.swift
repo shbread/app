@@ -2,7 +2,6 @@ import SwiftUI
 
 struct Tags: View {
     @Binding var session: Session
-    let index: Int
     
     var body: some View {
         Popup(title: "Tags", leading: { }) {
@@ -20,9 +19,9 @@ struct Tags: View {
                                 .font(.callout)
                                 .foregroundColor(.primary)
                             Spacer()
-                            Image(systemName: session[index].tags.contains(tag) ? "checkmark.circle.fill" : "circle")
+                            Image(systemName: session.secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
                                 .font(.title3)
-                                .foregroundColor(session[index].tags.contains(tag) ? .orange : .secondary)
+                                .foregroundColor(session.secret.tags.contains(tag) ? .orange : .secondary)
                         }
                         .padding(.vertical, 10)
                     }

@@ -22,8 +22,8 @@ extension Writer {
             allowsEditingTextAttributes = false
             delegate = self
             
-            if case let .edit(index) = wrapper.write {
-                text = wrapper.session[index].value
+            if wrapper.write == .edit {
+                text = wrapper.session.secret.value
             }
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
@@ -66,7 +66,7 @@ extension Writer {
                 input.addSubview($0)
                 
                 $0.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
-                $0.bottomAnchor.constraint(equalTo: input.bottomAnchor, constant: 4).isActive = true
+                $0.bottomAnchor.constraint(equalTo: input.bottomAnchor, constant: 5).isActive = true
                 $0.widthAnchor.constraint(equalToConstant: 64).isActive = true
             }
             
@@ -91,11 +91,11 @@ extension Writer {
             
             switch wrapper.write {
             case .create:
-                title.attributedText = .make("New secret",
+                title.attributedText = .make("Name secret",
                                              font: .preferredFont(forTextStyle: .callout),
                                              color: .secondaryLabel)
-            case let .edit(index):
-                title.attributedText = .make(wrapper.session[index].name,
+            case .edit:
+                title.attributedText = .make(wrapper.session.secret.name,
                                              font: .preferredFont(forTextStyle: .callout),
                                              color: .secondaryLabel)
             }

@@ -12,6 +12,7 @@
 		CE2DAFC226D8EB890009E974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2DAFC126D8EB890009E974 /* Assets.xcassets */; };
 		CE3DBE4826DA493C002AE5B0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DBE4726DA493C002AE5B0 /* Media.xcassets */; };
 		CE6366D126DB8ACD0047EB1C /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6366D026DB8ACD0047EB1C /* Popup.swift */; };
+		CE6366D326DB927D0047EB1C /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6366D226DB927D0047EB1C /* Purchase.swift */; };
 		CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A726DA5ADC00F778A9 /* Option.swift */; };
 		CE6F48AA26DA640D00F778A9 /* Session.Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A926DA640D00F778A9 /* Session.Filter.swift */; };
 		CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AB26DA766800F778A9 /* App.Modal.swift */; };
@@ -19,7 +20,7 @@
 		CE6F48B026DA7B6D00F778A9 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AF26DA7B6D00F778A9 /* Safe.swift */; };
 		CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B126DA7C0900F778A9 /* Writer.swift */; };
 		CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */; };
-		CE6F48B626DA885700F778A9 /* App.Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B526DA885700F778A9 /* App.Write.swift */; };
+		CE6F48B626DA885700F778A9 /* App.Modal.Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */; };
 		CE6F48B826DA88D200F778A9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B726DA88D200F778A9 /* Container.swift */; };
 		CE6F48BA26DA899A00F778A9 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */; };
 		CE6F48BC26DA89A100F778A9 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */; };
@@ -37,6 +38,7 @@
 		CE2DAFC126D8EB890009E974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE3DBE4726DA493C002AE5B0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE6366D026DB8ACD0047EB1C /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
+		CE6366D226DB927D0047EB1C /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		CE6F48A726DA5ADC00F778A9 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		CE6F48A926DA640D00F778A9 /* Session.Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.Filter.swift; sourceTree = "<group>"; };
 		CE6F48AB26DA766800F778A9 /* App.Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.swift; sourceTree = "<group>"; };
@@ -44,7 +46,7 @@
 		CE6F48AF26DA7B6D00F778A9 /* Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
 		CE6F48B126DA7C0900F778A9 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.Coordinator.swift; sourceTree = "<group>"; };
-		CE6F48B526DA885700F778A9 /* App.Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Write.swift; sourceTree = "<group>"; };
+		CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.Write.swift; sourceTree = "<group>"; };
 		CE6F48B726DA88D200F778A9 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
 		CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
@@ -87,11 +89,12 @@
 			isa = PBXGroup;
 			children = (
 				CE6F48AB26DA766800F778A9 /* App.Modal.swift */,
+				CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */,
 				CE2DAFBD26D8EB880009E974 /* App.swift */,
-				CE6F48B526DA885700F778A9 /* App.Write.swift */,
 				CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */,
 				CE6F48A726DA5ADC00F778A9 /* Option.swift */,
 				CE6366D026DB8ACD0047EB1C /* Popup.swift */,
+				CE6366D226DB927D0047EB1C /* Purchase.swift */,
 				CEB5E76126D9154600648645 /* Reveal.swift */,
 				CE6F48AF26DA7B6D00F778A9 /* Safe.swift */,
 				CE6F48A926DA640D00F778A9 /* Session.Filter.swift */,
@@ -195,7 +198,7 @@
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,
 				CE6F48BA26DA899A00F778A9 /* NSAttributedString.swift in Sources */,
 				CE6F48B026DA7B6D00F778A9 /* Safe.swift in Sources */,
-				CE6F48B626DA885700F778A9 /* App.Write.swift in Sources */,
+				CE6F48B626DA885700F778A9 /* App.Modal.Write.swift in Sources */,
 				CE6F48BC26DA89A100F778A9 /* NSMutableAttributedString.swift in Sources */,
 				CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */,
 				CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */,
@@ -204,6 +207,7 @@
 				CEB5E76026D90BA600648645 /* Session.swift in Sources */,
 				CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */,
 				CEB5E76626D9227D00648645 /* Tagger.swift in Sources */,
+				CE6366D326DB927D0047EB1C /* Purchase.swift in Sources */,
 				CE6F48B826DA88D200F778A9 /* Container.swift in Sources */,
 				CE6F48AA26DA640D00F778A9 /* Session.Filter.swift in Sources */,
 				CEB5E76926D925E700648645 /* RelativeDateTimeFormatter.swift in Sources */,

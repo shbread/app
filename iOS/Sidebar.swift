@@ -6,32 +6,18 @@ struct Sidebar: View {
     var body: some View {
         List {
             ForEach(session.filtered, id: \.self) { index in
-                NavigationLink(destination: Reveal(session: $session, index: index)) {
-                    Item(secret: session[index])
+                NavigationLink(destination: Reveal(session: $session), isActive: .init(get: {
+                    session.selected != nil
+                }, set: {
+                    session.selected = $0 ? index : nil
+                })) {
+                    Item(secret: session.archive.secrets[index])
                 }
             }
         }
         .listStyle(.sidebar)
         .searchable(text: $session.filter.search)
         .toolbar {
-            ToolbarItemGroup(placement: .bottomBar) {
-                Option(icon: "slider.horizontal.3") {
-                    
-                }
-                
-                Spacer()
-                
-                Option(icon: "plus.circle.fill") {
-                    
-                }
-                .font(.title)
-                
-                Spacer()
-                
-                Option(icon: "lock.square.stack") {
-                    session.modal.send(.safe)
-                }
-            }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Option(icon: session.filter.favourites ? "heart.circle.fill" : "heart") {
                     session.filter.favourites.toggle()
