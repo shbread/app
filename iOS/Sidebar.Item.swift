@@ -17,6 +17,7 @@ extension Sidebar {
                 }
                 VStack(alignment: .leading, spacing: 0) {
                     Text(verbatim: secret.name)
+                        .font(.callout)
                         .padding(.vertical, 4)
                     HStack {
                         ForEach(0 ..< secret.tags.count, id: \.self) {

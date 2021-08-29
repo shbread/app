@@ -7,7 +7,7 @@ struct Sidebar: View {
         List {
             ForEach(session.filtered, id: \.self) { index in
                 NavigationLink(destination: Reveal(session: $session), isActive: .init(get: {
-                    session.selected != nil
+                    session.selected == index
                 }, set: {
                     session.selected = $0 ? index : nil
                 })) {

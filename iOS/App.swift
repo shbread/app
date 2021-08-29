@@ -28,38 +28,54 @@ import SwiftUI
                             session.modal.send(.safe)
                         }
                     } else {
-                        Option(icon: "trash.square.fill") {
-
-                        }
-                        .font(.title3)
-                        .foregroundStyle(.secondary)
-
-                        Option(icon: "doc.on.doc.fill") {
-
-                        }
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-
-                        Spacer()
-                        
-                        Option(icon: "pencil.circle.fill") {
-                            session.modal.send(.write(.edit))
-                        }
-                        .font(.title)
-                        .foregroundColor(.orange)
-                        
-                        Spacer()
-                        
-                        Option(icon: session.secret.favourite ? "heart.fill" : "heart") {
+                        Menu {
+                            Button {
+                                session.modal.send(.tags)
+                            } label: {
+                                Text("Tags")
+                                Image(systemName: "tag")
+                            }
                             
+                            Button {
+                                session.modal.send(.write(.edit))
+                            } label: {
+                                Text("Edit")
+                                Image(systemName: "pencil.circle")
+                            }
+                            
+                            Button {
+                                
+                            } label: {
+                                Text("Rename")
+                                Image(systemName: "rectangle.and.pencil.and.ellipsis")
+                            }
+                            
+                            Button(role: ButtonRole.destructive) {
+                                
+                            } label: {
+                                Text("Delete")
+                                Image(systemName: "trash")
+                            }
+                        } label: {
+                            Image(systemName: "ellipsis")
+                                .font(.title3)
+                                .foregroundColor(.secondary)
+                                .frame(width: 50, height: 40)
+                                .contentShape(Rectangle())
                         }
-                        .foregroundStyle(.secondary)
                         
-                        Option(icon: "tag.square.fill") {
-                            session.modal.send(.tags)
+                        Spacer()
+                        
+                        ZStack {
+                            Circle()
+                                .fill(Color.orange)
+                                .padding(4)
+                            Option(icon: "doc.on.doc.fill") {
+                                session.modal.send(.write(.edit))
+                            }
+                            .font(.caption2)
+                            .foregroundColor(.white)
                         }
-                        .font(.title3)
-                        .foregroundStyle(.secondary)
                     }
                 }
             }
