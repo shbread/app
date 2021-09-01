@@ -20,6 +20,7 @@ extension Sidebar {
                     Text(verbatim: secret.name)
                         .font(.callout)
                         .padding(.vertical, 4)
+                    
                     HStack {
                         ForEach(secret.tags.sorted(), id: \.self, content: Tagger.init(tag:))
                     }

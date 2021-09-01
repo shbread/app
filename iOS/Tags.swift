@@ -9,11 +9,15 @@ struct Tags: View {
             List {
                 ForEach(Tag
                             .allCases
-                            .sorted {
-                    "\($0)".localizedCompare("\($1)") == .orderedAscending
-                }, id: \.self) { tag in
+                            .sorted(), id: \.self) { tag in
                     Button {
-                        
+                        Task {
+                            if session.secret.tags.contains(tag) {
+                                await cloud.remove(index: session.selected!, tag: tag)
+                            } else {
+                                await cloud.add(index: session.selected!, tag: tag)
+                            }
+                        }
                     } label: {
                         HStack {
                             Text(verbatim: "\(tag)")
