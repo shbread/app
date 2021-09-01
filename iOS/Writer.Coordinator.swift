@@ -22,8 +22,13 @@ extension Writer {
             allowsEditingTextAttributes = false
             delegate = self
             
-            if wrapper.write == .edit {
+            switch wrapper.write {
+            case .rename:
+                text = wrapper.session.secret.name
+            case .edit:
                 text = wrapper.session.secret.payload
+            default:
+                break
             }
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
@@ -92,6 +97,10 @@ extension Writer {
             switch wrapper.write {
             case .create:
                 title.attributedText = .make("New secret",
+                                             font: .preferredFont(forTextStyle: .callout),
+                                             color: .secondaryLabel)
+            case .rename:
+                title.attributedText = .make("Rename secret",
                                              font: .preferredFont(forTextStyle: .callout),
                                              color: .secondaryLabel)
             case .edit:

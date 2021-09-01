@@ -44,8 +44,10 @@ struct Session {
 //            cloud.new(board: text.isEmpty ? "Project" : text) {
 //                Notifications.send(message: "Created project")
 //            }
+        case .rename:
+            await cloud.update(index: selected!, name: text)
         case .edit:
-            break
+            await cloud.update(index: selected!, payload: text)
 //            cloud.add(board: board, column: text.isEmpty ? "Column" : text)
 //            Notifications.send(message: "Created column")
         }

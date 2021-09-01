@@ -49,7 +49,7 @@ let cloud = Cloud.new
                             }
                             
                             Button {
-                                
+                                session.modal.send(.write(.rename))
                             } label: {
                                 Text("Rename")
                                 Image(systemName: "rectangle.and.pencil.and.ellipsis")
@@ -72,7 +72,7 @@ let cloud = Cloud.new
                         Spacer()
                         
                         Button {
-                            session.modal.send(.write(.edit))
+                            
                         } label: {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 6)
