@@ -91,7 +91,7 @@ extension Writer {
             
             switch wrapper.write {
             case .create:
-                title.attributedText = .make("Name secret",
+                title.attributedText = .make("New secret",
                                              font: .preferredFont(forTextStyle: .callout),
                                              color: .secondaryLabel)
             case .edit:
@@ -117,7 +117,9 @@ extension Writer {
         
         @objc private func send() {
             resignFirstResponder()
-            wrapper.session.finish(text: text.trimmingCharacters(in: .whitespacesAndNewlines), write: wrapper.write)
+            Task {
+                await wrapper.session.finish(text: text.trimmingCharacters(in: .whitespacesAndNewlines), write: wrapper.write)
+            }
         }
         
         @objc private func asterisk() {

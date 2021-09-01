@@ -3,7 +3,11 @@ import Combine
 import Secrets
 
 struct Session {
-    var archive = Archive.new
+    var archive = Archive.new {
+        didSet {
+            refilter()
+        }
+    }
     
     var filter = Filter() {
         didSet {
@@ -33,33 +37,18 @@ struct Session {
         }
     }
     
-    func finish(text: String, write: App.Modal.Write) {
-//        switch write {
-//        case .create:
+    func finish(text: String, write: App.Modal.Write) async {
+        switch write {
+        case .create:
+            await cloud.new(secret: text)
 //            cloud.new(board: text.isEmpty ? "Project" : text) {
 //                Notifications.send(message: "Created project")
 //            }
-//        case let .column(board):
+        case .edit:
+            break
 //            cloud.add(board: board, column: text.isEmpty ? "Column" : text)
 //            Notifications.send(message: "Created column")
-//        case let .card(board):
-//            if !text.isEmpty {
-//                cloud.add(board: board, card: text)
-//                Notifications.send(message: "Created card")
-//            }
-//        case let .edit(path):
-//            switch path {
-//            case .board:
-//                cloud.rename(board: path.board, name: text)
-//                Notifications.send(message: "Renamed project")
-//            case .column:
-//                cloud.rename(board: path.board, column: path.column, name: text)
-//                Notifications.send(message: "Renamed column")
-//            case .card:
-//                cloud.update(board: path.board, column: path.column, card: path.card, content: text)
-//                Notifications.send(message: "Updated card")
-//            }
-//        }
+        }
     }
     
     private mutating func refilter() {
