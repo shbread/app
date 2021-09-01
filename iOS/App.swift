@@ -83,9 +83,6 @@ import SwiftUI
             .onReceive(session.modal) {
                 change($0)
             }
-            .onAppear {
-                session.archive = .init()
-            }
         }
     }
     

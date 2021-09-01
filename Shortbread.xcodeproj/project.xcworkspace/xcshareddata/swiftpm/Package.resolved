@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Archivable",
+        "repositoryURL": "https://github.com/archivable/package.git",
+        "state": {
+          "branch": "main",
+          "revision": "07291a97cf51e7c3d7850b6ec67efa2d39ded0ca",
+          "version": null
+        }
+      },
+      {
+        "package": "Secrets",
+        "repositoryURL": "https://github.com/shbread/secrets.git",
+        "state": {
+          "branch": "main",
+          "revision": "95115225a735c20d01426d883f66543198de7c8f",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

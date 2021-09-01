@@ -1,4 +1,5 @@
 import SwiftUI
+import Secrets
 
 struct Tagger: View {
     let tag: Tag

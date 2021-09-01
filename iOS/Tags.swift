@@ -1,4 +1,5 @@
 import SwiftUI
+import Secrets
 
 struct Tags: View {
     @Binding var session: Session

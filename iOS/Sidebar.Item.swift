@@ -1,4 +1,5 @@
 import SwiftUI
+import Secrets
 
 extension Sidebar {
     struct Item: View {
@@ -20,9 +21,7 @@ extension Sidebar {
                         .font(.callout)
                         .padding(.vertical, 4)
                     HStack {
-                        ForEach(0 ..< secret.tags.count, id: \.self) {
-                            Tagger(tag: secret.tags[$0])
-                        }
+                        ForEach(secret.tags.sorted(), id: \.self, content: Tagger.init(tag:))
                     }
                 }
                 Spacer()

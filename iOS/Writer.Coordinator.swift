@@ -23,7 +23,7 @@ extension Writer {
             delegate = self
             
             if wrapper.write == .edit {
-                text = wrapper.session.secret.value
+                text = wrapper.session.secret.payload
             }
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)

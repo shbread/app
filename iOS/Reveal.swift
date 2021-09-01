@@ -5,7 +5,7 @@ struct Reveal: View {
     
     var body: some View {
         ScrollView {
-            Text(verbatim: session.secret.value)
+            Text(verbatim: session.secret.payload)
                 .kerning(1)
                 .foregroundStyle(.secondary)
                 .padding(.horizontal)
@@ -19,9 +19,7 @@ struct Reveal: View {
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
             
             HStack {
-                ForEach(0 ..< session.secret.tags.count, id: \.self) {
-                    Tagger(tag: session.secret.tags[$0])
-                }
+                ForEach(session.secret.tags.sorted(), id: \.self, content: Tagger.init(tag:))
                 Spacer()
             }
             .padding()
