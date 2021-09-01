@@ -71,16 +71,21 @@ let cloud = Cloud.new
                         
                         Spacer()
                         
-                        ZStack {
-                            Circle()
-                                .fill(Color.orange)
-                                .padding(4)
-                            Option(icon: "doc.on.doc.fill") {
-                                session.modal.send(.write(.edit))
+                        Button {
+                            session.modal.send(.write(.edit))
+                        } label: {
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 6)
+                                    .fill(Color.orange)
+                                Text("Copy")
+                                    .font(.callout.weight(.semibold))
+                                    .foregroundColor(.white)
+                                    .padding(.horizontal, 12)
+                                    .padding(.vertical, 5)
                             }
-                            .font(.caption2)
-                            .foregroundColor(.white)
                         }
+                        
+                        .foregroundColor(.orange)
                     }
                 }
             }
