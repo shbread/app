@@ -27,6 +27,7 @@
 		CE75611E26DFA52E00C094BA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE75611D26DFA52E00C094BA /* Secrets */; };
 		CE75612326DFB5B500C094BA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612226DFB5B500C094BA /* CloudKit.framework */; };
 		CE75612526DFB5D900C094BA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612426DFB5D900C094BA /* StoreKit.framework */; };
+		CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75612626DFB62E00C094BA /* App.Delegate.swift */; };
 		CEB5E76026D90BA600648645 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E75F26D90BA600648645 /* Session.swift */; };
 		CEB5E76226D9154600648645 /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76126D9154600648645 /* Reveal.swift */; };
 		CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */; };
@@ -57,6 +58,7 @@
 		CE75612026DFB5AF00C094BA /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		CE75612226DFB5B500C094BA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE75612426DFB5D900C094BA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
+		CE75612626DFB62E00C094BA /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
 		CEB5E75F26D90BA600648645 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 		CEB5E76126D9154600648645 /* Reveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
 		CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				CE75612026DFB5AF00C094BA /* iOS.entitlements */,
 				CE75611F26DFB59D00C094BA /* Info.plist */,
+				CE75612626DFB62E00C094BA /* App.Delegate.swift */,
 				CE6F48AB26DA766800F778A9 /* App.Modal.swift */,
 				CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */,
 				CE2DAFBD26D8EB880009E974 /* App.swift */,
@@ -221,6 +224,7 @@
 			files = (
 				CE2DAFC026D8EB880009E974 /* Sidebar.swift in Sources */,
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
+				CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */,
 				CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */,
 				CE6F48AE26DA76E600F778A9 /* Tags.swift in Sources */,
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,

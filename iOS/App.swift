@@ -1,8 +1,13 @@
 import SwiftUI
+import Archivable
+
+let cloud = Cloud.new
 
 @main struct App: SwiftUI.App {
     @State private var session = Session()
     @State private var modal: Modal?
+    @Environment(\.scenePhase) private var phase
+    @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     var body: some Scene {
         WindowGroup {
@@ -80,8 +85,16 @@ import SwiftUI
                 }
             }
             .sheet(item: $modal, content: modal)
+            .onReceive(cloud.archive) {
+                session.archive = $0
+            }
             .onReceive(session.modal) {
                 change($0)
+            }
+        }
+        .onChange(of: phase) {
+            if $0 == .active {
+                cloud.pull.send()
             }
         }
     }
