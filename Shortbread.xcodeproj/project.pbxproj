@@ -24,6 +24,7 @@
 		CE6F48B826DA88D200F778A9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B726DA88D200F778A9 /* Container.swift */; };
 		CE6F48BA26DA899A00F778A9 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */; };
 		CE6F48BC26DA89A100F778A9 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */; };
+		CE75611E26DFA52E00C094BA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE75611D26DFA52E00C094BA /* Secrets */; };
 		CEB5E76026D90BA600648645 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E75F26D90BA600648645 /* Session.swift */; };
 		CEB5E76226D9154600648645 /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76126D9154600648645 /* Reveal.swift */; };
 		CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */; };
@@ -62,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE75611E26DFA52E00C094BA /* Secrets in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +139,9 @@
 			dependencies = (
 			);
 			name = iOS;
+			packageProductDependencies = (
+				CE75611D26DFA52E00C094BA /* Secrets */,
+			);
 			productName = iOS;
 			productReference = CE2DAFBA26D8EB880009E974 /* Shortbread.app */;
 			productType = "com.apple.product-type.application";
@@ -165,6 +170,9 @@
 				Base,
 			);
 			mainGroup = CE2DAFAF26D8EB460009E974;
+			packageReferences = (
+				CE75611C26DFA52E00C094BA /* XCRemoteSwiftPackageReference "secrets" */,
+			);
 			productRefGroup = CE2DAFBB26D8EB880009E974 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -416,6 +424,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE75611C26DFA52E00C094BA /* XCRemoteSwiftPackageReference "secrets" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/shbread/secrets.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CE75611D26DFA52E00C094BA /* Secrets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE75611C26DFA52E00C094BA /* XCRemoteSwiftPackageReference "secrets" */;
+			productName = Secrets;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = CE2DAFB026D8EB460009E974 /* Project object */;
 }
