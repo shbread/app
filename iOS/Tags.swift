@@ -3,9 +3,10 @@ import Secrets
 
 struct Tags: View {
     @Binding var session: Session
+    @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        Popup(title: "Tags", leading: { }) {
+        NavigationView {
             List(Tag
                     .allCases
                     .sorted(), id: \.self) { tag in
@@ -31,6 +32,18 @@ struct Tags: View {
                 }
             }
             .listStyle(.insetGrouped)
+            .navigationBarTitle("Tags", displayMode: .large)
+            .navigationBarItems(trailing:
+                                    Button {
+                                        dismiss()
+                                    } label: {
+                                        Image(systemName: "xmark")
+                                            .font(.footnote)
+                                            .frame(height: 50)
+                                            .padding(.leading, 40)
+                                            .contentShape(Rectangle())
+                                    }
+                                    .foregroundStyle(.secondary))
         }
     }
 }

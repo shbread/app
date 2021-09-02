@@ -37,22 +37,6 @@ struct Session {
         }
     }
     
-    func finish(text: String, write: App.Modal.Write) async {
-        switch write {
-        case .create:
-            await cloud.new(secret: text)
-//            cloud.new(board: text.isEmpty ? "Project" : text) {
-//                Notifications.send(message: "Created project")
-//            }
-        case .rename:
-            await cloud.update(index: selected!, name: text)
-        case .edit:
-            await cloud.update(index: selected!, payload: text)
-//            cloud.add(board: board, column: text.isEmpty ? "Column" : text)
-//            Notifications.send(message: "Created column")
-        }
-    }
-    
     private mutating func refilter() {
         filtered = archive
             .secrets

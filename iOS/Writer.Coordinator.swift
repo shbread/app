@@ -125,9 +125,22 @@ extension Writer {
         }
         
         @objc private func send() {
+            let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
             resignFirstResponder()
             Task {
-                await wrapper.session.finish(text: text.trimmingCharacters(in: .whitespacesAndNewlines), write: wrapper.write)
+                switch wrapper.write {
+                case .create:
+                    wrapper.session.selected = await cloud.new(secret: text)
+        //            cloud.new(board: text.isEmpty ? "Project" : text) {
+        //                Notifications.send(message: "Created project")
+        //            }
+                case .rename:
+                    await cloud.update(index: wrapper.session.selected!, name: text)
+                case .edit:
+                    await cloud.update(index: wrapper.session.selected!, payload: text)
+        //            cloud.add(board: board, column: text.isEmpty ? "Column" : text)
+        //            Notifications.send(message: "Created column")
+                }
             }
         }
         
