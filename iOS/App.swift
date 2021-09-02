@@ -63,11 +63,22 @@ let cloud = Cloud.new
                             }
                         } label: {
                             Image(systemName: "ellipsis")
+                                .symbolRenderingMode(.hierarchical)
                                 .font(.title3)
                                 .foregroundColor(.secondary)
                                 .frame(width: 50, height: 40)
                                 .contentShape(Rectangle())
                         }
+                        
+                        Spacer()
+                        
+                        Option(icon: session.secret.favourite ? "heart.fill" : "heart") {
+                            Task {
+                                await cloud
+                                    .update(index: session.selected!, favourite: !session.secret.favourite)
+                            }
+                        }
+                        .foregroundColor(session.secret.favourite ? .accentColor : .secondary)
                         
                         Spacer()
                         
