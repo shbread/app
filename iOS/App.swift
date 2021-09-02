@@ -13,93 +13,9 @@ let cloud = Cloud.new
         WindowGroup {
             NavigationView {
                 Sidebar(session: $session)
+                Reveal(session: $session)
             }
             .navigationViewStyle(.columns)
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    if session.selected == nil {
-                        Option(icon: "slider.horizontal.3") {
-                            
-                        }
-                        
-                        Spacer()
-                        
-                        Option(icon: "plus.circle.fill", action: session.create)
-                            .font(.title)
-                        
-                        Spacer()
-                        
-                        Option(icon: "lock.square.stack") {
-                            session.modal.send(.safe)
-                        }
-                    } else {
-                        Menu {
-                            Button {
-                                session.modal.send(.tags)
-                            } label: {
-                                Text("Tags")
-                                Image(systemName: "tag")
-                            }
-                            
-                            Button {
-                                session.modal.send(.write(.edit))
-                            } label: {
-                                Text("Edit")
-                                Image(systemName: "pencil.circle")
-                            }
-                            
-                            Button {
-                                session.modal.send(.write(.rename))
-                            } label: {
-                                Text("Rename")
-                                Image(systemName: "rectangle.and.pencil.and.ellipsis")
-                            }
-                            
-                            Button(role: ButtonRole.destructive) {
-                                
-                            } label: {
-                                Text("Delete")
-                                Image(systemName: "trash")
-                            }
-                        } label: {
-                            Image(systemName: "ellipsis")
-                                .symbolRenderingMode(.hierarchical)
-                                .font(.title3)
-                                .foregroundColor(.secondary)
-                                .frame(width: 50, height: 40)
-                                .contentShape(Rectangle())
-                        }
-                        
-                        Spacer()
-                        
-                        Option(icon: session.secret.favourite ? "heart.fill" : "heart") {
-                            Task {
-                                await cloud
-                                    .update(index: session.selected!, favourite: !session.secret.favourite)
-                            }
-                        }
-                        .foregroundColor(session.secret.favourite ? .accentColor : .secondary)
-                        
-                        Spacer()
-                        
-                        Button {
-                            
-                        } label: {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 6)
-                                    .fill(Color.orange)
-                                Text("Copy")
-                                    .font(.callout.weight(.semibold))
-                                    .foregroundColor(.white)
-                                    .padding(.horizontal, 12)
-                                    .padding(.vertical, 5)
-                            }
-                        }
-                        
-                        .foregroundColor(.orange)
-                    }
-                }
-            }
             .sheet(item: $modal, content: modal)
             .onReceive(cloud.archive) {
                 session.archive = $0

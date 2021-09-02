@@ -6,30 +6,28 @@ struct Tags: View {
     
     var body: some View {
         Popup(title: "Tags", leading: { }) {
-            List {
-                ForEach(Tag
-                            .allCases
-                            .sorted(), id: \.self) { tag in
-                    Button {
-                        Task {
-                            if session.secret.tags.contains(tag) {
-                                await cloud.remove(index: session.selected!, tag: tag)
-                            } else {
-                                await cloud.add(index: session.selected!, tag: tag)
-                            }
+            List(Tag
+                    .allCases
+                    .sorted(), id: \.self) { tag in
+                Button {
+                    Task {
+                        if session.secret.tags.contains(tag) {
+                            await cloud.remove(index: session.selected!, tag: tag)
+                        } else {
+                            await cloud.add(index: session.selected!, tag: tag)
                         }
-                    } label: {
-                        HStack {
-                            Text(verbatim: "\(tag)")
-                                .font(.callout)
-                                .foregroundColor(.primary)
-                            Spacer()
-                            Image(systemName: session.secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
-                                .font(.title3)
-                                .foregroundColor(session.secret.tags.contains(tag) ? .orange : .secondary)
-                        }
-                        .padding(.vertical, 10)
                     }
+                } label: {
+                    HStack {
+                        Text(verbatim: "\(tag)")
+                            .font(.callout)
+                            .foregroundColor(.primary)
+                        Spacer()
+                        Image(systemName: session.secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
+                            .font(.title3)
+                            .foregroundColor(session.secret.tags.contains(tag) ? .orange : .secondary)
+                    }
+                    .padding(.vertical, 10)
                 }
             }
             .listStyle(.insetGrouped)

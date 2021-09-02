@@ -7,7 +7,6 @@ struct Safe: View {
         NavigationView {
             
         }
-        .animation(.easeInOut(duration: 1), value: 1)
         .transition(.slide)
     }
 }

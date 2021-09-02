@@ -115,7 +115,7 @@ extension Writer {
         }
         
         func textViewDidEndEditing(_: UITextView) {
-            wrapper.visible.wrappedValue.dismiss()
+            wrapper.dismiss()
         }
         
         override func caretRect(for position: UITextPosition) -> CGRect {

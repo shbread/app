@@ -4,7 +4,7 @@ struct Popup<Leading, Content>: View where Leading : View, Content : View {
     let title: String
     let leading: Leading
     let content: Content
-    @Environment(\.presentationMode) private var visible
+    @Environment(\.dismiss) private var dismiss
     
     @inlinable public init(title: String, @ViewBuilder leading: () -> Leading, @ViewBuilder content: () -> Content) {
         self.title = title
@@ -19,7 +19,7 @@ struct Popup<Leading, Content>: View where Leading : View, Content : View {
                 .navigationBarItems(leading: leading,
                                     trailing:
                                         Button {
-                                            visible.wrappedValue.dismiss()
+                                            dismiss()
                                         } label: {
                                             Image(systemName: "xmark")
                                                 .font(.callout)
