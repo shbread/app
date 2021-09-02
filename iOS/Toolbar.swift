@@ -69,5 +69,6 @@ struct Toolbar: View {
         }
         .buttonStyle(.borderedProminent)
         .tint(.orange)
+        .font(.callout)
     }
 }
