@@ -4,6 +4,7 @@ import Secrets
 extension Sidebar {
     struct Item: View {
         let secret: Secret
+        let max: Int
         
         var body: some View {
             HStack(spacing: 0) {
@@ -20,10 +21,7 @@ extension Sidebar {
                     Text(verbatim: secret.name)
                         .font(.callout)
                         .padding(.vertical, 4)
-                    
-                    HStack {
-                        ForEach(secret.tags.sorted(), id: \.self, content: Tagger.init(tag:))
-                    }
+                    Tagger(secret: secret, max: max)
                 }
                 Spacer()
             }

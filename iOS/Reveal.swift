@@ -18,11 +18,10 @@ struct Reveal: View {
                 .padding(.horizontal)
                 .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
             
-            HStack {
-                ForEach(session.secret.tags.sorted(), id: \.self, content: Tagger.init(tag:))
-                Spacer()
+            GeometryReader { geometry in
+                Tagger(secret: session.secret, max: .init(geometry.size.width / 75))
+                    .padding()
             }
-            .padding()
         }
         .navigationBarTitle(session.secret.name, displayMode: .inline)
     }

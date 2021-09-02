@@ -4,14 +4,16 @@ struct Sidebar: View {
     @Binding var session: Session
     
     var body: some View {
-        List {
-            ForEach(session.filtered, id: \.self) { index in
-                NavigationLink(destination: Reveal(session: $session), isActive: .init(get: {
-                    session.selected == index
-                }, set: {
-                    session.selected = $0 ? index : nil
-                })) {
-                    Item(secret: session.archive.secrets[index])
+        GeometryReader { geo in
+            List {
+                ForEach(session.filtered, id: \.self) { index in
+                    NavigationLink(destination: Reveal(session: $session), isActive: .init(get: {
+                        session.selected == index
+                    }, set: {
+                        session.selected = $0 ? index : nil
+                    })) {
+                        Item(secret: session.archive.secrets[index], max: .init(geo.size.width / 95))
+                    }
                 }
             }
         }
