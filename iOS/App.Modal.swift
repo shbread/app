@@ -10,6 +10,7 @@ extension App {
         safe,
         full,
         tags,
+        onboard,
         write(Write)
     }
 }

@@ -40,6 +40,9 @@
 		CEB5E76626D9227D00648645 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76526D9227D00648645 /* Tagger.swift */; };
 		CEB5E76926D925E700648645 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */; };
 		CEBC5E4326E2667600118105 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* Notifications.swift */; };
+		CEBC5E4526E277EE00118105 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4426E277EE00118105 /* Settings.swift */; };
+		CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4626E278AE00118105 /* Onboard.swift */; };
+		CEBC5E4926E27A0800118105 /* Onboard.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4826E27A0800118105 /* Onboard.Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +82,9 @@
 		CEB5E76526D9227D00648645 /* Tagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
 		CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
 		CEBC5E4226E2667600118105 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		CEBC5E4426E277EE00118105 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CEBC5E4626E278AE00118105 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
+		CEBC5E4826E27A0800118105 /* Onboard.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +131,8 @@
 				CEB5C8BE26E0F1300001EC96 /* Empty.swift */,
 				CE6366D226DB927D0047EB1C /* Full.swift */,
 				CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */,
+				CEBC5E4626E278AE00118105 /* Onboard.swift */,
+				CEBC5E4826E27A0800118105 /* Onboard.Card.swift */,
 				CE6F48A726DA5ADC00F778A9 /* Option.swift */,
 				CEB5E76126D9154600648645 /* Reveal.swift */,
 				CE2A54B726E247220072A39F /* Safe.Content.Item.swift */,
@@ -132,6 +140,7 @@
 				CE6F48AF26DA7B6D00F778A9 /* Safe.swift */,
 				CE6F48A926DA640D00F778A9 /* Session.Filter.swift */,
 				CEB5E75F26D90BA600648645 /* Session.swift */,
+				CEBC5E4426E277EE00118105 /* Settings.swift */,
 				CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */,
 				CE2DAFBF26D8EB880009E974 /* Sidebar.swift */,
 				CEB5E76526D9227D00648645 /* Tagger.swift */,
@@ -245,8 +254,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBC5E4526E277EE00118105 /* Settings.swift in Sources */,
 				CE2DAFC026D8EB880009E974 /* Sidebar.swift in Sources */,
 				CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */,
+				CEBC5E4926E27A0800118105 /* Onboard.Card.swift in Sources */,
+				CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */,
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
 				CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */,
 				CE0F341826E22C18000388F3 /* Store.swift in Sources */,

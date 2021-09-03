@@ -1,5 +1,6 @@
 import SwiftUI
 import Archivable
+import Secrets
 
 let cloud = Cloud.new
 let store = Store()
@@ -9,6 +10,7 @@ let store = Store()
     @State private var modal: Modal?
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
+    @AppStorage(Defaults._onboarded.rawValue) private var onboarded = false
     
     var body: some Scene {
         WindowGroup {
@@ -26,6 +28,11 @@ let store = Store()
             }
             .onReceive(session.modal) {
                 change($0)
+            }
+            .onAppear {
+                if !onboarded {
+                    change(.onboard)
+                }
             }
         }
         .onChange(of: phase) {
@@ -55,6 +62,8 @@ let store = Store()
             Safe(session: $session)
         case .full:
             Full(session: $session)
+        case .onboard:
+            Onboard()
         case let .write(write):
             Writer(session: $session, write: write)
         }
