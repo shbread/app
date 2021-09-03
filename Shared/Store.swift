@@ -11,7 +11,6 @@ struct Store {
                 for await result in Transaction.updates {
                     if case let .verified(safe) = result {
                         await safe.process()
-                        // Notification.transaction
                     }
                 }
             }
@@ -40,13 +39,12 @@ struct Store {
                 if case let .verified(safe) = verification {
                     await safe.process()
                     await load()
-                    // Notification.transaction
                 } else {
                     state.send(.error("Purchase verification failed."))
                 }
             case .pending:
                 await load()
-                // Notification pending
+                await Notifications.send(message: "Purchase is pending...")
             default:
                 await load()
             }

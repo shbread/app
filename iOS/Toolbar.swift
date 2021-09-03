@@ -45,9 +45,10 @@ struct Toolbar: View {
             Button("Delete", role: .destructive) {
                 let index = session.selected!
                 session.selected = nil
-//                                Notifications.send(message: "Deleted card")
+                
                 Task {
                     await cloud.delete(index: index)
+                    await Notifications.send(message: "Deleted secret!")
                 }
             }
         }
@@ -66,7 +67,9 @@ struct Toolbar: View {
         
         Button("Copy") {
             UIPasteboard.general.string = session.secret.payload
-            //Notification.pasteboard
+            Task {
+                await Notifications.send(message: "Secret copied!")
+            }
         }
         .buttonStyle(.borderedProminent)
         .tint(.orange)

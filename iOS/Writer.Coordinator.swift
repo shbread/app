@@ -131,15 +131,12 @@ extension Writer {
                 switch wrapper.write {
                 case .create:
                     wrapper.session.selected = await cloud.new(secret: text)
-        //            cloud.new(board: text.isEmpty ? "Project" : text) {
-        //                Notifications.send(message: "Created project")
-        //            }
+                    await Notifications.send(message: "Added new secret!")
                 case .rename:
                     await cloud.update(index: wrapper.session.selected!, name: text)
                 case .edit:
                     await cloud.update(index: wrapper.session.selected!, payload: text)
-        //            cloud.add(board: board, column: text.isEmpty ? "Column" : text)
-        //            Notifications.send(message: "Created column")
+                    await Notifications.send(message: "Edited secret!")
                 }
             }
         }

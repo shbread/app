@@ -39,6 +39,7 @@
 		CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */; };
 		CEB5E76626D9227D00648645 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76526D9227D00648645 /* Tagger.swift */; };
 		CEB5E76926D925E700648645 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */; };
+		CEBC5E4326E2667600118105 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* Notifications.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,6 +78,7 @@
 		CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
 		CEB5E76526D9227D00648645 /* Tagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
 		CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
+		CEBC5E4226E2667600118105 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 			children = (
 				CE2A54B626E239E10072A39F /* Configuration.storekit */,
 				CE6F48B726DA88D200F778A9 /* Container.swift */,
+				CEBC5E4226E2667600118105 /* Notifications.swift */,
 				CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */,
 				CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */,
 				CE0ECE1C26E230D2009ED010 /* Store.State.swift */,
@@ -250,6 +253,7 @@
 				CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */,
 				CE6F48AE26DA76E600F778A9 /* Tags.swift in Sources */,
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,
+				CEBC5E4326E2667600118105 /* Notifications.swift in Sources */,
 				CE6F48BA26DA899A00F778A9 /* NSAttributedString.swift in Sources */,
 				CEB5C8BF26E0F1300001EC96 /* Empty.swift in Sources */,
 				CE6F48B026DA7B6D00F778A9 /* Safe.swift in Sources */,
