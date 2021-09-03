@@ -13,6 +13,7 @@ struct Safe: View {
                     .font(.largeTitle.weight(.ultraLight))
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30)
+                    .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.orange)
                     .padding(.leading)
                 Text(Int(Float(session.archive.secrets.count) / .init(session.archive.capacity) * 100), format: .percent)

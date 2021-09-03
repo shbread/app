@@ -10,7 +10,6 @@ let store = Store()
     @State private var modal: Modal?
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
-    @AppStorage(Defaults._onboarded.rawValue) private var onboarded = false
     
     var body: some Scene {
         WindowGroup {
@@ -30,7 +29,7 @@ let store = Store()
                 change($0)
             }
             .onAppear {
-                if !onboarded {
+                if !Defaults.onboarded {
                     change(.onboard)
                 }
             }
@@ -48,7 +47,7 @@ let store = Store()
             modal = new
         } else {
             modal = nil
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
                 modal = new
             }
         }
@@ -63,7 +62,9 @@ let store = Store()
         case .full:
             Full(session: $session)
         case .onboard:
-            Onboard()
+            Onboard(session: $session)
+        case .settings:
+            Settings(session: $session)
         case let .write(write):
             Writer(session: $session, write: write)
         }

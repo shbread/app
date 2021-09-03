@@ -11,6 +11,7 @@ struct Full: View {
                 .font(.largeTitle.weight(.ultraLight))
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100)
+                .symbolRenderingMode(.hierarchical)
                 .foregroundStyle(.quaternary)
             Text("You reached the limit of\nsecrets that you can keep.")
                 .font(.body)

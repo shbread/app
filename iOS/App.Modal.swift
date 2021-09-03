@@ -11,6 +11,7 @@ extension App {
         full,
         tags,
         onboard,
+        settings,
         write(Write)
     }
 }

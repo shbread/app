@@ -42,7 +42,6 @@
 		CEBC5E4326E2667600118105 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* Notifications.swift */; };
 		CEBC5E4526E277EE00118105 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4426E277EE00118105 /* Settings.swift */; };
 		CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4626E278AE00118105 /* Onboard.swift */; };
-		CEBC5E4926E27A0800118105 /* Onboard.Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4826E27A0800118105 /* Onboard.Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +83,6 @@
 		CEBC5E4226E2667600118105 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		CEBC5E4426E277EE00118105 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CEBC5E4626E278AE00118105 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
-		CEBC5E4826E27A0800118105 /* Onboard.Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +130,6 @@
 				CE6366D226DB927D0047EB1C /* Full.swift */,
 				CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */,
 				CEBC5E4626E278AE00118105 /* Onboard.swift */,
-				CEBC5E4826E27A0800118105 /* Onboard.Card.swift */,
 				CE6F48A726DA5ADC00F778A9 /* Option.swift */,
 				CEB5E76126D9154600648645 /* Reveal.swift */,
 				CE2A54B726E247220072A39F /* Safe.Content.Item.swift */,
@@ -257,7 +254,6 @@
 				CEBC5E4526E277EE00118105 /* Settings.swift in Sources */,
 				CE2DAFC026D8EB880009E974 /* Sidebar.swift in Sources */,
 				CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */,
-				CEBC5E4926E27A0800118105 /* Onboard.Card.swift in Sources */,
 				CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */,
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
 				CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */,
