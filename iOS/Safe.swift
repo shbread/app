@@ -3,6 +3,7 @@ import SwiftUI
 struct Safe: View {
     @Binding var session: Session
     @Environment(\.dismiss) private var dismiss
+    @State private var state = Store.State.loading
     
     var body: some View {
         VStack {
@@ -31,29 +32,14 @@ struct Safe: View {
                 }
                 .foregroundStyle(.secondary)
             }
-            TabView {
-                VStack {
-                    Text("You reached the limit of\nsecrets that you can keep.")
-                        .font(.body)
-                        .foregroundStyle(.primary)
-                        .multilineTextAlignment(.center)
-                        .padding(.vertical)
-                    Text("Purchase more capacity\nto create a new secret.")
-                        .font(.body)
-                        .foregroundStyle(.secondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom)
-                    Button("In-App Purchases") {
-                        session.modal.send(.safe)
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .padding(.vertical)
-                }
-                Circle()
-            }
-            .tabViewStyle(.page)
-            .indexViewStyle(.page(backgroundDisplayMode: .always))
+            Content(session: $session, state: state)
         }
         .background(.ultraThinMaterial)
+        .onReceive(store.state) {
+            state = $0
+        }
+        .task {
+            await store.load()
+        }
     }
 }

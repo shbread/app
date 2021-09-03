@@ -2,6 +2,7 @@ import SwiftUI
 import Archivable
 
 let cloud = Cloud.new
+let store = Store()
 
 @main struct App: SwiftUI.App {
     @State private var session = Session()
