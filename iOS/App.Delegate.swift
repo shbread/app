@@ -5,12 +5,13 @@ import Combine
 import Secrets
 
 extension App {
-    final class Delegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    final class Delegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, SKPaymentTransactionObserver {
+        let store = PassthroughSubject<Void, Never>()
         private var subs = Set<AnyCancellable>()
         
         func application(_ application: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
             application.registerForRemoteNotifications()
-
+            
 //            DispatchQueue
 //                .main
 //                .asyncAfter(deadline: .now() + 3) {
@@ -26,6 +27,7 @@ extension App {
 //                }
             
             UNUserNotificationCenter.current().delegate = self
+            SKPaymentQueue.default().add(self)
             
             return true
         }
@@ -48,6 +50,15 @@ extension App {
             Task {
                 fetchCompletionHandler(await cloud.notified ? .newData : .noData)   
             }
+        }
+        
+        func paymentQueue(_: SKPaymentQueue, updatedTransactions: [SKPaymentTransaction]) {
+    
+        }
+        
+        func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+            store.send()
+            return true
         }
     }
 }

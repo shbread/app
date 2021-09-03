@@ -21,6 +21,9 @@ let store = Store()
             .onReceive(cloud.archive) {
                 session.archive = $0
             }
+            .onReceive(delegate.store) {
+                change(.safe)
+            }
             .onReceive(session.modal) {
                 change($0)
             }

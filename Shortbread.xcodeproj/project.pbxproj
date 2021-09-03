@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0B965326E2596E00764AAE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B965226E2596E00764AAE /* Transaction.swift */; };
 		CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1C26E230D2009ED010 /* Store.State.swift */; };
 		CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1E26E23338009ED010 /* Safe.Content.swift */; };
 		CE0F341826E22C18000388F3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F341726E22C18000388F3 /* Store.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE0B965226E2596E00764AAE /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		CE0ECE1C26E230D2009ED010 /* Store.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
 		CE0ECE1E26E23338009ED010 /* Safe.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.Content.swift; sourceTree = "<group>"; };
 		CE0F341726E22C18000388F3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 				CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */,
 				CE0ECE1C26E230D2009ED010 /* Store.State.swift */,
 				CE0F341726E22C18000388F3 /* Store.swift */,
+				CE0B965226E2596E00764AAE /* Transaction.swift */,
 				CE3DBE4726DA493C002AE5B0 /* Media.xcassets */,
 			);
 			path = Shared;
@@ -256,6 +259,7 @@
 				CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */,
 				CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */,
 				CEB5C8C126E0F4C90001EC96 /* Toolbar.swift in Sources */,
+				CE0B965326E2596E00764AAE /* Transaction.swift in Sources */,
 				CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */,
 				CEB5E76026D90BA600648645 /* Session.swift in Sources */,
 				CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */,

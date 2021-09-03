@@ -65,7 +65,8 @@ struct Toolbar: View {
         Spacer()
         
         Button("Copy") {
-            
+            UIPasteboard.general.string = session.secret.payload
+            //Notification.pasteboard
         }
         .buttonStyle(.borderedProminent)
         .tint(.orange)
