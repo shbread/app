@@ -8,7 +8,7 @@ extension App {
         
         case
         safe,
-        purchase,
+        full,
         tags,
         write(Write)
     }

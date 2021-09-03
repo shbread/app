@@ -33,7 +33,7 @@ struct Session {
         if archive.available {
             modal.send(.write(.create))
         } else {
-            modal.send(.purchase)
+            modal.send(.full)
         }
     }
     

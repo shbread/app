@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct Purchase: View {
+struct Full: View {
     @Binding var session: Session
     @Environment(\.dismiss) private var dismiss
     

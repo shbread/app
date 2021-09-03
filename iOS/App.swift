@@ -49,8 +49,8 @@ let cloud = Cloud.new
             Tags(session: $session)
         case .safe:
             Safe(session: $session)
-        case .purchase:
-            Purchase(session: $session)
+        case .full:
+            Full(session: $session)
         case let .write(write):
             Writer(session: $session, write: write)
         }
