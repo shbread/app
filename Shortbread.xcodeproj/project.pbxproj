@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1C26E230D2009ED010 /* Store.State.swift */; };
 		CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1E26E23338009ED010 /* Safe.Content.swift */; };
-		CE0F341626E229AC000388F3 /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F341526E229AC000388F3 /* Purchase.swift */; };
 		CE0F341826E22C18000388F3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F341726E22C18000388F3 /* Store.swift */; };
 		CE2A54B826E247220072A39F /* Safe.Content.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A54B726E247220072A39F /* Safe.Content.Item.swift */; };
 		CE2DAFBE26D8EB880009E974 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DAFBD26D8EB880009E974 /* App.swift */; };
@@ -44,7 +43,6 @@
 /* Begin PBXFileReference section */
 		CE0ECE1C26E230D2009ED010 /* Store.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
 		CE0ECE1E26E23338009ED010 /* Safe.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.Content.swift; sourceTree = "<group>"; };
-		CE0F341526E229AC000388F3 /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
 		CE0F341726E22C18000388F3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CE2A54B626E239E10072A39F /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CE2A54B726E247220072A39F /* Safe.Content.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.Content.Item.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				CE2A54B626E239E10072A39F /* Configuration.storekit */,
 				CE6F48B726DA88D200F778A9 /* Container.swift */,
 				CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */,
-				CE0F341526E229AC000388F3 /* Purchase.swift */,
 				CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */,
 				CE0ECE1C26E230D2009ED010 /* Store.State.swift */,
 				CE0F341726E22C18000388F3 /* Store.swift */,
@@ -249,7 +246,6 @@
 				CE0F341826E22C18000388F3 /* Store.swift in Sources */,
 				CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */,
 				CE6F48AE26DA76E600F778A9 /* Tags.swift in Sources */,
-				CE0F341626E229AC000388F3 /* Purchase.swift in Sources */,
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,
 				CE6F48BA26DA899A00F778A9 /* NSAttributedString.swift in Sources */,
 				CEB5C8BF26E0F1300001EC96 /* Empty.swift in Sources */,

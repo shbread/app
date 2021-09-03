@@ -1,5 +1,6 @@
 import StoreKit
 import Combine
+import Secrets
 
 struct Store {
     let state = CurrentValueSubject<State, Never>(.loading)
@@ -7,13 +8,48 @@ struct Store {
     @MainActor func load() async {
         do {
             let products = try await Product.products(for: Purchase.allCases.map(\.rawValue))
-            state.send(.products(products
-                                    .sorted {
-                $0.price < $1.price
-            }))
+            state.send(
+                .products(
+                    products
+                        .sorted {
+                            $0.price < $1.price
+                        }))
         } catch let error {
             state.send(.error("Unable to connect to the App Store.\n" + error.localizedDescription))
         }
+    }
+    
+    @MainActor func purchase(_ product: Product) async {
+        state.send(.loading)
+        
+        do {
+            switch try await product.purchase() {
+            case let .success(verification):
+                if case let .verified(safe) = verification {
+                    await received(transaction: safe)
+                    await load()
+                    // Notification.transaction
+                } else {
+                    state.send(.error("Purchase verification failed."))
+                }
+            case .pending:
+                state.send(.error("Transaction pending..."))
+            default:
+                await load()
+            }
+        } catch let error {
+            state.send(.error(error.localizedDescription))
+        }
+    }
+    
+    private func received(transaction: Transaction) async {
+        let purchase = Purchase(rawValue: transaction.productID)!
+        if transaction.revocationDate == nil {
+            await cloud.add(purchase: purchase)
+        } else {
+            await cloud.remove(purchase: purchase)
+        }
+        await transaction.finish()
     }
     
     /*

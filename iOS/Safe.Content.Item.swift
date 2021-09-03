@@ -1,5 +1,6 @@
 import SwiftUI
 import StoreKit
+import Secrets
 
 extension Safe.Content {
     struct Item: View {
@@ -40,7 +41,9 @@ extension Safe.Content {
                 }
                 .padding(.top)
                 Button("Purchase") {
-                    session.modal.send(.safe)
+                    Task {
+                        await store.purchase(product)
+                    }
                 }
                 .buttonStyle(.borderedProminent)
             }
