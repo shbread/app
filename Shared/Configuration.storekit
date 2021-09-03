@@ -1,0 +1,63 @@
+{
+  "identifier" : "EDF76C43",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "33EF03D5",
+      "localizations" : [
+        {
+          "description" : "Add 1 more secret to your capacity.",
+          "displayName" : "+1",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "shortbread.1",
+      "referenceName" : "+1",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "2.99",
+      "familyShareable" : false,
+      "internalID" : "88C1023E",
+      "localizations" : [
+        {
+          "description" : "Add 5 more secrets to your capacity.",
+          "displayName" : "+5",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "shortbread.5",
+      "referenceName" : "+5",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "BF5E1B92",
+      "localizations" : [
+        {
+          "description" : "Add 10 more secrets to your capacity.",
+          "displayName" : "+10",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "shortbread.10",
+      "referenceName" : "+10",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}

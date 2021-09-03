@@ -1,12 +1,19 @@
 import Foundation
 
-enum Purchase: Int, CaseIterable {
+enum Purchase: String, CaseIterable {
     case
-    one = 1,
-    five = 5,
-    ten = 10
+    one = "shortbread.1",
+    five = "shortbread.5",
+    ten = "shortbread.10"
     
-    var id: String {
-        "shortbread.\(rawValue)"
+    var save: Int {
+        switch self {
+        case .one:
+            return 0
+        case .five:
+            return 40
+        case .ten:
+            return 50
+        }
     }
 }

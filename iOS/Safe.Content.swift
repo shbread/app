@@ -30,7 +30,7 @@ extension Safe {
             case let .products(products):
                 TabView {
                     ForEach(products, id: \.self) {
-                        Text(verbatim: $0.displayName)
+                        Item(session: $session, product: $0)
                     }
                 }
                 .tabViewStyle(.page)

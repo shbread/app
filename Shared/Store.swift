@@ -6,7 +6,7 @@ struct Store {
     
     @MainActor func load() async {
         do {
-            let products = try await Product.products(for: Purchase.allCases.map(\.id))
+            let products = try await Product.products(for: Purchase.allCases.map(\.rawValue))
             state.send(.products(products
                                     .sorted {
                 $0.price < $1.price
