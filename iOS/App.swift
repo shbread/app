@@ -18,6 +18,11 @@ let store = Store()
                 Reveal(session: $session)
             }
             .navigationViewStyle(.columns)
+            .onOpenURL {
+                guard $0.scheme == "shortbread" else { return }
+                session.selected = nil
+                session.create()
+            }
             .sheet(item: $modal, content: modal)
             .onReceive(cloud.archive) {
                 session.archive = $0

@@ -5,7 +5,7 @@ import WidgetKit
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: "Secret", provider: Provider(), content: Content.init(entry:))
             .configurationDisplayName("Secret")
-            .description("Quick add a secret")
+            .description("Add a Secret")
             .supportedFamilies([.systemSmall])
     }
 }
@@ -15,10 +15,28 @@ private struct Content: View {
     
     var body: some View {
         ZStack {
-            Image(systemName: "lock")
-                .font(.largeTitle)
+            Rectangle()
+                .fill(.ultraThinMaterial)
+            Image(systemName: "lock.fill")
+                .resizable()
+                .font(.largeTitle.weight(.ultraLight))
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 40)
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(.quaternary)
+            Image(systemName: "plus")
+                .resizable()
+                .font(.largeTitle.weight(.ultraLight))
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 30)
+                .symbolRenderingMode(.hierarchical)
+                .foregroundStyle(.primary)
+                .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .bottomTrailing)
+                .padding()
         }
         .widgetURL(URL(string: "shortbread://")!)
+        .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
+        .background(Color("Bread"))
     }
 }
 
