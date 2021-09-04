@@ -107,21 +107,15 @@ struct Settings: View {
     
     private var links: some View {
         Section {
-            NavigationLink {
-                Info(title: "Markdown", text: Copy.markdown)
-            } label: {
+            NavigationLink(destination: Info(title: "Markdown", text: Copy.markdown)) {
                 Label("Markdown", systemImage: "square.text.square")
             }
             
-            NavigationLink {
-                Info(title: "Privacy policy", text: Copy.privacy)
-            } label: {
-                Label("Privacy policy", systemImage: "hand.raised")
+            NavigationLink(destination: Info(title: "Privacy policy", text: Copy.privacy)) {
+                Label("Terms and conditions", systemImage: "doc.plaintext")
             }
             
-            NavigationLink {
-                Info(title: "Terms and conditions", text: Copy.terms)
-            } label: {
+            NavigationLink(destination: Info(title: "Terms and conditions", text: Copy.terms)) {
                 Label("Terms and conditions", systemImage: "doc.plaintext")
             }
         }

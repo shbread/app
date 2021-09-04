@@ -40,13 +40,11 @@ extension App {
             return .banner
         }
         
-        func application(_: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any], fetchCompletionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-            Task {
-                fetchCompletionHandler(await cloud.notified ? .newData : .noData)   
-            }
+        func application(_: UIApplication, didReceiveRemoteNotification: [AnyHashable : Any]) async -> UIBackgroundFetchResult {
+            await cloud.notified ? .newData : .noData
         }
         
-        func paymentQueue(_ queue: SKPaymentQueue, shouldAddStorePayment payment: SKPayment, for product: SKProduct) -> Bool {
+        func paymentQueue(_: SKPaymentQueue, shouldAddStorePayment: SKPayment, for: SKProduct) -> Bool {
             store.send()
             return true
         }

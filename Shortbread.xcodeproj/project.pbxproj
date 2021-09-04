@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		CE0B965326E2596E00764AAE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B965226E2596E00764AAE /* Transaction.swift */; };
+		CE0C6DD326E3D31E00813563 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0C6DD226E3D31E00813563 /* Assets.xcassets */; };
+		CE0C6DD926E3D31E00813563 /* Shortbread.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CE0C6DD826E3D31E00813563 /* Shortbread.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE0C6DE226E3D31F00813563 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C6DE126E3D31F00813563 /* App.swift */; };
+		CE0C6DEB26E3D32000813563 /* Shortbread.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = CE0C6DD026E3D31D00813563 /* Shortbread.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		CE0C6DF526E3D44A00813563 /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C6DF426E3D44A00813563 /* App.Delegate.swift */; };
+		CE0C6DF726E3D47E00813563 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C6DF626E3D47E00813563 /* Sidebar.swift */; };
+		CE0C6DF926E3D4A400813563 /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0C6DF826E3D4A400813563 /* Reveal.swift */; };
+		CE0C6DFB26E3D5C700813563 /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE0C6DFA26E3D5C700813563 /* Secrets */; };
+		CE0C6DFE26E3D79700813563 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0C6DFD26E3D79700813563 /* CloudKit.framework */; };
 		CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1C26E230D2009ED010 /* Store.State.swift */; };
 		CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1E26E23338009ED010 /* Safe.Content.swift */; };
 		CE0F341826E22C18000388F3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F341726E22C18000388F3 /* Store.swift */; };
@@ -51,6 +60,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CE0C6DDA26E3D31E00813563 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE2DAFB026D8EB460009E974 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0C6DD726E3D31E00813563;
+			remoteInfo = "Watch Extension";
+		};
+		CE0C6DE926E3D32000813563 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE2DAFB026D8EB460009E974 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE0C6DCF26E3D31D00813563;
+			remoteInfo = Watch;
+		};
 		CEB1028B26E3CA3F007D0BBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE2DAFB026D8EB460009E974 /* Project object */;
@@ -61,6 +84,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CE0C6DEC26E3D32000813563 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				CE0C6DEB26E3D32000813563 /* Shortbread.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE0C6DEF26E3D32000813563 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CE0C6DD926E3D31E00813563 /* Shortbread.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CEB1029126E3CA3F007D0BBE /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +121,16 @@
 
 /* Begin PBXFileReference section */
 		CE0B965226E2596E00764AAE /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		CE0C6DD026E3D31D00813563 /* Shortbread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shortbread.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0C6DD226E3D31E00813563 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE0C6DD826E3D31E00813563 /* Shortbread.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Shortbread.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE0C6DE126E3D31F00813563 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		CE0C6DE826E3D31F00813563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE0C6DF426E3D44A00813563 /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CE0C6DF626E3D47E00813563 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		CE0C6DF826E3D4A400813563 /* Reveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
+		CE0C6DFC26E3D76300813563 /* Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Extension.entitlements"; sourceTree = "<group>"; };
+		CE0C6DFD26E3D79700813563 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE0ECE1C26E230D2009ED010 /* Store.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
 		CE0ECE1E26E23338009ED010 /* Safe.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.Content.swift; sourceTree = "<group>"; };
 		CE0F341726E22C18000388F3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
@@ -123,6 +178,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CE0C6DD526E3D31E00813563 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE0C6DFB26E3D5C700813563 /* Secrets in Frameworks */,
+				CE0C6DFE26E3D79700813563 /* CloudKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE2DAFB726D8EB880009E974 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -145,6 +209,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE0C6DD126E3D31D00813563 /* Watch */ = {
+			isa = PBXGroup;
+			children = (
+				CE0C6DD226E3D31E00813563 /* Assets.xcassets */,
+			);
+			path = Watch;
+			sourceTree = "<group>";
+		};
+		CE0C6DDC26E3D31F00813563 /* Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				CE0C6DFC26E3D76300813563 /* Watch Extension.entitlements */,
+				CE0C6DE826E3D31F00813563 /* Info.plist */,
+				CE0C6DF426E3D44A00813563 /* App.Delegate.swift */,
+				CE0C6DE126E3D31F00813563 /* App.swift */,
+				CE0C6DF826E3D4A400813563 /* Reveal.swift */,
+				CE0C6DF626E3D47E00813563 /* Sidebar.swift */,
+			);
+			path = "Watch Extension";
+			sourceTree = "<group>";
+		};
 		CE2DAFAF26D8EB460009E974 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +237,8 @@
 				CE2DAFBC26D8EB880009E974 /* iOS */,
 				CE2DAFBB26D8EB880009E974 /* Products */,
 				CEB5E76726D925C400648645 /* Shared */,
+				CE0C6DD126E3D31D00813563 /* Watch */,
+				CE0C6DDC26E3D31F00813563 /* Watch Extension */,
 				CEB1028526E3CA3E007D0BBE /* Widget */,
 			);
 			sourceTree = "<group>";
@@ -161,6 +248,8 @@
 			children = (
 				CE2DAFBA26D8EB880009E974 /* Shortbread.app */,
 				CEB1028026E3CA3E007D0BBE /* Shortbread.appex */,
+				CE0C6DD026E3D31D00813563 /* Shortbread.app */,
+				CE0C6DD826E3D31E00813563 /* Shortbread.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -203,6 +292,7 @@
 		CE75612126DFB5B500C094BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE0C6DFD26E3D79700813563 /* CloudKit.framework */,
 				CE75612426DFB5D900C094BA /* StoreKit.framework */,
 				CE75612226DFB5B500C094BA /* CloudKit.framework */,
 				CEB1028126E3CA3E007D0BBE /* WidgetKit.framework */,
@@ -239,6 +329,43 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		CE0C6DCF26E3D31D00813563 /* Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE0C6DF326E3D32000813563 /* Build configuration list for PBXNativeTarget "Watch" */;
+			buildPhases = (
+				CE0C6DCE26E3D31D00813563 /* Resources */,
+				CE0C6DEF26E3D32000813563 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE0C6DDB26E3D31E00813563 /* PBXTargetDependency */,
+			);
+			name = Watch;
+			productName = Watch;
+			productReference = CE0C6DD026E3D31D00813563 /* Shortbread.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		CE0C6DD726E3D31E00813563 /* Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE0C6DF226E3D32000813563 /* Build configuration list for PBXNativeTarget "Watch Extension" */;
+			buildPhases = (
+				CE0C6DD426E3D31E00813563 /* Sources */,
+				CE0C6DD526E3D31E00813563 /* Frameworks */,
+				CE0C6DD626E3D31E00813563 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Watch Extension";
+			packageProductDependencies = (
+				CE0C6DFA26E3D5C700813563 /* Secrets */,
+			);
+			productName = "Watch Extension";
+			productReference = CE0C6DD826E3D31E00813563 /* Shortbread.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		CE2DAFB926D8EB880009E974 /* iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE2DAFC626D8EB890009E974 /* Build configuration list for PBXNativeTarget "iOS" */;
@@ -247,11 +374,13 @@
 				CE2DAFB726D8EB880009E974 /* Frameworks */,
 				CE2DAFB826D8EB880009E974 /* Resources */,
 				CEB1029126E3CA3F007D0BBE /* Embed App Extensions */,
+				CE0C6DEC26E3D32000813563 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				CEB1028C26E3CA3F007D0BBE /* PBXTargetDependency */,
+				CE0C6DEA26E3D32000813563 /* PBXTargetDependency */,
 			);
 			name = iOS;
 			packageProductDependencies = (
@@ -288,6 +417,12 @@
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					CE0C6DCF26E3D31D00813563 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					CE0C6DD726E3D31E00813563 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 					CE2DAFB926D8EB880009E974 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -314,11 +449,28 @@
 			targets = (
 				CE2DAFB926D8EB880009E974 /* iOS */,
 				CEB1027F26E3CA3E007D0BBE /* Widget */,
+				CE0C6DCF26E3D31D00813563 /* Watch */,
+				CE0C6DD726E3D31E00813563 /* Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CE0C6DCE26E3D31D00813563 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE0C6DD326E3D31E00813563 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE0C6DD626E3D31E00813563 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE2DAFB826D8EB880009E974 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -339,6 +491,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CE0C6DD426E3D31E00813563 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE0C6DE226E3D31F00813563 /* App.swift in Sources */,
+				CE0C6DF726E3D47E00813563 /* Sidebar.swift in Sources */,
+				CE0C6DF926E3D4A400813563 /* Reveal.swift in Sources */,
+				CE0C6DF526E3D44A00813563 /* App.Delegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CE2DAFB626D8EB880009E974 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -388,6 +551,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CE0C6DDB26E3D31E00813563 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0C6DD726E3D31E00813563 /* Watch Extension */;
+			targetProxy = CE0C6DDA26E3D31E00813563 /* PBXContainerItemProxy */;
+		};
+		CE0C6DEA26E3D32000813563 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CE0C6DCF26E3D31D00813563 /* Watch */;
+			targetProxy = CE0C6DE926E3D32000813563 /* PBXContainerItemProxy */;
+		};
 		CEB1028C26E3CA3F007D0BBE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = CEB1027F26E3CA3E007D0BBE /* Widget */;
@@ -396,6 +569,284 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CE0C6DED26E3D32000813563 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = shortbread;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = shortbread.watch;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CE0C6DEE26E3D32000813563 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Watch_Extension;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = shortbread;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = shortbread.watch;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CE0C6DF026E3D32000813563 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Shortbread;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Shortbread 2021";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = shortbread.watch.extension;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch_extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		CE0C6DF126E3D32000813563 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = "Watch Extension/Watch Extension.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 7AMWG3RLHN;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Watch Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = Shortbread;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Shortbread 2021";
+				INFOPLIST_KEY_WKRunsIndependentlyOfCompanionApp = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = shortbread.watch.extension;
+				PRODUCT_MODULE_NAME = "$(PRODUCT_NAME:c99extidentifier)_watch_extension";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		CE2DAFB426D8EB460009E974 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -491,7 +942,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -562,7 +1012,6 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -632,7 +1081,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Shortbread;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Shortbread 2021";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -701,7 +1150,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widget/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Shortbread;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Shortbread 2021";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -722,6 +1171,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CE0C6DF226E3D32000813563 /* Build configuration list for PBXNativeTarget "Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE0C6DF026E3D32000813563 /* Debug */,
+				CE0C6DF126E3D32000813563 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE0C6DF326E3D32000813563 /* Build configuration list for PBXNativeTarget "Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE0C6DED26E3D32000813563 /* Debug */,
+				CE0C6DEE26E3D32000813563 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CE2DAFB326D8EB460009E974 /* Build configuration list for PBXProject "Shortbread" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -763,6 +1230,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CE0C6DFA26E3D5C700813563 /* Secrets */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE75611C26DFA52E00C094BA /* XCRemoteSwiftPackageReference "secrets" */;
+			productName = Secrets;
+		};
 		CE75611D26DFA52E00C094BA /* Secrets */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE75611C26DFA52E00C094BA /* XCRemoteSwiftPackageReference "secrets" */;
