@@ -20,7 +20,8 @@ struct Sidebar: View {
                 .privacySensitive()
                 .listStyle(.sidebar)
                 .searchable(text: $session.filter.search)
-                .navigationBarTitle("Secrets", displayMode: .large)
+                .navigationTitle("Secrets")
+                .navigationBarTitleDisplayMode(.large)
             }
         }
         .toolbar {

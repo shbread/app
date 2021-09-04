@@ -1,10 +1,12 @@
 import SwiftUI
+import Secrets
 
 struct Settings: View {
     @Binding var session: Session
     @State private var requested = true
     @State private var enabled = true
     @Environment(\.dismiss) private var dismiss
+    @AppStorage(Defaults._authenticate.rawValue) private var authenticate = true
     
     var body: some View {
         NavigationView {
@@ -14,9 +16,13 @@ struct Settings: View {
                 if !requested || !enabled {
                     notifications
                 }
+                
+                face
+                links
             }
             .listStyle(.grouped)
-            .navigationBarTitle("Settings", displayMode: .large)
+            .navigationTitle("Settings")
+            .navigationBarTitleDisplayMode(.large)
             .navigationBarItems(trailing: Dismiss {
                 dismiss()
             })
@@ -74,6 +80,7 @@ struct Settings: View {
                 } else {
                     Task {
                         _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
+                        requested = true
                         await check()
                     }
                 }
@@ -83,5 +90,36 @@ struct Settings: View {
         }
         .listRowBackground(Color.clear)
         .listRowSeparator(.hidden)
+    }
+    
+    private var face: some View {
+        Section {
+            Toggle.init(isOn: $authenticate) {
+                Image(systemName: "faceid")
+                    .symbolRenderingMode(.multicolor)
+                    .font(.title)
+                Text("Secure with Face ID")
+                    .font(.callout)
+            }
+            .toggleStyle(SwitchToggleStyle(tint: .orange))
+        }
+    }
+    
+    private var links: some View {
+        Section {
+            NavigationLink {
+                Info(title: "Privacy policy", text: Copy.privacy)
+            } label: {
+                Label("Privacy policy", systemImage: "hand.raised")
+            }
+            
+            NavigationLink {
+                Info(title: "Terms and conditions", text: Copy.terms)
+            } label: {
+                Label("Terms and conditions", systemImage: "doc.plaintext")
+            }
+        }
+        .font(.callout)
+        .symbolRenderingMode(.hierarchical)
     }
 }

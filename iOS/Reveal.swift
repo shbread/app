@@ -33,7 +33,8 @@ struct Reveal: View {
                     Toolbar(session: $session)
                 }
             }
-            .navigationBarTitle(session.secret.name, displayMode: .inline)
+            .navigationTitle(session.secret.name)
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }

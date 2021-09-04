@@ -33,6 +33,7 @@
 		CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027426E3A713007D0BBE /* Dismiss.swift */; };
 		CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027626E3AA4E007D0BBE /* Copy.swift */; };
 		CEB1027926E3ABA9007D0BBE /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027826E3ABA9007D0BBE /* UIApplication.swift */; };
+		CEB1027B26E3AF3E007D0BBE /* Settings.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027A26E3AF3E007D0BBE /* Settings.Info.swift */; };
 		CEB5C8BF26E0F1300001EC96 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C8BE26E0F1300001EC96 /* Empty.swift */; };
 		CEB5C8C126E0F4C90001EC96 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C8C026E0F4C90001EC96 /* Toolbar.swift */; };
 		CEB5E76026D90BA600648645 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E75F26D90BA600648645 /* Session.swift */; };
@@ -74,6 +75,7 @@
 		CEB1027426E3A713007D0BBE /* Dismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismiss.swift; sourceTree = "<group>"; };
 		CEB1027626E3AA4E007D0BBE /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		CEB1027826E3ABA9007D0BBE /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		CEB1027A26E3AF3E007D0BBE /* Settings.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Info.swift; sourceTree = "<group>"; };
 		CEB5C8BE26E0F1300001EC96 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		CEB5C8C026E0F4C90001EC96 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		CEB5E75F26D90BA600648645 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -137,15 +139,16 @@
 				CE6F48AF26DA7B6D00F778A9 /* Safe.swift */,
 				CE6F48A926DA640D00F778A9 /* Session.Filter.swift */,
 				CEB5E75F26D90BA600648645 /* Session.swift */,
+				CEB1027A26E3AF3E007D0BBE /* Settings.Info.swift */,
 				CEBC5E4426E277EE00118105 /* Settings.swift */,
 				CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */,
 				CE2DAFBF26D8EB880009E974 /* Sidebar.swift */,
 				CEB5E76526D9227D00648645 /* Tagger.swift */,
 				CE6F48AD26DA76E600F778A9 /* Tags.swift */,
 				CEB5C8C026E0F4C90001EC96 /* Toolbar.swift */,
+				CEB1027826E3ABA9007D0BBE /* UIApplication.swift */,
 				CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */,
 				CE6F48B126DA7C0900F778A9 /* Writer.swift */,
-				CEB1027826E3ABA9007D0BBE /* UIApplication.swift */,
 				CE2DAFC126D8EB890009E974 /* Assets.xcassets */,
 			);
 			path = iOS;
@@ -276,6 +279,7 @@
 				CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */,
 				CEB5E76026D90BA600648645 /* Session.swift in Sources */,
 				CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */,
+				CEB1027B26E3AF3E007D0BBE /* Settings.Info.swift in Sources */,
 				CEB5E76626D9227D00648645 /* Tagger.swift in Sources */,
 				CE6366D326DB927D0047EB1C /* Full.swift in Sources */,
 				CE6F48B826DA88D200F778A9 /* Container.swift in Sources */,
