@@ -17,7 +17,7 @@ struct Reveal: View {
                         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
                         .textSelection(.enabled)
                     
-                    Text(verbatim: RelativeDateTimeFormatter().string(from: session.secret.date))
+                    Text(session.secret.date, style: .relative)
                         .font(.footnote)
                         .foregroundStyle(.tertiary)
                         .padding(.horizontal)

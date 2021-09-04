@@ -21,6 +21,10 @@ extension Sidebar {
                     Text(verbatim: secret.name)
                         .font(.callout)
                         .padding(.vertical, 4)
+                    Text(secret.date, style: .relative)
+                        .font(.footnote)
+                        .foregroundStyle(.tertiary)
+                        .padding(.bottom, 4)
                     Tagger(secret: secret, max: max)
                 }
                 Spacer()

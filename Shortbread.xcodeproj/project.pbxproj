@@ -36,7 +36,6 @@
 		CEB5E76226D9154600648645 /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76126D9154600648645 /* Reveal.swift */; };
 		CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */; };
 		CEB5E76626D9227D00648645 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76526D9227D00648645 /* Tagger.swift */; };
-		CEB5E76926D925E700648645 /* RelativeDateTimeFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */; };
 		CEBC5E4326E2667600118105 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* Notifications.swift */; };
 		CEBC5E4526E277EE00118105 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4426E277EE00118105 /* Settings.swift */; };
 		CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4626E278AE00118105 /* Onboard.swift */; };
@@ -75,7 +74,6 @@
 		CEB5E76126D9154600648645 /* Reveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
 		CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
 		CEB5E76526D9227D00648645 /* Tagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
-		CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelativeDateTimeFormatter.swift; sourceTree = "<group>"; };
 		CEBC5E4226E2667600118105 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		CEBC5E4426E277EE00118105 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CEBC5E4626E278AE00118105 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
@@ -160,7 +158,6 @@
 				CE2A54B626E239E10072A39F /* Configuration.storekit */,
 				CE6F48B726DA88D200F778A9 /* Container.swift */,
 				CEBC5E4226E2667600118105 /* Notifications.swift */,
-				CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */,
 				CE0ECE1C26E230D2009ED010 /* Store.State.swift */,
 				CE0F341726E22C18000388F3 /* Store.swift */,
 				CE0B965226E2596E00764AAE /* Transaction.swift */,
@@ -271,7 +268,6 @@
 				CE6366D326DB927D0047EB1C /* Full.swift in Sources */,
 				CE6F48B826DA88D200F778A9 /* Container.swift in Sources */,
 				CE6F48AA26DA640D00F778A9 /* Session.Filter.swift in Sources */,
-				CEB5E76926D925E700648645 /* RelativeDateTimeFormatter.swift in Sources */,
 				CE2A54B826E247220072A39F /* Safe.Content.Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
