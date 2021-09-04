@@ -26,7 +26,9 @@ struct Sidebar: View {
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Option(icon: session.filter.favourites ? "heart.fill" : "heart") {
-                    session.filter.favourites.toggle()
+                    withAnimation(.easeInOut(duration: 0.35)) {
+                        session.filter.favourites.toggle()
+                    }
                 }
                 
                 Option(icon: "slider.horizontal.3") {

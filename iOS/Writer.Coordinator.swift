@@ -64,6 +64,8 @@ extension Writer {
             title.translatesAutoresizingMaskIntoConstraints = false
             title.numberOfLines = 1
             title.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+            title.textColor = .secondaryLabel
+            title.font = .preferredFont(forTextStyle: .callout)
             addSubview(title)
             
             [cancel, send, number, minus, asterisk].forEach {
@@ -96,17 +98,11 @@ extension Writer {
             
             switch wrapper.write {
             case .create:
-                title.attributedText = .make("New secret",
-                                             font: .preferredFont(forTextStyle: .callout),
-                                             color: .secondaryLabel)
+                title.text = "New secret"
             case .rename:
-                title.attributedText = .make("Rename secret",
-                                             font: .preferredFont(forTextStyle: .callout),
-                                             color: .secondaryLabel)
+                title.text = "Rename secret"
             case .edit:
-                title.attributedText = .make(wrapper.session.secret.name,
-                                             font: .preferredFont(forTextStyle: .callout),
-                                             color: .secondaryLabel)
+                title.text = wrapper.session.secret.name
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in

@@ -150,10 +150,14 @@ Your privacy is respected at all times.
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 60)
                         .symbolRenderingMode(.multicolor)
-                    Text("All ready!\nyou can get more details\non the Settings screen")
+                    Text("All ready!\nYou can get more insgi\non the Settings screen")
                         .font(.callout)
                         .foregroundStyle(.primary)
-                        .padding()
+                        .padding([.top, .leading, .trailing])
+                    Text("You can get more settings\nand insights directly\non the Settings screen")
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                        .padding([.bottom, .leading, .trailing])
                     
                     Button("Done") {
                         Defaults.onboarded = true

@@ -26,8 +26,6 @@
 		CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */; };
 		CE6F48B626DA885700F778A9 /* App.Modal.Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */; };
 		CE6F48B826DA88D200F778A9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B726DA88D200F778A9 /* Container.swift */; };
-		CE6F48BA26DA899A00F778A9 /* NSAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */; };
-		CE6F48BC26DA89A100F778A9 /* NSMutableAttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */; };
 		CE75611E26DFA52E00C094BA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE75611D26DFA52E00C094BA /* Secrets */; };
 		CE75612326DFB5B500C094BA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612226DFB5B500C094BA /* CloudKit.framework */; };
 		CE75612526DFB5D900C094BA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612426DFB5D900C094BA /* StoreKit.framework */; };
@@ -66,8 +64,6 @@
 		CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.Coordinator.swift; sourceTree = "<group>"; };
 		CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.Write.swift; sourceTree = "<group>"; };
 		CE6F48B726DA88D200F778A9 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
-		CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSAttributedString.swift; sourceTree = "<group>"; };
-		CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSMutableAttributedString.swift; sourceTree = "<group>"; };
 		CE75611F26DFB59D00C094BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE75612026DFB5AF00C094BA /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
 		CE75612226DFB5B500C094BA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -128,7 +124,6 @@
 				CE2DAFBD26D8EB880009E974 /* App.swift */,
 				CEB5C8BE26E0F1300001EC96 /* Empty.swift */,
 				CE6366D226DB927D0047EB1C /* Full.swift */,
-				CE6F48B926DA899A00F778A9 /* NSAttributedString.swift */,
 				CEBC5E4626E278AE00118105 /* Onboard.swift */,
 				CE6F48A726DA5ADC00F778A9 /* Option.swift */,
 				CEB5E76126D9154600648645 /* Reveal.swift */,
@@ -165,7 +160,6 @@
 				CE2A54B626E239E10072A39F /* Configuration.storekit */,
 				CE6F48B726DA88D200F778A9 /* Container.swift */,
 				CEBC5E4226E2667600118105 /* Notifications.swift */,
-				CE6F48BB26DA89A100F778A9 /* NSMutableAttributedString.swift */,
 				CEB5E76826D925E700648645 /* RelativeDateTimeFormatter.swift */,
 				CE0ECE1C26E230D2009ED010 /* Store.State.swift */,
 				CE0F341726E22C18000388F3 /* Store.swift */,
@@ -262,11 +256,9 @@
 				CE6F48AE26DA76E600F778A9 /* Tags.swift in Sources */,
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,
 				CEBC5E4326E2667600118105 /* Notifications.swift in Sources */,
-				CE6F48BA26DA899A00F778A9 /* NSAttributedString.swift in Sources */,
 				CEB5C8BF26E0F1300001EC96 /* Empty.swift in Sources */,
 				CE6F48B026DA7B6D00F778A9 /* Safe.swift in Sources */,
 				CE6F48B626DA885700F778A9 /* App.Modal.Write.swift in Sources */,
-				CE6F48BC26DA89A100F778A9 /* NSMutableAttributedString.swift in Sources */,
 				CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */,
 				CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */,
 				CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */,
