@@ -30,6 +30,9 @@
 		CE75612326DFB5B500C094BA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612226DFB5B500C094BA /* CloudKit.framework */; };
 		CE75612526DFB5D900C094BA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612426DFB5D900C094BA /* StoreKit.framework */; };
 		CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75612626DFB62E00C094BA /* App.Delegate.swift */; };
+		CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027426E3A713007D0BBE /* Dismiss.swift */; };
+		CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027626E3AA4E007D0BBE /* Copy.swift */; };
+		CEB1027926E3ABA9007D0BBE /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027826E3ABA9007D0BBE /* UIApplication.swift */; };
 		CEB5C8BF26E0F1300001EC96 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C8BE26E0F1300001EC96 /* Empty.swift */; };
 		CEB5C8C126E0F4C90001EC96 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5C8C026E0F4C90001EC96 /* Toolbar.swift */; };
 		CEB5E76026D90BA600648645 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E75F26D90BA600648645 /* Session.swift */; };
@@ -68,6 +71,9 @@
 		CE75612226DFB5B500C094BA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE75612426DFB5D900C094BA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE75612626DFB62E00C094BA /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CEB1027426E3A713007D0BBE /* Dismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismiss.swift; sourceTree = "<group>"; };
+		CEB1027626E3AA4E007D0BBE /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
+		CEB1027826E3ABA9007D0BBE /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CEB5C8BE26E0F1300001EC96 /* Empty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Empty.swift; sourceTree = "<group>"; };
 		CEB5C8C026E0F4C90001EC96 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		CEB5E75F26D90BA600648645 /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 				CE6F48AB26DA766800F778A9 /* App.Modal.swift */,
 				CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */,
 				CE2DAFBD26D8EB880009E974 /* App.swift */,
+				CEB1027426E3A713007D0BBE /* Dismiss.swift */,
 				CEB5C8BE26E0F1300001EC96 /* Empty.swift */,
 				CE6366D226DB927D0047EB1C /* Full.swift */,
 				CEBC5E4626E278AE00118105 /* Onboard.swift */,
@@ -138,6 +145,7 @@
 				CEB5C8C026E0F4C90001EC96 /* Toolbar.swift */,
 				CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */,
 				CE6F48B126DA7C0900F778A9 /* Writer.swift */,
+				CEB1027826E3ABA9007D0BBE /* UIApplication.swift */,
 				CE2DAFC126D8EB890009E974 /* Assets.xcassets */,
 			);
 			path = iOS;
@@ -157,6 +165,7 @@
 			children = (
 				CE2A54B626E239E10072A39F /* Configuration.storekit */,
 				CE6F48B726DA88D200F778A9 /* Container.swift */,
+				CEB1027626E3AA4E007D0BBE /* Copy.swift */,
 				CEBC5E4226E2667600118105 /* Notifications.swift */,
 				CE0ECE1C26E230D2009ED010 /* Store.State.swift */,
 				CE0F341726E22C18000388F3 /* Store.swift */,
@@ -247,6 +256,7 @@
 				CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */,
 				CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */,
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
+				CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */,
 				CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */,
 				CE0F341826E22C18000388F3 /* Store.swift in Sources */,
 				CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */,
@@ -259,9 +269,11 @@
 				CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */,
 				CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */,
 				CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */,
+				CEB1027926E3ABA9007D0BBE /* UIApplication.swift in Sources */,
 				CEB5C8C126E0F4C90001EC96 /* Toolbar.swift in Sources */,
 				CE0B965326E2596E00764AAE /* Transaction.swift in Sources */,
 				CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */,
+				CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */,
 				CEB5E76026D90BA600648645 /* Session.swift in Sources */,
 				CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */,
 				CEB5E76626D9227D00648645 /* Tagger.swift in Sources */,

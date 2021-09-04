@@ -2,46 +2,86 @@ import SwiftUI
 
 struct Settings: View {
     @Binding var session: Session
+    @State private var requested = true
+    @State private var enabled = true
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
         NavigationView {
             List {
-                Section {
-                    HStack {
-                        Image(systemName: "lock.square")
-                            .resizable()
-                            .font(.largeTitle.weight(.ultraLight))
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 50)
-                            .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(.tertiary)
-                        Group {
-                            Text(verbatim: "Shortbread\n")
-                            + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
-                        }
-                        .multilineTextAlignment(.center)
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
-                    }
-                    .padding(.vertical, 20)
+                header
+                
+                if !requested || !enabled {
+                    notifications
                 }
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
             }
             .listStyle(.grouped)
             .navigationBarTitle("Settings", displayMode: .large)
-            .navigationBarItems(trailing:
-                                    Button {
-                                        dismiss()
-                                    } label: {
-                                        Image(systemName: "xmark")
-                                            .font(.footnote)
-                                            .frame(height: 50)
-                                            .padding(.leading, 40)
-                                            .contentShape(Rectangle())
-                                    }
-                                    .foregroundStyle(.secondary))
+            .navigationBarItems(trailing: Dismiss {
+                dismiss()
+            })
         }
+        .task {
+            await check()
+        }
+    }
+    
+    private func check() async {
+        let settings = await UNUserNotificationCenter.current().notificationSettings()
+        if settings.authorizationStatus == .notDetermined {
+            requested = false
+        } else if settings.alertSetting == .disabled {
+            enabled = false
+        }
+    }
+    
+    private var header: some View {
+        Section {
+            HStack {
+                Spacer()
+                VStack {
+                    Image(systemName: "lock.square")
+                        .resizable()
+                        .font(.largeTitle.weight(.ultraLight))
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 50)
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundStyle(.tertiary)
+                    Group {
+                        Text(verbatim: "Shortbread\n")
+                        + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
+                    }
+                    .multilineTextAlignment(.center)
+                    .font(.footnote)
+                    .foregroundStyle(.secondary)
+                }
+                .padding(.vertical, 40)
+                Spacer()
+            }
+        }
+        .listRowBackground(Color.clear)
+        .listRowSeparator(.hidden)
+    }
+    
+    private var notifications: some View {
+        Section("Notifications") {
+            Text(Copy.notifications)
+                .font(.footnote)
+            Button("Allow notifications") {
+                if requested {
+                    dismiss()
+                    UIApplication.shared.settings()
+                } else {
+                    Task {
+                        _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
+                        await check()
+                    }
+                }
+            }
+            .buttonStyle(.bordered)
+            .font(.callout)
+        }
+        .listRowBackground(Color.clear)
+        .listRowSeparator(.hidden)
     }
 }
