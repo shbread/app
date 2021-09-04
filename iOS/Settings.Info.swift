@@ -7,12 +7,18 @@ extension Settings {
         
         var body: some View {
             ScrollView {
-                Text(.init(text))
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: 340, alignment: .leading)
-                    .padding()
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                    Text(.init(text))
+                        .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: 440, alignment: .leading)
+                        .padding()
+                }
+                .padding()
+                .padding(.bottom, 40)
             }
+            .background(.ultraThickMaterial)
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
         }

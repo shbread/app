@@ -108,6 +108,12 @@ struct Settings: View {
     private var links: some View {
         Section {
             NavigationLink {
+                Info(title: "Markdown", text: Copy.markdown)
+            } label: {
+                Label("Markdown", systemImage: "square.text.square")
+            }
+            
+            NavigationLink {
                 Info(title: "Privacy policy", text: Copy.privacy)
             } label: {
                 Label("Privacy policy", systemImage: "hand.raised")
