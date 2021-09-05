@@ -23,7 +23,7 @@ private struct Content: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 40)
                 .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(.quaternary)
+                .foregroundStyle(.tertiary)
             Image(systemName: "plus")
                 .resizable()
                 .font(.largeTitle.weight(.ultraLight))
