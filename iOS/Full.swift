@@ -23,8 +23,11 @@ struct Full: View {
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
-            Button("In-App Purchases") {
+            Button {
                 session.modal.send(.safe)
+            } label: {
+                Text("In-App Purchases")
+                    .frame(maxWidth: 280)
             }
             .buttonStyle(.borderedProminent)
             .padding(.vertical)

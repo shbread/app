@@ -178,12 +178,14 @@ struct Onboard: View {
                 .foregroundStyle(.secondary)
                 .padding([.bottom, .leading, .trailing])
             
-            Button("Done") {
+            Button {
                 Defaults.onboarded = true
                 dismiss()
+            } label: {
+                Text("Done")
+                    .frame(maxWidth: 200)
             }
             .buttonStyle(.borderedProminent)
-            .controlSize(.large)
             .font(.callout)
             .padding()
             
