@@ -183,6 +183,7 @@ struct Onboard: View {
                 dismiss()
             }
             .buttonStyle(.borderedProminent)
+            .controlSize(.large)
             .font(.callout)
             .padding()
             
@@ -206,7 +207,7 @@ struct Onboard: View {
                 }
                 .buttonStyle(.bordered)
                 .font(.callout)
-                .padding(.trailing)
+                .padding(.leading)
             }
         }
         .tag(3)
