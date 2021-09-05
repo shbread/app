@@ -112,7 +112,7 @@ struct Settings: View {
             }
             
             NavigationLink(destination: Info(title: "Privacy policy", text: Copy.privacy)) {
-                Label("Terms and conditions", systemImage: "doc.plaintext")
+                Label("Privacy policy", systemImage: "hand.raised")
             }
             
             NavigationLink(destination: Info(title: "Terms and conditions", text: Copy.terms)) {
