@@ -32,7 +32,7 @@ struct Tags: View {
                 }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Tabs")
+            .navigationTitle("Tags")
             .navigationBarTitleDisplayMode(.large)
             .navigationBarItems(trailing: Dismiss {
                 dismiss()
