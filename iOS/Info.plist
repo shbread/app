@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>NSFaceIDUsageDescription</key>
-	<string>Authenticate to access your secrets.</string>
+	<string>Add authentication to protect your secrets</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>

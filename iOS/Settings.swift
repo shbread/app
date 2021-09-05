@@ -6,7 +6,7 @@ struct Settings: View {
     @State private var requested = true
     @State private var enabled = true
     @Environment(\.dismiss) private var dismiss
-    @AppStorage(Defaults._authenticate.rawValue) private var authenticate = true
+    @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     
     var body: some View {
         NavigationView {

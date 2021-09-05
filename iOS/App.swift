@@ -17,18 +17,8 @@ let store = Store()
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                if authenticated || !authenticate {
-                    Sidebar(session: $session)
-                    Reveal(session: $session)
-                } else {
-                    Image(systemName: "lock.fill")
-                        .resizable()
-                        .font(.largeTitle.weight(.ultraLight))
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 60)
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundStyle(.quaternary)
-                }
+                Sidebar(session: $session)
+                Reveal(session: $session)
             }
             .navigationViewStyle(.columns)
             .onOpenURL {
@@ -63,8 +53,6 @@ let store = Store()
                 cloud.pull.send()
             case .background:
                 if authenticate {
-                    modal = nil
-                    session.selected = nil
                     authenticated = false
                 }
             default:
@@ -99,6 +87,7 @@ let store = Store()
             Settings(session: $session)
         case let .write(write):
             Writer(session: $session, write: write)
+                .privacySensitive()
         }
     }
     
@@ -111,7 +100,7 @@ let store = Store()
         }
 
         context
-            .evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Authenticate to access your secrets.") {
+            .evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Authenticate to access your secrets") {
                 guard $0, $1 == nil else { return }
                 DispatchQueue
                     .main
