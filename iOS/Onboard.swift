@@ -6,7 +6,7 @@ struct Onboard: View {
     @State private var index = 0
     @State private var requested = false
     @Environment(\.dismiss) private var dismiss
-    @AppStorage(Defaults._authenticate.rawValue) private var authenticate = true
+    @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     
     var body: some View {
         VStack {
@@ -32,6 +32,14 @@ struct Onboard: View {
             .tabViewStyle(.page)
         }
         .background(Color(.secondarySystemBackground))
+        .onChange(of: index) {
+            guard $0 == 1, !authenticate else { return }
+            DispatchQueue
+                .main
+                .asyncAfter(deadline: .now() + 0.5) {
+                    authenticate = true
+                }
+        }
     }
     
     private var card0: some View {

@@ -1,4 +1,5 @@
 import SwiftUI
+import LocalAuthentication
 import Archivable
 import Secrets
 
@@ -8,14 +9,26 @@ let store = Store()
 @main struct App: SwiftUI.App {
     @State private var session = Session()
     @State private var modal: Modal?
+    @State private var authenticated = false
+    @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(session: $session)
-                Reveal(session: $session)
+                if authenticated || !authenticate {
+                    Sidebar(session: $session)
+                    Reveal(session: $session)
+                } else {
+                    Image(systemName: "lock.fill")
+                        .resizable()
+                        .font(.largeTitle.weight(.ultraLight))
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 60)
+                        .symbolRenderingMode(.hierarchical)
+                        .foregroundStyle(.quaternary)
+                }
             }
             .navigationViewStyle(.columns)
             .onOpenURL {
@@ -40,8 +53,22 @@ let store = Store()
             }
         }
         .onChange(of: phase) {
-            if $0 == .active {
+            switch $0 {
+            case .active:
+                if authenticate && !authenticated {
+                    auth()
+                } else {
+                    authenticated = true
+                }
                 cloud.pull.send()
+            case .background:
+                if authenticate {
+                    modal = nil
+                    session.selected = nil
+                    authenticated = false
+                }
+            default:
+                break
             }
         }
     }
@@ -73,5 +100,24 @@ let store = Store()
         case let .write(write):
             Writer(session: $session, write: write)
         }
+    }
+    
+    private func auth() {
+        let context = LAContext()
+        
+        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: nil) else {
+            authenticated = true
+            return
+        }
+
+        context
+            .evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Authenticate to access your secrets.") {
+                guard $0, $1 == nil else { return }
+                DispatchQueue
+                    .main
+                    .async {
+                        authenticated = true
+                    }
+            }
     }
 }
