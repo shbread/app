@@ -15,9 +15,9 @@ struct Sidebar: View {
                         session.selected = $0 ? index : nil
                     })) {
                         Item(secret: session.archive.secrets[index], max: .init(geo.size.width / 95))
+                            .privacySensitive()
                     }
                 }
-                .privacySensitive()
                 .listStyle(.sidebar)
                 .searchable(text: $session.filter.search)
                 .navigationTitle("Secrets")

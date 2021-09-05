@@ -27,8 +27,8 @@ struct Reveal: View {
                         Tagger(secret: session.secret, max: .init(geometry.size.width / 75))
                             .padding()
                     }
+                    .privacySensitive()
                 }
-                .privacySensitive()
             }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {

@@ -52,7 +52,7 @@ struct Settings: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 50)
                         .symbolRenderingMode(.hierarchical)
-                        .foregroundStyle(.tertiary)
+                        .foregroundStyle(.secondary)
                     Group {
                         Text(verbatim: "Shortbread\n")
                         + Text(verbatim: Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "")
