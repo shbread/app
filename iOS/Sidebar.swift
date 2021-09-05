@@ -12,7 +12,11 @@ struct Sidebar: View {
                     NavigationLink(destination: Reveal(session: $session), isActive: .init(get: {
                         session.selected == index
                     }, set: {
-                        session.selected = $0 ? index : nil
+                        if $0 {
+                            session.selected = index
+                        } else if session.selected == index {
+                            session.selected = nil
+                        }
                     })) {
                         Item(secret: session.archive.secrets[index], max: .init(geo.size.width / 95))
                             .privacySensitive()
