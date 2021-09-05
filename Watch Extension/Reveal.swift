@@ -33,6 +33,7 @@ struct Reveal: View {
                 Spacer()
                     .frame(height: 20)
             }
+            .privacySensitive()
         }
     }
 }

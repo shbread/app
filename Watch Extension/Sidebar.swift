@@ -23,6 +23,7 @@ struct Sidebar: View {
                         }
                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
                     }
+                    .privacySensitive()
                 }
             }
         }
