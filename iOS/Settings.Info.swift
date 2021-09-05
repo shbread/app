@@ -9,7 +9,7 @@ extension Settings {
             ScrollView {
                 ZStack {
                     RoundedRectangle(cornerRadius: 10)
-                        .fill(Color.white)
+                        .fill(Color(.systemBackground))
                     Text(.init(text))
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: 440, alignment: .leading)
