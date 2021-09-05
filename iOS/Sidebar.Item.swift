@@ -21,6 +21,7 @@ extension Sidebar {
                     Text(verbatim: secret.name)
                         .font(.callout)
                         .padding(.vertical, 4)
+                        .fixedSize(horizontal: false, vertical: true)
                     Text(secret.date, style: .relative)
                         .font(.footnote)
                         .foregroundStyle(.tertiary)
