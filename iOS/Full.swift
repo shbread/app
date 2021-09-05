@@ -28,7 +28,6 @@ struct Full: View {
             }
             .buttonStyle(.borderedProminent)
             .padding(.vertical)
-            .frame(maxWidth: .greatestFiniteMagnitude)
             Button("Cancel") {
                 dismiss()
             }
