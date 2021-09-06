@@ -6,14 +6,6 @@ import Secrets
 let cloud = Cloud.new
 let store = Store()
 
-extension UISplitViewController {
-    open override func viewDidLoad() {
-        super.viewDidLoad()
-        self.show(.primary)
-        self.maximumSupplementaryColumnWidth = 200
-    }
-}
-
 @main struct App: SwiftUI.App {
     @State private var archive = Archive.new
     @State private var modal: Modal?
@@ -25,8 +17,8 @@ extension UISplitViewController {
     var body: some Scene {
         WindowGroup {
             NavigationView {
+                Spine(archive: archive)
                 Sidebar(archive: archive)
-                Empty(archive: archive)
                 Empty(archive: archive)
             }
             .navigationViewStyle(.columns)

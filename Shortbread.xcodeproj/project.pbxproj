@@ -27,6 +27,8 @@
 		CE3DBE4826DA493C002AE5B0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DBE4726DA493C002AE5B0 /* Media.xcassets */; };
 		CE6366D326DB927D0047EB1C /* Full.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6366D226DB927D0047EB1C /* Full.swift */; };
 		CE6C8DFA26E6528B00149D95 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8DF926E6528B00149D95 /* Create.swift */; };
+		CE6C8DFC26E67D7A00149D95 /* UISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */; };
+		CE6C8DFE26E67DF100149D95 /* Spine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8DFD26E67DF100149D95 /* Spine.swift */; };
 		CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A726DA5ADC00F778A9 /* Option.swift */; };
 		CE6F48AA26DA640D00F778A9 /* Sidebar.Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A926DA640D00F778A9 /* Sidebar.Filter.swift */; };
 		CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AB26DA766800F778A9 /* App.Modal.swift */; };
@@ -143,6 +145,8 @@
 		CE3DBE4726DA493C002AE5B0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE6366D226DB927D0047EB1C /* Full.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Full.swift; sourceTree = "<group>"; };
 		CE6C8DF926E6528B00149D95 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
+		CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISplitViewController.swift; sourceTree = "<group>"; };
+		CE6C8DFD26E67DF100149D95 /* Spine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spine.swift; sourceTree = "<group>"; };
 		CE6F48A726DA5ADC00F778A9 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		CE6F48A926DA640D00F778A9 /* Sidebar.Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Filter.swift; sourceTree = "<group>"; };
 		CE6F48AB26DA766800F778A9 /* App.Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.swift; sourceTree = "<group>"; };
@@ -278,10 +282,12 @@
 				CE6F48A926DA640D00F778A9 /* Sidebar.Filter.swift */,
 				CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */,
 				CE2DAFBF26D8EB880009E974 /* Sidebar.swift */,
+				CE6C8DFD26E67DF100149D95 /* Spine.swift */,
 				CEB5E76526D9227D00648645 /* Tagger.swift */,
 				CE6F48AD26DA76E600F778A9 /* Tags.swift */,
 				CEB5C8C026E0F4C90001EC96 /* Toolbar.swift */,
 				CEB1027826E3ABA9007D0BBE /* UIApplication.swift */,
+				CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */,
 				CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */,
 				CE6F48B126DA7C0900F778A9 /* Writer.swift */,
 				CE2DAFC126D8EB890009E974 /* Assets.xcassets */,
@@ -512,6 +518,7 @@
 				CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */,
 				CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */,
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
+				CE6C8DFE26E67DF100149D95 /* Spine.swift in Sources */,
 				CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */,
 				CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */,
 				CE0F341826E22C18000388F3 /* Store.swift in Sources */,
@@ -530,6 +537,7 @@
 				CE0B965326E2596E00764AAE /* Transaction.swift in Sources */,
 				CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */,
 				CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */,
+				CE6C8DFC26E67D7A00149D95 /* UISplitViewController.swift in Sources */,
 				CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */,
 				CEB1027B26E3AF3E007D0BBE /* Settings.Info.swift in Sources */,
 				CEB5E76626D9227D00648645 /* Tagger.swift in Sources */,
