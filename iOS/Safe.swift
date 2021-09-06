@@ -1,7 +1,8 @@
 import SwiftUI
+import Secrets
 
 struct Safe: View {
-    @Binding var session: Session
+    let archive: Archive
     @Environment(\.dismiss) private var dismiss
     @State private var state = Store.State.loading
     
@@ -16,11 +17,11 @@ struct Safe: View {
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.orange)
                     .padding(.leading)
-                Text(Int(Float(session.archive.secrets.count) / .init(session.archive.capacity) * 100), format: .percent)
+                Text(Int(Float(archive.secrets.count) / .init(archive.capacity) * 100), format: .percent)
                     .font(.callout.weight(.light).monospacedDigit())
                     .foregroundStyle(.secondary)
                 Spacer()
-                Text(verbatim: "\(session.archive.secrets.count) / \(session.archive.capacity) " + (session.archive.capacity == 1 ? "secret" : "secrets"))
+                Text(verbatim: "\(archive.secrets.count) / \(archive.capacity) " + (archive.capacity == 1 ? "secret" : "secrets"))
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                 Spacer()
@@ -33,7 +34,7 @@ struct Safe: View {
                 }
                 .foregroundStyle(.secondary)
             }
-            Content(session: $session, state: state)
+            Content(state: state)
             Text("Your secrets capacity is permanent and won't expire, you can create and delete secrets as many times as you want.")
                 .font(.footnote)
                 .foregroundStyle(.secondary)

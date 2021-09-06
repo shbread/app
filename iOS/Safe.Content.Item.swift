@@ -4,7 +4,6 @@ import Secrets
 
 extension Safe.Content {
     struct Item: View {
-        @Binding var session: Session
         let product: Product
         
         var body: some View {

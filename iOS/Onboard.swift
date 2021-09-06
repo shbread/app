@@ -2,7 +2,6 @@ import SwiftUI
 import Secrets
 
 struct Onboard: View {
-    @Binding var session: Session
     @State private var index = 0
     @State private var requested = false
     @Environment(\.dismiss) private var dismiss
@@ -203,7 +202,7 @@ struct Onboard: View {
                 
                 Button {
                     Defaults.onboarded = true
-                    session.modal.send(.settings)
+//                    session.modal.send(.settings)
                 } label: {
                     Image(systemName: "slider.horizontal.3")
                 }

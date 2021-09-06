@@ -1,7 +1,7 @@
 import Foundation
 
-extension Session {
-    struct Filter {
+extension Sidebar {
+    struct Filter: Equatable {
         var favourites = false
         var search = ""
     }

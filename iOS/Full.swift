@@ -1,7 +1,7 @@
 import SwiftUI
+import Secrets
 
 struct Full: View {
-    @Binding var session: Session
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -24,7 +24,7 @@ struct Full: View {
                 .multilineTextAlignment(.center)
                 .padding(.bottom)
             Button {
-                session.modal.send(.safe)
+//                session.modal.send(.safe)
             } label: {
                 Text("In-App Purchases")
                     .frame(maxWidth: 200)

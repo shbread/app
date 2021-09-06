@@ -7,7 +7,7 @@ let cloud = Cloud.new
 let store = Store()
 
 @main struct App: SwiftUI.App {
-    @State private var session = Session()
+    @State private var archive = Archive.new
     @State private var modal: Modal?
     @State private var authenticated = false
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
@@ -17,28 +17,31 @@ let store = Store()
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(session: $session)
-                Reveal(session: $session)
+                Sidebar(archive: archive)
+                Empty(archive: archive)
             }
             .navigationViewStyle(.columns)
             .onOpenURL {
-                guard $0.scheme == "shortbread" else { return }
-                session.selected = nil
-                session.create()
+                guard $0.scheme == "shortbread", $0.host == "create" else { return }
+                if archive.available {
+//                        modal.send(.write(.create))
+                } else {
+//                        modal.send(.full)
+                }
             }
             .sheet(item: $modal, content: modal)
             .onReceive(cloud.archive) {
-                session.archive = $0
+                archive = $0
             }
             .onReceive(delegate.store) {
-                change(.safe)
+//                change(.safe)
             }
-            .onReceive(session.modal) {
-                change($0)
-            }
+//            .onReceive(session.modal) {
+//                change($0)
+//            }
             .onAppear {
                 if !Defaults.onboarded {
-                    change(.onboard)
+//                    change(.onboard)
                 }
             }
         }
@@ -61,32 +64,32 @@ let store = Store()
         }
     }
     
-    private func change(_ new: Modal) {
-        guard new != modal else { return }
-        if modal == nil {
-            modal = new
-        } else {
-            modal = nil
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-                modal = new
-            }
-        }
-    }
+//    private func change(_ new: Modal) {
+//        guard new != modal else { return }
+//        if modal == nil {
+//            modal = new
+//        } else {
+//            modal = nil
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+//                modal = new
+//            }
+//        }
+//    }
     
     @ViewBuilder private func modal(_ modal: Modal) -> some View {
         switch modal {
-        case .tags:
-            Tags(session: $session)
         case .safe:
-            Safe(session: $session)
+            Safe(archive: archive)
         case .full:
-            Full(session: $session)
+            Full()
         case .onboard:
-            Onboard(session: $session)
+            Onboard()
         case .settings:
-            Settings(session: $session)
+            Settings()
+        case let .tags(index, secret):
+            Tags(index: index, secret: secret)
         case let .write(write):
-            Writer(session: $session, write: write)
+            Writer(write: write)
                 .privacySensitive()
         }
     }

@@ -1,7 +1,8 @@
 import SwiftUI
+import Secrets
 
 struct Empty: View {
-    @Binding var session: Session
+    let archive: Archive
     
     var body: some View {
         VStack {
@@ -11,7 +12,7 @@ struct Empty: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100)
                 .foregroundStyle(.quaternary)
-            Text(session.archive.secrets.isEmpty ? "Create your first secret" : "Select a secret from the list\nor create a new one")
+            Text(archive.secrets.isEmpty ? "Create your first secret" : "Select a secret from the list\nor create a new one")
                 .font(.callout)
                 .foregroundStyle(.tertiary)
                 .padding(.top)

@@ -2,7 +2,6 @@ import SwiftUI
 
 extension Safe {
     struct Content: View {
-        @Binding var session: Session
         let state: Store.State
         
         var body: some View {
@@ -30,7 +29,7 @@ extension Safe {
             case let .products(products):
                 TabView {
                     ForEach(products, id: \.self) {
-                        Item(session: $session, product: $0)
+                        Item(product: $0)
                     }
                 }
                 .tabViewStyle(.page)

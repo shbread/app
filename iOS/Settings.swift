@@ -2,7 +2,6 @@ import SwiftUI
 import Secrets
 
 struct Settings: View {
-    @Binding var session: Session
     @State private var requested = true
     @State private var enabled = true
     @Environment(\.dismiss) private var dismiss

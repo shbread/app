@@ -1,27 +1,29 @@
 import SwiftUI
+import Secrets
 
 struct Toolbar: View {
-    @Binding var session: Session
+    let index: Int
+    let secret: Secret
     @State private var delete = false
     
     var body: some View {
         Menu {
             Button {
-                session.modal.send(.tags)
+//                session.modal.send(.tags)
             } label: {
                 Text("Tags")
                 Image(systemName: "tag")
             }
             
             Button {
-                session.modal.send(.write(.edit))
+//                session.modal.send(.write(.edit))
             } label: {
                 Text("Edit")
                 Image(systemName: "pencil.circle")
             }
             
             Button {
-                session.modal.send(.write(.rename))
+//                session.modal.send(.write(.rename))
             } label: {
                 Text("Rename")
                 Image(systemName: "rectangle.and.pencil.and.ellipsis")
@@ -43,8 +45,8 @@ struct Toolbar: View {
         }
         .confirmationDialog("Delete secret?", isPresented: $delete) {
             Button("Delete", role: .destructive) {
-                let index = session.selected!
-                session.selected = nil
+//                let index = session.selected!
+//                session.selected = nil
                 
                 Task {
                     await cloud.delete(index: index)
@@ -55,18 +57,18 @@ struct Toolbar: View {
         
         Spacer()
         
-        Option(icon: session.secret.favourite ? "heart.fill" : "heart") {
+        Option(icon: secret.favourite ? "heart.fill" : "heart") {
             Task {
                 await cloud
-                    .update(index: session.selected!, favourite: !session.secret.favourite)
+                    .update(index: index, favourite: secret.favourite)
             }
         }
-        .foregroundColor(session.secret.favourite ? .accentColor : .secondary)
+        .foregroundColor(secret.favourite ? .accentColor : .secondary)
         
         Spacer()
         
         Button("Copy") {
-            UIPasteboard.general.string = session.secret.payload
+            UIPasteboard.general.string = secret.payload
             Task {
                 await Notifications.send(message: "Secret copied!")
             }

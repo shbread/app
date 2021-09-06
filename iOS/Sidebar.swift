@@ -1,51 +1,82 @@
 import SwiftUI
+import Secrets
 
 struct Sidebar: View {
-    @Binding var session: Session
+    let archive: Archive
+    @State private var filtered = [Int]()
+    @State private var filter = Filter()
     
     var body: some View {
         GeometryReader { geo in
-            if session.archive.secrets.isEmpty {
-                Empty(session: $session)
+            if archive.secrets.isEmpty {
+                Empty(archive: archive)
             } else {
-                List(session.filtered, id: \.self) { index in
-                    NavigationLink(destination: Reveal(session: $session), isActive: .init(get: {
-                        session.selected == index
-                    }, set: {
-                        if $0 {
-                            session.selected = index
-                        } else if session.selected == index {
-                            session.selected = nil
-                        }
-                    })) {
-                        Item(secret: session.archive.secrets[index], max: .init(geo.size.width / 95))
+                List(filtered, id: \.self) { index in
+                    NavigationLink(destination: Reveal(index: index, secret: archive.secrets[index])) {
+                        Item(secret: archive.secrets[index], max: .init(geo.size.width / 95))
                             .privacySensitive()
                     }
                 }
                 .listStyle(.sidebar)
-                .searchable(text: $session.filter.search)
+                .searchable(text: $filter.search)
                 .navigationTitle("Secrets")
                 .navigationBarTitleDisplayMode(.large)
             }
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Option(icon: session.filter.favourites ? "heart.fill" : "heart") {
+                Option(icon: filter.favourites ? "heart.fill" : "heart") {
                     withAnimation(.easeInOut(duration: 0.35)) {
-                        session.filter.favourites.toggle()
+                        filter.favourites.toggle()
                     }
                 }
                 
                 Option(icon: "slider.horizontal.3") {
-                    session.modal.send(.settings)
+//                    session.modal.send(.settings)
                 }
                 
                 Option(icon: "lock.square.stack") {
-                    session.modal.send(.safe)
+//                    session.modal.send(.safe)
                 }
                 
-                Option(icon: "plus", action: session.create)
+                Option(icon: "plus") {
+                    if archive.available {
+//                        modal.send(.write(.create))
+                    } else {
+//                        modal.send(.full)
+                    }
+                }
             }
         }
+        .onChange(of: filter) { _ in
+            refilter()
+        }
+    }
+    
+    private func refilter() {
+        filtered = archive
+            .secrets
+            .enumerated()
+            .filter {
+                filter.favourites
+                ? $0.1.favourite
+                : true
+            }
+            .filter { secret in
+                { components in
+                    components.isEmpty
+                    ? true
+                    : components.contains {
+                        secret.1.name.localizedCaseInsensitiveContains($0)
+                    }
+                } (filter
+                    .search
+                    .trimmingCharacters(in: .whitespacesAndNewlines)
+                    .components(separatedBy: " ")
+                    .filter {
+                        !$0.isEmpty
+                    })
+            }
+            .map(\.0)
     }
 }

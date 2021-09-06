@@ -1,4 +1,5 @@
 import Foundation
+import Secrets
 
 extension App {
     enum Modal: Identifiable, Equatable {
@@ -9,9 +10,9 @@ extension App {
         case
         safe,
         full,
-        tags,
         onboard,
         settings,
+        tags(Int, Secret),
         write(Write)
     }
 }

@@ -2,7 +2,8 @@ import SwiftUI
 import Secrets
 
 struct Tags: View {
-    @Binding var session: Session
+    let index: Int
+    let secret: Secret
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
@@ -12,10 +13,10 @@ struct Tags: View {
                     .sorted(), id: \.self) { tag in
                 Button {
                     Task {
-                        if session.secret.tags.contains(tag) {
-                            await cloud.remove(index: session.selected!, tag: tag)
+                        if secret.tags.contains(tag) {
+                            await cloud.remove(index: index, tag: tag)
                         } else {
-                            await cloud.add(index: session.selected!, tag: tag)
+                            await cloud.add(index: index, tag: tag)
                         }
                     }
                 } label: {
@@ -24,9 +25,9 @@ struct Tags: View {
                             .font(.callout)
                             .foregroundColor(.primary)
                         Spacer()
-                        Image(systemName: session.secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
+                        Image(systemName: secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
                             .font(.title3)
-                            .foregroundColor(session.secret.tags.contains(tag) ? .orange : .secondary)
+                            .foregroundColor(secret.tags.contains(tag) ? .orange : .secondary)
                     }
                     .padding(.vertical, 10)
                 }

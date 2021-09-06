@@ -2,11 +2,11 @@ import UIKit
 
 extension Writer {
     final class Coordinator: UITextView, UITextViewDelegate {
-        private let wrapper: Writer
+        let write: App.Modal.Write
         
         required init?(coder: NSCoder) { nil }
-        init(wrapper: Writer) {
-            self.wrapper = wrapper
+        init(write: App.Modal.Write) {
+            self.write = write
             super.init(frame: .zero, textContainer: Container())
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .regular)
             typingAttributes[.kern] = 1
@@ -21,15 +21,6 @@ extension Writer {
             alwaysBounceVertical = true
             allowsEditingTextAttributes = false
             delegate = self
-            
-            switch wrapper.write {
-            case .rename:
-                text = wrapper.session.secret.name
-            case .edit:
-                text = wrapper.session.secret.payload
-            default:
-                break
-            }
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
             
@@ -96,13 +87,15 @@ extension Writer {
             
             inputAccessoryView = input
             
-            switch wrapper.write {
+            switch write {
             case .create:
                 title.text = "New secret"
-            case .rename:
+            case let .rename(_, secret):
                 title.text = "Rename secret"
-            case .edit:
-                title.text = wrapper.session.secret.name
+                text = secret.name
+            case let .edit(_, secret):
+                title.text = secret.name
+                text = secret.payload
             }
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
@@ -111,7 +104,7 @@ extension Writer {
         }
         
         func textViewDidEndEditing(_: UITextView) {
-            wrapper.dismiss()
+//            wrapper.dismiss()
         }
         
         override func caretRect(for position: UITextPosition) -> CGRect {
@@ -124,14 +117,14 @@ extension Writer {
             let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
             resignFirstResponder()
             Task {
-                switch wrapper.write {
+                switch write {
                 case .create:
-                    wrapper.session.selected = await cloud.new(secret: text)
+//                    wrapper.session.selected = await cloud.new(secret: text)
                     await Notifications.send(message: "Added new secret!")
-                case .rename:
-                    await cloud.update(index: wrapper.session.selected!, name: text)
-                case .edit:
-                    await cloud.update(index: wrapper.session.selected!, payload: text)
+                case let .rename(index, _):
+                    await cloud.update(index: index, name: text)
+                case let .edit(index, _):
+                    await cloud.update(index: index, payload: text)
                     await Notifications.send(message: "Edited secret!")
                 }
             }
@@ -142,7 +135,7 @@ extension Writer {
         }
         
         @objc private func minus() {
-            insertText("-")
+            insertText("—")
         }
         
         @objc private func number() {
