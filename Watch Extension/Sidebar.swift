@@ -22,8 +22,8 @@ struct Sidebar: View {
                                 .font(.caption2)
                         }
                         .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                        .privacySensitive()
                     }
-                    .privacySensitive()
                 }
             }
         }
