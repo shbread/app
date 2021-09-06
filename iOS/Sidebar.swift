@@ -2,54 +2,68 @@ import SwiftUI
 import Secrets
 
 struct Sidebar: View {
+    @Binding var search: String
     let archive: Archive
     @State private var filtered = [Int]()
     @State private var favourites = false
-    @State private var search = ""
+    @Environment(\.isSearching) var searching
     
     var body: some View {
         GeometryReader { geo in
-            if archive.secrets.isEmpty {
-                Empty(archive: archive)
-            } else {
-                List {
-                    Section("Secrets") {
-                        ForEach(filtered, id: \.self) { index in
-                            NavigationLink(destination: Reveal(index: index, secret: archive.secrets[index])) {
-                                Item(secret: archive.secrets[index], max: .init(geo.size.width / 95))
-                                    .privacySensitive()
-                            }
+            List {
+                Section("Secrets") {
+                    if !searching {
+                        NavigationLink(destination: Writer(write: .create)) {
+                            Label("New Secret", systemImage: "plus")
                         }
                     }
-                    Section("Other") {
-                        NavigationLink("Settings", destination: Settings())
+                    
+                    ForEach(filtered, id: \.self) { index in
+                        NavigationLink(destination: Reveal(index: index, secret: archive.secrets[index])) {
+                            Item(secret: archive.secrets[index], max: .init(geo.size.width / 95))
+                                .privacySensitive()
+                        }
                     }
                 }
-                .listStyle(.sidebar)
-                .searchable(text: $search)
+                
+                if !searching {
+                    Section("App") {
+                        NavigationLink(destination: Settings()) {
+                            Label("Settings", systemImage: "slider.horizontal.3")
+                        }
+                        
+                        NavigationLink(destination: Safe(archive: archive)) {
+                            Label("Capacity", systemImage: "lock.square.stack")
+                        }
+                        
+                        NavigationLink(destination: Info(title: "Markdown", text: Copy.markdown)) {
+                            Label("Markdown", systemImage: "square.text.square")
+                        }
+                        
+                        NavigationLink(destination: Info(title: "Privacy policy", text: Copy.privacy)) {
+                            Label("Privacy policy", systemImage: "hand.raised")
+                        }
+                        
+                        NavigationLink(destination: Info(title: "Terms and conditions", text: Copy.terms)) {
+                            Label("Terms and conditions", systemImage: "doc.plaintext")
+                        }
+                    }
+                    .font(.callout)
+                }
             }
+            .listStyle(.sidebar)
+            .symbolRenderingMode(.hierarchical)
         }
+        
         .toolbar {
-            ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Option(icon: favourites ? "heart.fill" : "heart") {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
                     withAnimation(.easeInOut(duration: 0.35)) {
                         favourites.toggle()
                     }
-                }
-                
-                Option(icon: "slider.horizontal.3") {
-//                    session.modal.send(.settings)
-                }
-                
-                Option(icon: "lock.square.stack") {
-//                    session.modal.send(.safe)
-                }
-                
-                NavigationLink(destination: Writer(write: .create)) {
-                    Image(systemName: "plus")
+                } label: {
+                    Image(systemName: favourites ? "heart.fill" : "heart")
                         .symbolRenderingMode(.hierarchical)
-                        .frame(width: 50, height: 36)
-                        .contentShape(Rectangle())
                 }
 //                Option(icon: "plus") {
 //                    if archive.available {

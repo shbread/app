@@ -23,6 +23,7 @@ extension Safe.Content {
                 }
                 .padding(.horizontal)
                 .frame(maxWidth: 300)
+                .padding(.vertical)
                 HStack {
                     Spacer()
                     Text(verbatim: product.displayPrice)

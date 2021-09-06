@@ -3,12 +3,12 @@ import Secrets
 
 struct Safe: View {
     let archive: Archive
-    @Environment(\.dismiss) private var dismiss
     @State private var state = Store.State.loading
     
     var body: some View {
         VStack(spacing: 0) {
             HStack {
+                Spacer()
                 Image(systemName: "lock.square")
                     .resizable()
                     .font(.largeTitle.weight(.ultraLight))
@@ -25,14 +25,6 @@ struct Safe: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                 Spacer()
-                Button {
-                    dismiss()
-                } label: {
-                    Image(systemName: "xmark")
-                        .frame(width: 60, height: 60)
-                        .contentShape(Rectangle())
-                }
-                .foregroundStyle(.secondary)
             }
             Content(state: state)
             Text("Your secrets capacity is permanent and won't expire, you can create and delete secrets as many times as you want.")

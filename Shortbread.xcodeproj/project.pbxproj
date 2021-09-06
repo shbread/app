@@ -44,7 +44,7 @@
 		CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027426E3A713007D0BBE /* Dismiss.swift */; };
 		CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027626E3AA4E007D0BBE /* Copy.swift */; };
 		CEB1027926E3ABA9007D0BBE /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027826E3ABA9007D0BBE /* UIApplication.swift */; };
-		CEB1027B26E3AF3E007D0BBE /* Settings.Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027A26E3AF3E007D0BBE /* Settings.Info.swift */; };
+		CEB1027B26E3AF3E007D0BBE /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027A26E3AF3E007D0BBE /* Info.swift */; };
 		CEB1028226E3CA3E007D0BBE /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB1028126E3CA3E007D0BBE /* WidgetKit.framework */; platformFilter = maccatalyst; };
 		CEB1028426E3CA3E007D0BBE /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB1028326E3CA3E007D0BBE /* SwiftUI.framework */; platformFilter = maccatalyst; };
 		CEB1028926E3CA3F007D0BBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEB1028826E3CA3F007D0BBE /* Assets.xcassets */; };
@@ -162,7 +162,7 @@
 		CEB1027426E3A713007D0BBE /* Dismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dismiss.swift; sourceTree = "<group>"; };
 		CEB1027626E3AA4E007D0BBE /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		CEB1027826E3ABA9007D0BBE /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
-		CEB1027A26E3AF3E007D0BBE /* Settings.Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.Info.swift; sourceTree = "<group>"; };
+		CEB1027A26E3AF3E007D0BBE /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
 		CEB1028026E3CA3E007D0BBE /* Shortbread.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Shortbread.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEB1028126E3CA3E007D0BBE /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		CEB1028326E3CA3E007D0BBE /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -275,7 +275,7 @@
 				CE2A54B726E247220072A39F /* Safe.Content.Item.swift */,
 				CE0ECE1E26E23338009ED010 /* Safe.Content.swift */,
 				CE6F48AF26DA7B6D00F778A9 /* Safe.swift */,
-				CEB1027A26E3AF3E007D0BBE /* Settings.Info.swift */,
+				CEB1027A26E3AF3E007D0BBE /* Info.swift */,
 				CEBC5E4426E277EE00118105 /* Settings.swift */,
 				CE6F48A926DA640D00F778A9 /* Sidebar.Filter.swift */,
 				CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */,
@@ -535,7 +535,7 @@
 				CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */,
 				CE6C8DFC26E67D7A00149D95 /* UISplitViewController.swift in Sources */,
 				CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */,
-				CEB1027B26E3AF3E007D0BBE /* Settings.Info.swift in Sources */,
+				CEB1027B26E3AF3E007D0BBE /* Info.swift in Sources */,
 				CEB5E76626D9227D00648645 /* Tagger.swift in Sources */,
 				CE6366D326DB927D0047EB1C /* Full.swift in Sources */,
 				CE6F48B826DA88D200F778A9 /* Container.swift in Sources */,

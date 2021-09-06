@@ -8,24 +8,21 @@ struct Settings: View {
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     
     var body: some View {
-        NavigationView {
-            List {
-                header
-                
-                if !requested || !enabled {
-                    notifications
-                }
-                
-                face
-                links
+        List {
+            header
+            
+            if !requested || !enabled {
+                notifications
             }
-            .listStyle(.grouped)
-            .navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.large)
-            .navigationBarItems(trailing: Dismiss {
-                dismiss()
-            })
+            
+            face
         }
+        .listStyle(.grouped)
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.large)
+        .navigationBarItems(trailing: Dismiss {
+            dismiss()
+        })
         .task {
             await check()
         }
@@ -102,23 +99,5 @@ struct Settings: View {
             }
             .toggleStyle(SwitchToggleStyle(tint: .orange))
         }
-    }
-    
-    private var links: some View {
-        Section {
-            NavigationLink(destination: Info(title: "Markdown", text: Copy.markdown)) {
-                Label("Markdown", systemImage: "square.text.square")
-            }
-            
-            NavigationLink(destination: Info(title: "Privacy policy", text: Copy.privacy)) {
-                Label("Privacy policy", systemImage: "hand.raised")
-            }
-            
-            NavigationLink(destination: Info(title: "Terms and conditions", text: Copy.terms)) {
-                Label("Terms and conditions", systemImage: "doc.plaintext")
-            }
-        }
-        .font(.callout)
-        .symbolRenderingMode(.hierarchical)
     }
 }
