@@ -27,7 +27,7 @@ struct Full: View {
                 session.modal.send(.safe)
             } label: {
                 Text("In-App Purchases")
-                    .frame(maxWidth: 280)
+                    .frame(maxWidth: 200)
             }
             .buttonStyle(.borderedProminent)
             .padding(.vertical)
