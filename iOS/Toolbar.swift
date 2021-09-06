@@ -22,6 +22,11 @@ struct Toolbar: View {
                 Image(systemName: "pencil.circle")
             }
             
+            NavigationLink(destination: Writer(write: .edit(index, secret))) {
+                Text("Edit")
+                Image(systemName: "pencil.circle")
+            }
+            
             Button {
 //                session.modal.send(.write(.rename))
             } label: {
@@ -57,13 +62,19 @@ struct Toolbar: View {
         
         Spacer()
         
-        Option(icon: secret.favourite ? "heart.fill" : "heart") {
-            Task {
-                await cloud
-                    .update(index: index, favourite: secret.favourite)
-            }
+        NavigationLink(destination: Writer(write: .edit(index, secret))) {
+            Image(systemName: "pencil")
+                .symbolRenderingMode(.hierarchical)
+                .frame(width: 50, height: 36)
+                .contentShape(Rectangle())
         }
-        .foregroundColor(secret.favourite ? .accentColor : .secondary)
+//        Option(icon: secret.favourite ? "heart.fill" : "heart") {
+//            Task {
+//                await cloud
+//                    .update(index: index, favourite: secret.favourite)
+//            }
+//        }
+//        .foregroundColor(secret.favourite ? .accentColor : .secondary)
         
         Spacer()
         
