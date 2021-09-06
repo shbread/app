@@ -12,16 +12,21 @@ struct Sidebar: View {
             if archive.secrets.isEmpty {
                 Empty(archive: archive)
             } else {
-                List(filtered, id: \.self) { index in
-                    NavigationLink(destination: Reveal(index: index, secret: archive.secrets[index])) {
-                        Item(secret: archive.secrets[index], max: .init(geo.size.width / 95))
-                            .privacySensitive()
+                List {
+                    Section("Secrets") {
+                        ForEach(filtered, id: \.self) { index in
+                            NavigationLink(destination: Reveal(index: index, secret: archive.secrets[index])) {
+                                Item(secret: archive.secrets[index], max: .init(geo.size.width / 95))
+                                    .privacySensitive()
+                            }
+                        }
+                    }
+                    Section("Other") {
+                        NavigationLink("Settings", destination: Settings())
                     }
                 }
                 .listStyle(.sidebar)
                 .searchable(text: $search)
-                .navigationTitle("Secrets")
-                .navigationBarTitleDisplayMode(.large)
             }
         }
         .toolbar {

@@ -17,7 +17,6 @@ let store = Store()
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Spine(archive: archive)
                 Sidebar(archive: archive)
                 Empty(archive: archive)
             }
