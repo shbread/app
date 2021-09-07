@@ -11,7 +11,7 @@ extension Writer {
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .regular)
             typingAttributes[.kern] = 1
             font = typingAttributes[.font] as? UIFont
-            textContainerInset = .init(top: 50, left: 20, bottom: 30, right: 20)
+            textContainerInset = .init(top: 20, left: 20, bottom: 30, right: 20)
             keyboardDismissMode = .none
             backgroundColor = .clear
             tintColor = .label
@@ -34,7 +34,7 @@ extension Writer {
             send.setImage(UIImage(systemName: "arrow.up.circle.fill")?
                             .withConfiguration(UIImage.SymbolConfiguration(pointSize: 25)), for: .normal)
             send.imageView!.tintColor = .label
-            send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
+//            send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
             
             let number = UIButton()
             number.setImage(UIImage(systemName: "number")?
@@ -50,14 +50,6 @@ extension Writer {
             asterisk.setImage(UIImage(systemName: "staroflife.fill")?
                                 .withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .light)), for: .normal)
             asterisk.addTarget(self, action: #selector(self.asterisk), for: .touchUpInside)
-            
-            let title = UILabel()
-            title.translatesAutoresizingMaskIntoConstraints = false
-            title.numberOfLines = 1
-            title.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
-            title.textColor = .secondaryLabel
-            title.font = .preferredFont(forTextStyle: .callout)
-            addSubview(title)
             
             [cancel, send, number, minus, asterisk].forEach {
                 $0.translatesAutoresizingMaskIntoConstraints = false
@@ -79,28 +71,20 @@ extension Writer {
             number.rightAnchor.constraint(equalTo: minus.leftAnchor).isActive = true
             asterisk.leftAnchor.constraint(equalTo: minus.rightAnchor).isActive = true
             
-            title.topAnchor.constraint(equalTo: bottomAnchor, constant: 20).isActive = true
-            title.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor, constant: 25).isActive = true
-            let right = title.rightAnchor.constraint(lessThanOrEqualTo: safeAreaLayoutGuide.rightAnchor, constant: -25)
-            right.priority = .defaultLow
-            right.isActive = true
-            
             inputAccessoryView = input
             
             switch write {
-            case .create:
-                title.text = "New secret"
-            case let .rename(_, secret):
-                title.text = "Rename secret"
-                text = secret.name
             case let .edit(_, secret):
-                title.text = secret.name
                 text = secret.payload
+            case .create:
+                break
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
-                self?.becomeFirstResponder()
-            }
+            DispatchQueue
+                .main
+                .asyncAfter(deadline: .now() + 0.5) { [weak self] in
+                    self?.becomeFirstResponder()
+                }
         }
         
         func textViewDidEndEditing(_: UITextView) {
@@ -113,22 +97,22 @@ extension Writer {
             return rect
         }
         
-        @objc private func send() {
-            let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
-            resignFirstResponder()
-            Task {
-                switch write {
-                case .create:
-//                    wrapper.session.selected = await cloud.new(secret: text)
-                    await Notifications.send(message: "Added new secret!")
-                case let .rename(index, _):
-                    await cloud.update(index: index, name: text)
-                case let .edit(index, _):
-                    await cloud.update(index: index, payload: text)
-                    await Notifications.send(message: "Edited secret!")
-                }
-            }
-        }
+//        @objc private func send() {
+//            let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
+//            resignFirstResponder()
+//            Task {
+//                switch write {
+//                case .create:
+////                    wrapper.session.selected = await cloud.new(secret: text)
+//                    await Notifications.send(message: "Added new secret!")
+//                case let .rename(index, _):
+//                    await cloud.update(index: index, name: text)
+//                case let .edit(index, _):
+//                    await cloud.update(index: index, payload: text)
+//                    await Notifications.send(message: "Edited secret!")
+//                }
+//            }
+//        }
         
         @objc private func asterisk() {
             insertText("*")

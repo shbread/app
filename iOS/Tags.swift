@@ -35,9 +35,20 @@ struct Tags: View {
             .listStyle(.insetGrouped)
             .navigationTitle("Tags")
             .navigationBarTitleDisplayMode(.large)
-            .navigationBarItems(trailing: Dismiss {
-                dismiss()
-            })
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark")
+                            .font(.footnote)
+                            .frame(height: 50)
+                            .padding(.leading, 40)
+                            .contentShape(Rectangle())
+                    }
+                    .foregroundStyle(.secondary)
+                }
+            }
         }
     }
 }

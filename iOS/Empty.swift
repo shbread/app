@@ -18,6 +18,6 @@ struct Empty: View {
                 .padding(.top)
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
-        .background(.ultraThickMaterial)
+        .background(Color(.systemFill))
     }
 }

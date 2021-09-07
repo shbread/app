@@ -2,7 +2,7 @@ import SwiftUI
 import Secrets
 
 struct Full: View {
-    @Environment(\.dismiss) private var dismiss
+    @Binding var capacity: Bool
     
     var body: some View {
         VStack {
@@ -13,31 +13,23 @@ struct Full: View {
                 .frame(width: 100)
                 .symbolRenderingMode(.hierarchical)
                 .foregroundStyle(.quaternary)
-            Text("You reached the limit of\nsecrets that you can keep.")
-                .font(.body)
-                .foregroundStyle(.primary)
-                .multilineTextAlignment(.center)
-                .padding(.vertical)
-            Text("Purchase more capacity\nto create a new secret.")
-                .font(.body)
-                .foregroundStyle(.secondary)
-                .multilineTextAlignment(.center)
                 .padding(.bottom)
+            Text("You reached the limit of secrets\nthat you can keep.\n")
+                .foregroundColor(.primary)
+                .font(.body)
+            + Text("Purchase more capacity\nto create a new secret.")
+                .foregroundColor(.secondary)
+                .font(.callout)
             Button {
-//                session.modal.send(.safe)
+                capacity = true
             } label: {
                 Text("In-App Purchases")
-                    .frame(maxWidth: 200)
+                    .frame(maxWidth: 240)
             }
             .buttonStyle(.borderedProminent)
             .padding(.vertical)
-            Button("Cancel") {
-                dismiss()
-            }
-            .font(.callout)
-            .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude)
-        .background(.ultraThinMaterial)
+        .background(Color(.systemFill))
     }
 }

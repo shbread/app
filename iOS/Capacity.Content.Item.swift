@@ -27,8 +27,8 @@ extension Capacity.Content {
                 HStack {
                     Spacer()
                     Text(verbatim: product.displayPrice)
-                        .font(.title3.monospacedDigit())
-                        .foregroundStyle(.primary)
+                        .font(.body.monospacedDigit())
+                        .foregroundStyle(.secondary)
                     if product.id != Purchase.one.rawValue {
                         Group {
                             Text("Save ")
@@ -46,6 +46,7 @@ extension Capacity.Content {
                     }
                 }
                 .buttonStyle(.borderedProminent)
+                .padding(.bottom)
             }
         }
     }

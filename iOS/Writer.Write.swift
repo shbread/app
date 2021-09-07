@@ -5,7 +5,6 @@ extension Writer {
     enum Write: Equatable {
         case
         create,
-        rename(Int, Secret),
         edit(Int, Secret)
     }
 }

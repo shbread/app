@@ -43,7 +43,7 @@ struct Settings: View {
                         .resizable()
                         .font(.largeTitle.weight(.ultraLight))
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 50)
+                        .frame(width: 75)
                         .symbolRenderingMode(.hierarchical)
                         .foregroundStyle(.secondary)
                     Group {

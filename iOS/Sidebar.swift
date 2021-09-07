@@ -4,6 +4,7 @@ import Secrets
 struct Sidebar: View {
     @Binding var search: String
     let archive: Archive
+    @State private var capacity = false
     @State private var onboard = false
     @State private var filtered = [Int]()
     @State private var favourites = false
@@ -12,13 +13,19 @@ struct Sidebar: View {
     var body: some View {
         GeometryReader { geo in
             List {
-                Section("Secrets") {
-                    if !searching {
-                        NavigationLink(destination: Writer(write: .create)) {
-                            Label("New Secret", systemImage: "plus")
+                if !searching {
+                    NavigationLink {
+                        if archive.available {
+                            Writer(write: .create)
+                        } else {
+                            Full(capacity: $capacity)
                         }
+                    } label: {
+                        Label("New secret", systemImage: "plus")
                     }
-                    
+                }
+                
+                Section("Secrets") {
                     ForEach(filtered, id: \.self) { index in
                         NavigationLink(destination: Reveal(index: index, secret: archive.secrets[index])) {
                             Item(secret: archive.secrets[index], max: .init(geo.size.width / 95))
@@ -33,7 +40,9 @@ struct Sidebar: View {
                             Label("Settings", systemImage: "slider.horizontal.3")
                         }
                         
-                        NavigationLink(destination: Capacity(archive: archive)) {
+                        NavigationLink(isActive: $capacity) {
+                            Capacity(archive: archive)
+                        } label: {
                             Label("Capacity", systemImage: "lock.square.stack")
                         }
                         
@@ -79,6 +88,7 @@ struct Sidebar: View {
             if !Defaults.onboarded {
                 onboard = true
             }
+            update(secrets: archive.secrets, favourites: favourites, search: search)
         }
         .onChange(of: archive) {
             update(secrets: $0.secrets, favourites: favourites, search: search)
