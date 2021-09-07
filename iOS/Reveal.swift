@@ -4,7 +4,7 @@ import Secrets
 struct Reveal: View {
     let index: Int
     let secret: Secret
-    @State private var edit = false
+    @State var edit: Bool
     
     var body: some View {
         if edit {

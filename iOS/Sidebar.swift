@@ -3,7 +3,10 @@ import Secrets
 
 struct Sidebar: View {
     @Binding var search: String
+    @Binding var create: Bool
+    @Binding var full: Bool
     let archive: Archive
+    let new: () -> Void
     @State private var capacity = false
     @State private var onboard = false
     @State private var favourites = false
@@ -26,9 +29,24 @@ struct Sidebar: View {
                 if !searching {
                     app
                 }
+                
+                NavigationLink(isActive: $full) {
+                    Full(capacity: $capacity)
+                } label: {
+                    
+                }
+                .hidden()
+                
+                NavigationLink(isActive: $create) {
+                    Reveal(index: archive.secrets.count - 1, secret: archive.secrets.last!, edit: true)
+                } label: {
+                    
+                }
+                .hidden()
             }
             .listStyle(.sidebar)
             .symbolRenderingMode(.hierarchical)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -63,13 +81,7 @@ struct Sidebar: View {
     private var add: some View {
         HStack {
             Spacer()
-            Button {
-//                        if archive.available {
-//                            Writer(write: .create)
-//                        } else {
-//                            Full(capacity: $capacity)
-//                        }
-            } label: {
+            Button(action: new) {
                 Label("New secret", systemImage: "plus")
             }
             .buttonStyle(.borderedProminent)

@@ -11,16 +11,17 @@ extension Sidebar {
         @FocusState private var focus: Bool
         
         var body: some View {
-            NavigationLink(destination: Reveal(index: index, secret: secret)) {
+            NavigationLink(destination: Reveal(index: index, secret: secret, edit: false)) {
                 HStack(spacing: 0) {
                     if secret.favourite {
                         Image(systemName: "heart.fill")
-                            .foregroundStyle(.quaternary)
-                            .frame(width: 30)
-                            .padding(.trailing, 10)
+                            .font(.caption2)
+                            .foregroundColor(.accentColor)
+                            .frame(width: 20)
+                            .padding(.trailing, 5)
                     } else {
                         Spacer()
-                            .frame(width: 40)
+                            .frame(width: 25)
                     }
                     VStack(alignment: .leading, spacing: 0) {
                         TextField(secret.name, text: $name)
@@ -32,12 +33,13 @@ extension Sidebar {
                                 }
                             }
                             .disabled(disabled)
+                            .privacySensitive()
                         Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
                             .font(.footnote)
                             .foregroundStyle(.tertiary)
                         Tagger(secret: secret, tags: tags)
+                            .privacySensitive()
                     }
-                    .privacySensitive()
                     Spacer()
                 }
                 .onAppear {

@@ -10,6 +10,8 @@ let store = Store()
     @State private var archive = Archive.new
     @State private var authenticated = false
     @State private var search = ""
+    @State private var create = false
+    @State private var full = false
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
@@ -17,18 +19,14 @@ let store = Store()
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(search: $search, archive: archive)
+                Sidebar(search: $search, create: $create, full: $full, archive: archive, new: new)
                 Empty(archive: archive)
             }
             .searchable(text: $search)
             .navigationViewStyle(.columns)
             .onOpenURL {
                 guard $0.scheme == "shortbread", $0.host == "create" else { return }
-                if archive.available {
-//                        modal.send(.write(.create))
-                } else {
-//                        modal.send(.full)
-                }
+                new()
             }
             .onReceive(cloud.archive) {
                 archive = $0
@@ -50,6 +48,17 @@ let store = Store()
             default:
                 break
             }
+        }
+    }
+    
+    private func new() {
+        if archive.available {
+            Task {
+                _ = await cloud.new(secret: "")
+                create = true
+            }
+        } else {
+            full = true
         }
     }
     
