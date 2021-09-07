@@ -7,18 +7,18 @@ struct Sidebar: View {
     var body: some View {
         NavigationView {
             List {
-                if archive.secrets.isEmpty {
+                if archive.count == 0 {
                     Text("Create your first secret")
                         .foregroundStyle(.secondary)
                         .padding()
                         .listRowBackground(Color.clear)
                 } else {
-                    ForEach(0 ..< archive.secrets.count, id: \.self) { index in
-                        NavigationLink(destination: Reveal(secret: archive.secrets[index])) {
+                    ForEach(0 ..< archive.count, id: \.self) { index in
+                        NavigationLink(destination: Reveal(secret: archive[index])) {
                             Group {
-                                Text(verbatim: archive.secrets[index].name + "\n")
+                                Text(verbatim: archive[index].name + "\n")
                                     .font(.footnote)
-                                + Text(archive.secrets[index].date, style: .relative)
+                                + Text(archive[index].date, style: .relative)
                                     .foregroundColor(.secondary)
                                     .font(.caption2)
                             }

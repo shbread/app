@@ -19,7 +19,7 @@ struct Capacity: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Text(verbatim: "\(archive.secrets.count) / \(archive.capacity) " + (archive.capacity == 1 ? "secret" : "secrets"))
+                Text(verbatim: "\(archive.count) / \(archive.capacity) " + (archive.capacity == 1 ? "secret" : "secrets"))
                     .font(.callout)
                     .foregroundStyle(.secondary)
             }

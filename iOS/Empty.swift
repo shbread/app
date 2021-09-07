@@ -12,7 +12,7 @@ struct Empty: View {
                 .aspectRatio(contentMode: .fit)
                 .frame(width: 100)
                 .foregroundStyle(.quaternary)
-            Text(archive.secrets.isEmpty ? "Create your first secret" : "Select a secret from the list\nor create a new one")
+            Text(archive.count == 0 ? "Create your first secret" : "Select a secret from the list\nor create a new one")
                 .font(.callout)
                 .foregroundStyle(.tertiary)
                 .padding(.top)

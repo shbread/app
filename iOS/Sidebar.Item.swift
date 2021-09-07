@@ -9,6 +9,7 @@ extension Sidebar {
         let tags: Int
         @State private var name = ""
         @State private var disabled = true
+        @State private var delete = false
         @FocusState private var focus: Bool
         
         var body: some View {
@@ -55,6 +56,17 @@ extension Sidebar {
                     name = secret.name
                 }
             }
+            .confirmationDialog("Delete secret?", isPresented: $delete) {
+                Button("Delete", role: .destructive) {
+                    if selected == index {
+                        selected = Index.capacity.rawValue
+                    }
+                    Task {
+                        await cloud.delete(index: index)
+                        await Notifications.send(message: "Deleted secret!")
+                    }
+                }
+            }
             .swipeActions(edge: .leading) {
                 Button {
                     Task {
@@ -67,7 +79,7 @@ extension Sidebar {
             }
             .swipeActions {
                 Button {
-                    
+                    delete = true
                 } label: {
                     Label("Delete", systemImage: "trash")
                 }

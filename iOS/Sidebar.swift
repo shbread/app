@@ -20,7 +20,7 @@ struct Sidebar: View {
                 
                 Section("Secrets") {
                     ForEach(filtered, id: \.self) {
-                        Item(selected: $selected, index: $0, secret: archive.secrets[$0], tags: .init(geo.size.width / 95))
+                        Item(selected: $selected, index: $0, secret: archive[$0], tags: .init(geo.size.width / 95))
                     }
                 }
                 
@@ -33,7 +33,9 @@ struct Sidebar: View {
                 } label: {
                     
                 }
+                .listRowSeparator(.hidden)
                 .hidden()
+                .listRowBackground(Color.clear)
             }
             .listStyle(.sidebar)
             .symbolRenderingMode(.hierarchical)
@@ -66,16 +68,16 @@ struct Sidebar: View {
             if !Defaults.onboarded {
                 onboard = true
             }
-            filtered = archive.secrets.filter(favourites: favourites, search: search)
+            filtered = archive.filter(favourites: favourites, search: search)
         }
         .onChange(of: archive) {
-            filtered = $0.secrets.filter(favourites: favourites, search: search)
+            filtered = $0.filter(favourites: favourites, search: search)
         }
         .onChange(of: favourites) {
-            filtered = archive.secrets.filter(favourites: $0, search: search)
+            filtered = archive.filter(favourites: $0, search: search)
         }
         .onChange(of: search) {
-            filtered = archive.secrets.filter(favourites: favourites, search: $0)
+            filtered = archive.filter(favourites: favourites, search: $0)
         }
     }
     
