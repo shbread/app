@@ -12,7 +12,7 @@ extension Writer {
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)
             typingAttributes[.kern] = 1
             font = typingAttributes[.font] as? UIFont
-            textContainerInset = UIDevice.current.userInterfaceIdiom == .pad
+            textContainerInset = UIDevice.pad
                 ? .init(top: 80, left: 80, bottom: 80, right: 80)
                 : .init(top: 20, left: 20, bottom: 30, right: 20)
             keyboardDismissMode = .none

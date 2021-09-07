@@ -58,7 +58,7 @@ extension Sidebar {
             }
             .confirmationDialog("Delete secret?", isPresented: $delete) {
                 Button("Delete", role: .destructive) {
-                    if selected == index {
+                    if UIDevice.pad && selected == index {
                         selected = Index.capacity.rawValue
                     }
                     Task {

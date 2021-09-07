@@ -21,6 +21,7 @@
 		CE0ECE1F26E23338009ED010 /* Capacity.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1E26E23338009ED010 /* Capacity.Content.swift */; };
 		CE0F341826E22C18000388F3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F341726E22C18000388F3 /* Store.swift */; };
 		CE203AE626E7A97900F637B0 /* Sidebar.Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE203AE526E7A97900F637B0 /* Sidebar.Index.swift */; };
+		CE203AE826E7BA6C00F637B0 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE203AE726E7BA6C00F637B0 /* UIDevice.swift */; };
 		CE2A54B826E247220072A39F /* Capacity.Content.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A54B726E247220072A39F /* Capacity.Content.Item.swift */; };
 		CE2DAFBE26D8EB880009E974 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DAFBD26D8EB880009E974 /* App.swift */; };
 		CE2DAFC026D8EB880009E974 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DAFBF26D8EB880009E974 /* Sidebar.swift */; };
@@ -133,6 +134,7 @@
 		CE0ECE1E26E23338009ED010 /* Capacity.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Content.swift; sourceTree = "<group>"; };
 		CE0F341726E22C18000388F3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CE203AE526E7A97900F637B0 /* Sidebar.Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Index.swift; sourceTree = "<group>"; };
+		CE203AE726E7BA6C00F637B0 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		CE2A54B626E239E10072A39F /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		CE2A54B726E247220072A39F /* Capacity.Content.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Content.Item.swift; sourceTree = "<group>"; };
 		CE2DAFBA26D8EB880009E974 /* Shortbread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shortbread.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +276,7 @@
 				CEB5E76526D9227D00648645 /* Tagger.swift */,
 				CE6F48AD26DA76E600F778A9 /* Tags.swift */,
 				CEB1027826E3ABA9007D0BBE /* UIApplication.swift */,
+				CE203AE726E7BA6C00F637B0 /* UIDevice.swift */,
 				CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */,
 				CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */,
 				CE74BE6D26E759A900CAC28F /* Writer.Representable.swift */,
@@ -507,6 +510,7 @@
 				CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */,
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
 				CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */,
+				CE203AE826E7BA6C00F637B0 /* UIDevice.swift in Sources */,
 				CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */,
 				CE0F341826E22C18000388F3 /* Store.swift in Sources */,
 				CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */,

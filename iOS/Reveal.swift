@@ -30,7 +30,7 @@ struct Reveal: View {
                         Tagger(secret: secret, tags: .init(geometry.size.width / 75))
                             .privacySensitive()
                     }
-                    .padding(UIDevice.current.userInterfaceIdiom == .pad ? 80 : 30)
+                    .padding(UIDevice.pad ? 80 : 30)
                 }
             }
             .toolbar {
