@@ -1,7 +1,7 @@
 import SwiftUI
 import Secrets
 
-struct Safe: View {
+struct Capacity: View {
     let archive: Archive
     @State private var state = Store.State.loading
     
@@ -11,30 +11,35 @@ struct Safe: View {
                 Spacer()
                 Image(systemName: "lock.square")
                     .resizable()
-                    .font(.largeTitle.weight(.ultraLight))
+                    .font(.largeTitle)
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 30)
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(.orange)
                     .padding(.leading)
                 Text(Int(Float(archive.secrets.count) / .init(archive.capacity) * 100), format: .percent)
-                    .font(.callout.weight(.light).monospacedDigit())
-                    .foregroundStyle(.secondary)
+                    .foregroundColor(.secondary)
+                    .font(.callout.monospacedDigit())
+                + Text(" used")
+                    .foregroundColor(.secondary)
+                    .font(.callout.monospacedDigit())
                 Spacer()
                 Text(verbatim: "\(archive.secrets.count) / \(archive.capacity) " + (archive.capacity == 1 ? "secret" : "secrets"))
-                    .font(.footnote)
+                    .font(.callout.monospacedDigit())
                     .foregroundStyle(.secondary)
                 Spacer()
             }
+            .padding(.top)
             Content(state: state)
             Text("Your secrets capacity is permanent and won't expire, you can create and delete secrets as many times as you want.")
-                .font(.footnote)
+                .font(.callout)
                 .foregroundStyle(.secondary)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding()
                 .frame(maxWidth: 360)
         }
-        .background(.ultraThinMaterial)
+        .navigationTitle("Capacity")
+        .navigationBarTitleDisplayMode(.inline)
         .onReceive(store.state) {
             state = $0
         }

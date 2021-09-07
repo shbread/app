@@ -20,9 +20,6 @@ struct Settings: View {
         .listStyle(.grouped)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
-        .navigationBarItems(trailing: Dismiss {
-            dismiss()
-        })
         .task {
             await check()
         }
@@ -57,7 +54,7 @@ struct Settings: View {
                     .font(.footnote)
                     .foregroundStyle(.secondary)
                 }
-                .padding(.vertical, 40)
+                .padding(.vertical, 60)
                 Spacer()
             }
         }

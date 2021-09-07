@@ -2,10 +2,10 @@ import UIKit
 
 extension Writer {
     final class Coordinator: UITextView, UITextViewDelegate {
-        let write: App.Modal.Write
+        let write: Write
         
         required init?(coder: NSCoder) { nil }
-        init(write: App.Modal.Write) {
+        init(write: Write) {
             self.write = write
             super.init(frame: .zero, textContainer: Container())
             typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .regular)

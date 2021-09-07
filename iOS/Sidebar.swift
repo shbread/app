@@ -4,6 +4,7 @@ import Secrets
 struct Sidebar: View {
     @Binding var search: String
     let archive: Archive
+    @State private var onboard = false
     @State private var filtered = [Int]()
     @State private var favourites = false
     @Environment(\.isSearching) var searching
@@ -32,7 +33,7 @@ struct Sidebar: View {
                             Label("Settings", systemImage: "slider.horizontal.3")
                         }
                         
-                        NavigationLink(destination: Safe(archive: archive)) {
+                        NavigationLink(destination: Capacity(archive: archive)) {
                             Label("Capacity", systemImage: "lock.square.stack")
                         }
                         
@@ -54,7 +55,6 @@ struct Sidebar: View {
             .listStyle(.sidebar)
             .symbolRenderingMode(.hierarchical)
         }
-        
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
@@ -72,6 +72,12 @@ struct Sidebar: View {
 ////                        modal.send(.full)
 //                    }
 //                }
+            }
+        }
+        .sheet(isPresented: $onboard, content: Onboard.init)
+        .onAppear {
+            if !Defaults.onboarded {
+                onboard = true
             }
         }
         .onChange(of: archive) {

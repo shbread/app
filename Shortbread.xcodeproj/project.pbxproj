@@ -18,9 +18,9 @@
 		CE0C6DFB26E3D5C700813563 /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE0C6DFA26E3D5C700813563 /* Secrets */; };
 		CE0C6DFE26E3D79700813563 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0C6DFD26E3D79700813563 /* CloudKit.framework */; };
 		CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1C26E230D2009ED010 /* Store.State.swift */; };
-		CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1E26E23338009ED010 /* Safe.Content.swift */; };
+		CE0ECE1F26E23338009ED010 /* Capacity.Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1E26E23338009ED010 /* Capacity.Content.swift */; };
 		CE0F341826E22C18000388F3 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F341726E22C18000388F3 /* Store.swift */; };
-		CE2A54B826E247220072A39F /* Safe.Content.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A54B726E247220072A39F /* Safe.Content.Item.swift */; };
+		CE2A54B826E247220072A39F /* Capacity.Content.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2A54B726E247220072A39F /* Capacity.Content.Item.swift */; };
 		CE2DAFBE26D8EB880009E974 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DAFBD26D8EB880009E974 /* App.swift */; };
 		CE2DAFC026D8EB880009E974 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2DAFBF26D8EB880009E974 /* Sidebar.swift */; };
 		CE2DAFC226D8EB890009E974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2DAFC126D8EB890009E974 /* Assets.xcassets */; };
@@ -30,12 +30,11 @@
 		CE6C8DFC26E67D7A00149D95 /* UISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */; };
 		CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A726DA5ADC00F778A9 /* Option.swift */; };
 		CE6F48AA26DA640D00F778A9 /* Sidebar.Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A926DA640D00F778A9 /* Sidebar.Filter.swift */; };
-		CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AB26DA766800F778A9 /* App.Modal.swift */; };
 		CE6F48AE26DA76E600F778A9 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AD26DA76E600F778A9 /* Tags.swift */; };
-		CE6F48B026DA7B6D00F778A9 /* Safe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AF26DA7B6D00F778A9 /* Safe.swift */; };
+		CE6F48B026DA7B6D00F778A9 /* Capacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AF26DA7B6D00F778A9 /* Capacity.swift */; };
 		CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B126DA7C0900F778A9 /* Writer.swift */; };
 		CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */; };
-		CE6F48B626DA885700F778A9 /* App.Modal.Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */; };
+		CE6F48B626DA885700F778A9 /* Writer.Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B526DA885700F778A9 /* Writer.Write.swift */; };
 		CE6F48B826DA88D200F778A9 /* Container.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48B726DA88D200F778A9 /* Container.swift */; };
 		CE75611E26DFA52E00C094BA /* Secrets in Frameworks */ = {isa = PBXBuildFile; productRef = CE75611D26DFA52E00C094BA /* Secrets */; };
 		CE75612326DFB5B500C094BA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612226DFB5B500C094BA /* CloudKit.framework */; };
@@ -133,10 +132,10 @@
 		CE0C6DFC26E3D76300813563 /* Watch Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Watch Extension.entitlements"; sourceTree = "<group>"; };
 		CE0C6DFD26E3D79700813563 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS8.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE0ECE1C26E230D2009ED010 /* Store.State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.State.swift; sourceTree = "<group>"; };
-		CE0ECE1E26E23338009ED010 /* Safe.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.Content.swift; sourceTree = "<group>"; };
+		CE0ECE1E26E23338009ED010 /* Capacity.Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Content.swift; sourceTree = "<group>"; };
 		CE0F341726E22C18000388F3 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		CE2A54B626E239E10072A39F /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
-		CE2A54B726E247220072A39F /* Safe.Content.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.Content.Item.swift; sourceTree = "<group>"; };
+		CE2A54B726E247220072A39F /* Capacity.Content.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.Content.Item.swift; sourceTree = "<group>"; };
 		CE2DAFBA26D8EB880009E974 /* Shortbread.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shortbread.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE2DAFBD26D8EB880009E974 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		CE2DAFBF26D8EB880009E974 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -147,12 +146,11 @@
 		CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISplitViewController.swift; sourceTree = "<group>"; };
 		CE6F48A726DA5ADC00F778A9 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		CE6F48A926DA640D00F778A9 /* Sidebar.Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Filter.swift; sourceTree = "<group>"; };
-		CE6F48AB26DA766800F778A9 /* App.Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.swift; sourceTree = "<group>"; };
 		CE6F48AD26DA76E600F778A9 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
-		CE6F48AF26DA7B6D00F778A9 /* Safe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Safe.swift; sourceTree = "<group>"; };
+		CE6F48AF26DA7B6D00F778A9 /* Capacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capacity.swift; sourceTree = "<group>"; };
 		CE6F48B126DA7C0900F778A9 /* Writer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.swift; sourceTree = "<group>"; };
 		CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.Coordinator.swift; sourceTree = "<group>"; };
-		CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Modal.Write.swift; sourceTree = "<group>"; };
+		CE6F48B526DA885700F778A9 /* Writer.Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Writer.Write.swift; sourceTree = "<group>"; };
 		CE6F48B726DA88D200F778A9 /* Container.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Container.swift; sourceTree = "<group>"; };
 		CE75611F26DFB59D00C094BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		CE75612026DFB5AF00C094BA /* iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS.entitlements; sourceTree = "<group>"; };
@@ -263,19 +261,17 @@
 				CE75612026DFB5AF00C094BA /* iOS.entitlements */,
 				CE75611F26DFB59D00C094BA /* Info.plist */,
 				CE75612626DFB62E00C094BA /* App.Delegate.swift */,
-				CE6F48AB26DA766800F778A9 /* App.Modal.swift */,
-				CE6F48B526DA885700F778A9 /* App.Modal.Write.swift */,
 				CE2DAFBD26D8EB880009E974 /* App.swift */,
+				CE2A54B726E247220072A39F /* Capacity.Content.Item.swift */,
+				CE0ECE1E26E23338009ED010 /* Capacity.Content.swift */,
+				CE6F48AF26DA7B6D00F778A9 /* Capacity.swift */,
 				CEB1027426E3A713007D0BBE /* Dismiss.swift */,
 				CEB5C8BE26E0F1300001EC96 /* Empty.swift */,
 				CE6366D226DB927D0047EB1C /* Full.swift */,
+				CEB1027A26E3AF3E007D0BBE /* Info.swift */,
 				CEBC5E4626E278AE00118105 /* Onboard.swift */,
 				CE6F48A726DA5ADC00F778A9 /* Option.swift */,
 				CEB5E76126D9154600648645 /* Reveal.swift */,
-				CE2A54B726E247220072A39F /* Safe.Content.Item.swift */,
-				CE0ECE1E26E23338009ED010 /* Safe.Content.swift */,
-				CE6F48AF26DA7B6D00F778A9 /* Safe.swift */,
-				CEB1027A26E3AF3E007D0BBE /* Info.swift */,
 				CEBC5E4426E277EE00118105 /* Settings.swift */,
 				CE6F48A926DA640D00F778A9 /* Sidebar.Filter.swift */,
 				CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */,
@@ -287,6 +283,7 @@
 				CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */,
 				CE6F48B326DA882200F778A9 /* Writer.Coordinator.swift */,
 				CE6F48B126DA7C0900F778A9 /* Writer.swift */,
+				CE6F48B526DA885700F778A9 /* Writer.Write.swift */,
 				CE2DAFC126D8EB890009E974 /* Assets.xcassets */,
 			);
 			path = iOS;
@@ -512,7 +509,7 @@
 			files = (
 				CEBC5E4526E277EE00118105 /* Settings.swift in Sources */,
 				CE2DAFC026D8EB880009E974 /* Sidebar.swift in Sources */,
-				CE0ECE1F26E23338009ED010 /* Safe.Content.swift in Sources */,
+				CE0ECE1F26E23338009ED010 /* Capacity.Content.swift in Sources */,
 				CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */,
 				CE2DAFBE26D8EB880009E974 /* App.swift in Sources */,
 				CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */,
@@ -523,8 +520,8 @@
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,
 				CEBC5E4326E2667600118105 /* Notifications.swift in Sources */,
 				CEB5C8BF26E0F1300001EC96 /* Empty.swift in Sources */,
-				CE6F48B026DA7B6D00F778A9 /* Safe.swift in Sources */,
-				CE6F48B626DA885700F778A9 /* App.Modal.Write.swift in Sources */,
+				CE6F48B026DA7B6D00F778A9 /* Capacity.swift in Sources */,
+				CE6F48B626DA885700F778A9 /* Writer.Write.swift in Sources */,
 				CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */,
 				CE6F48B426DA882200F778A9 /* Writer.Coordinator.swift in Sources */,
 				CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */,
@@ -534,13 +531,12 @@
 				CE0ECE1D26E230D2009ED010 /* Store.State.swift in Sources */,
 				CEB1027526E3A713007D0BBE /* Dismiss.swift in Sources */,
 				CE6C8DFC26E67D7A00149D95 /* UISplitViewController.swift in Sources */,
-				CE6F48AC26DA766800F778A9 /* App.Modal.swift in Sources */,
 				CEB1027B26E3AF3E007D0BBE /* Info.swift in Sources */,
 				CEB5E76626D9227D00648645 /* Tagger.swift in Sources */,
 				CE6366D326DB927D0047EB1C /* Full.swift in Sources */,
 				CE6F48B826DA88D200F778A9 /* Container.swift in Sources */,
 				CE6F48AA26DA640D00F778A9 /* Sidebar.Filter.swift in Sources */,
-				CE2A54B826E247220072A39F /* Safe.Content.Item.swift in Sources */,
+				CE2A54B826E247220072A39F /* Capacity.Content.Item.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -2,7 +2,7 @@ import SwiftUI
 import StoreKit
 import Secrets
 
-extension Safe.Content {
+extension Capacity.Content {
     struct Item: View {
         let product: Product
         
@@ -35,7 +35,7 @@ extension Safe.Content {
                             + Text(Purchase(rawValue: product.id)!.save, format: .percent)
                         }
                         .foregroundColor(.orange)
-                        .font(.footnote.bold())
+                        .font(.callout.bold())
                     }
                     Spacer()
                 }

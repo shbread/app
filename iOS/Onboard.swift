@@ -63,6 +63,7 @@ struct Onboard: View {
             }
             .buttonStyle(.bordered)
             .font(.callout)
+            .padding(.top)
         }
         .tag(0)
     }
@@ -102,6 +103,7 @@ struct Onboard: View {
                 .font(.callout)
                 .padding(.leading)
             }
+            .padding(.top)
         }
         .tag(1)
     }
@@ -130,7 +132,7 @@ struct Onboard: View {
                         requested = true
                     }
                 }
-                .buttonStyle(.borderedProminent)
+                .buttonStyle(.bordered)
                 .font(.callout)
                 .padding()
             }
@@ -156,6 +158,7 @@ struct Onboard: View {
                 .font(.callout)
                 .padding(.leading)
             }
+            .padding(.top)
         }
         .tag(2)
     }
@@ -176,17 +179,6 @@ struct Onboard: View {
                 .font(.footnote)
                 .foregroundStyle(.secondary)
                 .padding([.bottom, .leading, .trailing])
-            
-            Button {
-                Defaults.onboarded = true
-                dismiss()
-            } label: {
-                Text("Done")
-                    .frame(maxWidth: 200)
-            }
-            .buttonStyle(.borderedProminent)
-            .font(.callout)
-            .padding()
             
             HStack {
                 Button {
@@ -210,6 +202,18 @@ struct Onboard: View {
                 .font(.callout)
                 .padding(.leading)
             }
+            .padding(.vertical)
+            
+            Button {
+                Defaults.onboarded = true
+                dismiss()
+            } label: {
+                Text("Done")
+                    .frame(maxWidth: 200)
+            }
+            .buttonStyle(.borderedProminent)
+            .font(.callout)
+            .padding([.leading, .trailing, .top])
         }
         .tag(3)
     }

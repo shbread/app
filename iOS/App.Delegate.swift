@@ -1,12 +1,8 @@
 import StoreKit
-import Combine
 import Secrets
 
 extension App {
     final class Delegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate, SKPaymentTransactionObserver {
-        let store = PassthroughSubject<Void, Never>()
-        private var subs = Set<AnyCancellable>()
-        
         func application(_ application: UIApplication, willFinishLaunchingWithOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
             application.registerForRemoteNotifications()
             
@@ -45,8 +41,7 @@ extension App {
         }
         
         func paymentQueue(_: SKPaymentQueue, shouldAddStorePayment: SKPayment, for: SKProduct) -> Bool {
-            store.send()
-            return true
+            true
         }
         
         func paymentQueue(_: SKPaymentQueue, updatedTransactions: [SKPaymentTransaction]) {

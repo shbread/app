@@ -1,6 +1,6 @@
 import SwiftUI
 
-extension Safe {
+extension Capacity {
     struct Content: View {
         let state: Store.State
         

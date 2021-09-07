@@ -28,15 +28,15 @@ struct Sidebar: View {
                     }
                 }
                 
-                NavigationLink(destination: Create(archive: archive)) {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.largeTitle)
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundColor(.orange)
-                        .frame(maxWidth: .greatestFiniteMagnitude)
-                }
-                .buttonStyle(.borderedProminent)
-                .listRowBackground(Color.clear)
+//                NavigationLink(destination: Create(archive: archive)) {
+//                    Image(systemName: "plus.circle.fill")
+//                        .font(.largeTitle)
+//                        .symbolRenderingMode(.hierarchical)
+//                        .foregroundColor(.orange)
+//                        .frame(maxWidth: .greatestFiniteMagnitude)
+//                }
+//                .buttonStyle(.borderedProminent)
+//                .listRowBackground(Color.clear)
             }
         }
     }

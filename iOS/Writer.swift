@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct Writer: UIViewRepresentable {
-    let write: App.Modal.Write
+    let write: Write
     
     func makeCoordinator() -> Coordinator {
         .init(write: write)

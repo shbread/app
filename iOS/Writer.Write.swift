@@ -1,7 +1,7 @@
 import Foundation
 import Secrets
 
-extension App.Modal {
+extension Writer {
     enum Write: Equatable {
         case
         create,

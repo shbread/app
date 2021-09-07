@@ -8,7 +8,6 @@ let store = Store()
 
 @main struct App: SwiftUI.App {
     @State private var archive = Archive.new
-    @State private var modal: Modal?
     @State private var authenticated = false
     @State private var search = ""
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
@@ -31,20 +30,8 @@ let store = Store()
 //                        modal.send(.full)
                 }
             }
-            .sheet(item: $modal, content: modal)
             .onReceive(cloud.archive) {
                 archive = $0
-            }
-            .onReceive(delegate.store) {
-//                change(.safe)
-            }
-//            .onReceive(session.modal) {
-//                change($0)
-//            }
-            .onAppear {
-                if !Defaults.onboarded {
-//                    change(.onboard)
-                }
             }
         }
         .onChange(of: phase) {
@@ -63,36 +50,6 @@ let store = Store()
             default:
                 break
             }
-        }
-    }
-    
-//    private func change(_ new: Modal) {
-//        guard new != modal else { return }
-//        if modal == nil {
-//            modal = new
-//        } else {
-//            modal = nil
-//            DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-//                modal = new
-//            }
-//        }
-//    }
-    
-    @ViewBuilder private func modal(_ modal: Modal) -> some View {
-        switch modal {
-        case .safe:
-            Safe(archive: archive)
-        case .full:
-            Full()
-        case .onboard:
-            Onboard()
-        case .settings:
-            Settings()
-        case let .tags(index, secret):
-            Tags(index: index, secret: secret)
-        case let .write(write):
-            Writer(write: write)
-                .privacySensitive()
         }
     }
     
