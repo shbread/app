@@ -3,11 +3,9 @@ import Secrets
 
 struct Sidebar: View {
     @Binding var search: String
-    @Binding var create: Bool
-    @Binding var full: Bool
+    @Binding var selected: Int?
     let archive: Archive
     let new: () -> Void
-    @State private var capacity = false
     @State private var onboard = false
     @State private var favourites = false
     @State private var filtered = [Int]()
@@ -22,7 +20,7 @@ struct Sidebar: View {
                 
                 Section("Secrets") {
                     ForEach(filtered, id: \.self) {
-                        Item(index: $0, secret: archive.secrets[$0], tags: .init(geo.size.width / 95))
+                        Item(selected: $selected, index: $0, secret: archive.secrets[$0], tags: .init(geo.size.width / 95))
                     }
                 }
                 
@@ -30,15 +28,8 @@ struct Sidebar: View {
                     app
                 }
                 
-                NavigationLink(isActive: $full) {
-                    Full(capacity: $capacity)
-                } label: {
-                    
-                }
-                .hidden()
-                
-                NavigationLink(isActive: $create) {
-                    Reveal(index: archive.secrets.count - 1, secret: archive.secrets.last!, edit: true)
+                NavigationLink(tag: Index.full.rawValue, selection: $selected) {
+                    Full(selected: $selected)
                 } label: {
                     
                 }
@@ -58,6 +49,16 @@ struct Sidebar: View {
                     Image(systemName: favourites ? "heart.fill" : "heart")
                         .symbolRenderingMode(.hierarchical)
                 }
+            }
+            
+            ToolbarItem(placement: .keyboard) {
+                Button(role: .cancel) {
+                    UIApplication.shared.hide()
+                } label: {
+                    Text("Cancel")
+                        .font(.footnote)
+                }
+                .tint(.pink)
             }
         }
         .sheet(isPresented: $onboard, content: Onboard.init)
@@ -93,25 +94,33 @@ struct Sidebar: View {
     
     private var app: some View {
         Section("App") {
-            NavigationLink(destination: Settings()) {
+            NavigationLink(tag: Index.settings.rawValue, selection: $selected) {
+                Settings()
+            } label: {
                 Label("Settings", systemImage: "slider.horizontal.3")
             }
             
-            NavigationLink(isActive: $capacity) {
+            NavigationLink(tag: Index.capacity.rawValue, selection: $selected) {
                 Capacity(archive: archive)
             } label: {
                 Label("Capacity", systemImage: "lock.square.stack")
             }
             
-            NavigationLink(destination: Info(title: "Markdown", text: Copy.markdown)) {
+            NavigationLink(tag: Index.markdown.rawValue, selection: $selected) {
+                Info(title: "Markdown", text: Copy.markdown)
+            } label: {
                 Label("Markdown", systemImage: "square.text.square")
             }
             
-            NavigationLink(destination: Info(title: "Privacy policy", text: Copy.privacy)) {
+            NavigationLink(tag: Index.privacy.rawValue, selection: $selected) {
+                Info(title: "Privacy policy", text: Copy.privacy)
+            } label: {
                 Label("Privacy policy", systemImage: "hand.raised")
             }
             
-            NavigationLink(destination: Info(title: "Terms and conditions", text: Copy.terms)) {
+            NavigationLink(tag: Index.terms.rawValue, selection: $selected) {
+                Info(title: "Terms and conditions", text: Copy.terms)
+            } label: {
                 Label("Terms and conditions", systemImage: "doc.plaintext")
             }
         }

@@ -3,6 +3,7 @@ import Secrets
 
 extension Sidebar {
     struct Item: View {
+        @Binding var selected: Int?
         let index: Int
         let secret: Secret
         let tags: Int
@@ -11,7 +12,9 @@ extension Sidebar {
         @FocusState private var focus: Bool
         
         var body: some View {
-            NavigationLink(destination: Reveal(index: index, secret: secret, edit: false)) {
+            NavigationLink(tag: index, selection: $selected) {
+                Reveal(index: index, secret: secret)
+            } label: {
                 HStack(spacing: 0) {
                     if secret.favourite {
                         Image(systemName: "heart.fill")
@@ -80,17 +83,6 @@ extension Sidebar {
                     Label("Rename", systemImage: "pencil")
                 }
                 .tint(.orange)
-            }
-            .toolbar {
-                ToolbarItem(placement: .keyboard) {
-                    Button(role: .cancel) {
-                        focus = false
-                    } label: {
-                        Text("Cancel")
-                            .font(.footnote)
-                    }
-                    .tint(.pink)
-                }
             }
         }
     }

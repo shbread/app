@@ -1,17 +1,20 @@
 import UIKit
+import Combine
+import Secrets
 
 extension Writer {
     final class Coordinator: UITextView, UITextViewDelegate {
-        let write: Write
+        private var subs = Set<AnyCancellable>()
         
         required init?(coder: NSCoder) { nil }
-        init(write: Write) {
-            self.write = write
+        init(index: Int, secret: Secret, submit: PassthroughSubject<Void, Never>) {
             super.init(frame: .zero, textContainer: Container())
-            typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .body).pointSize + 2, weight: .regular)
+            typingAttributes[.font] = UIFont.monospacedSystemFont(ofSize: UIFont.preferredFont(forTextStyle: .title3).pointSize, weight: .regular)
             typingAttributes[.kern] = 1
             font = typingAttributes[.font] as? UIFont
-            textContainerInset = .init(top: 20, left: 20, bottom: 30, right: 20)
+            textContainerInset = UIDevice.current.userInterfaceIdiom == .pad
+                ? .init(top: 80, left: 80, bottom: 80, right: 80)
+                : .init(top: 20, left: 20, bottom: 30, right: 20)
             keyboardDismissMode = .none
             backgroundColor = .clear
             tintColor = .label
@@ -21,6 +24,7 @@ extension Writer {
             alwaysBounceVertical = true
             allowsEditingTextAttributes = false
             delegate = self
+            text = secret.payload
             
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
             
@@ -73,22 +77,21 @@ extension Writer {
             
             inputAccessoryView = input
             
-            switch write {
-            case let .edit(_, secret):
-                text = secret.payload
-            case .create:
-                break
-            }
-            
             DispatchQueue
                 .main
                 .asyncAfter(deadline: .now() + 0.5) { [weak self] in
                     self?.becomeFirstResponder()
                 }
-        }
-        
-        func textViewDidEndEditing(_: UITextView) {
-//            wrapper.dismiss()
+            
+            submit
+                .sink { [weak self] in
+                    guard let text = self?.text.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+                    Task {
+                        await cloud.update(index: index, payload: text)
+                        await Notifications.send(message: "Edited secret!")
+                    }
+                }
+                .store(in: &subs)
         }
         
         override func caretRect(for position: UITextPosition) -> CGRect {
@@ -96,23 +99,6 @@ extension Writer {
             rect.size.width = 2
             return rect
         }
-        
-//        @objc private func send() {
-//            let text = text.trimmingCharacters(in: .whitespacesAndNewlines)
-//            resignFirstResponder()
-//            Task {
-//                switch write {
-//                case .create:
-////                    wrapper.session.selected = await cloud.new(secret: text)
-//                    await Notifications.send(message: "Added new secret!")
-//                case let .rename(index, _):
-//                    await cloud.update(index: index, name: text)
-//                case let .edit(index, _):
-//                    await cloud.update(index: index, payload: text)
-//                    await Notifications.send(message: "Edited secret!")
-//                }
-//            }
-//        }
         
         @objc private func asterisk() {
             insertText("*")

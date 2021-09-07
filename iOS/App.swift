@@ -10,8 +10,7 @@ let store = Store()
     @State private var archive = Archive.new
     @State private var authenticated = false
     @State private var search = ""
-    @State private var create = false
-    @State private var full = false
+    @State private var selected: Int?
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
     @Environment(\.scenePhase) private var phase
     @UIApplicationDelegateAdaptor(Delegate.self) private var delegate
@@ -19,7 +18,7 @@ let store = Store()
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                Sidebar(search: $search, create: $create, full: $full, archive: archive, new: new)
+                Sidebar(search: $search, selected: $selected, archive: archive, new: new)
                 Empty(archive: archive)
             }
             .searchable(text: $search)
@@ -52,13 +51,13 @@ let store = Store()
     }
     
     private func new() {
+        UIApplication.shared.hide()
         if archive.available {
             Task {
-                _ = await cloud.new(secret: "")
-                create = true
+                selected = await cloud.new(secret: "")
             }
         } else {
-            full = true
+            selected = Sidebar.Index.full.rawValue
         }
     }
     

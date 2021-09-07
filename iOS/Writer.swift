@@ -1,30 +1,33 @@
 import SwiftUI
+import Combine
+import Secrets
 
 struct Writer: View {
-    let write: Write
-    @Environment(\.dismiss) private var dismiss
+    let index: Int
+    let secret: Secret
+    @Binding var editing: Bool
+    private let submit = PassthroughSubject<Void, Never>()
     
     var body: some View {
-        Representable(write: write)
+        Representable(index: index, secret: secret, submit: submit)
             .privacySensitive()
-            .navigationTitle(title)
+            .navigationTitle(secret.name)
             .navigationBarTitleDisplayMode(.inline)
-            .navigationBarBackButtonHidden(write != .create)
+            .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    if write != .create {
-                        Button("Cancel", role: .cancel) {
-                            UIApplication.shared.hide()
-                            dismiss()
-                        }
-                        .font(.footnote)
-                        .buttonStyle(.borderless)
-                        .tint(.pink)
+                    Button("Cancel", role: .cancel) {
+                        UIApplication.shared.hide()
+                        dismiss()
                     }
+                    .font(.footnote)
+                    .buttonStyle(.borderless)
+                    .tint(.pink)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Save") {
-                        
+                        submit.send()
+                        dismiss()
                     }
                     .font(.footnote)
                     .buttonStyle(.borderedProminent)
@@ -32,12 +35,9 @@ struct Writer: View {
             }
     }
     
-    private var title: String {
-        switch write {
-        case .create:
-            return "New secret"
-        case let .edit(_, secret):
-            return secret.name
+    private func dismiss() {
+        withAnimation(.easeInOut(duration: 0.5)) {
+            editing = false
         }
     }
 }

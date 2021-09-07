@@ -2,7 +2,7 @@ import SwiftUI
 import Secrets
 
 struct Full: View {
-    @Binding var capacity: Bool
+    @Binding var selected: Int?
     
     var body: some View {
         VStack {
@@ -21,7 +21,7 @@ struct Full: View {
                 .foregroundColor(.secondary)
                 .font(.callout)
             Button {
-                capacity = true
+                selected = Sidebar.Index.capacity.rawValue
             } label: {
                 Text("In-App Purchases")
                     .frame(maxWidth: 240)
