@@ -24,7 +24,7 @@ struct Reveal: View {
                             .foregroundStyle(.tertiary)
                             .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
                         
-                        Tagger(secret: secret, max: .init(geometry.size.width / 75))
+                        Tagger(secret: secret, tags: .init(geometry.size.width / 75))
                     }
                     .privacySensitive()
                     .padding(UIDevice.current.userInterfaceIdiom == .pad ? 80 : 30)

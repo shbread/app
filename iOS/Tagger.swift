@@ -3,7 +3,7 @@ import Secrets
 
 struct Tagger: View {
     let secret: Secret
-    let max: Int
+    let tags: Int
     
     var body: some View {
         VStack {
@@ -11,7 +11,7 @@ struct Tagger: View {
                         .tags
                         .sorted()
                         .reduce(into: [[Tag]]()) {
-                if $0.isEmpty || $0.last!.count == max {
+                if $0.isEmpty || $0.last!.count == tags {
                     $0.append([$1])
                 } else {
                     $0[$0.count - 1].append($1)
