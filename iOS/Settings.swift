@@ -14,9 +14,9 @@ struct Settings: View {
         List {
             header
             
-//            if !requested || !enabled {
+            if !requested || !enabled {
                 notifications
-//            }
+            }
             
             security
             edit
