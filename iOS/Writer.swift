@@ -14,6 +14,7 @@ struct Writer: View {
             .navigationTitle(secret.name)
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .privacySensitive()
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Cancel", role: .cancel) {

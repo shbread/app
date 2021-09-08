@@ -14,6 +14,6 @@ struct Info: View {
         .frame(maxWidth: .greatestFiniteMagnitude)
         .background(.ultraThickMaterial)
         .navigationTitle(title)
-        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarTitleDisplayMode(.large)
     }
 }

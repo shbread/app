@@ -26,10 +26,11 @@ struct Tags: View {
                             .foregroundColor(.primary)
                         Spacer()
                         Image(systemName: secret.tags.contains(tag) ? "checkmark.circle.fill" : "circle")
-                            .font(.title3)
-                            .foregroundColor(secret.tags.contains(tag) ? .orange : .secondary)
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.title2)
+                            .foregroundColor(secret.tags.contains(tag) ? .orange : .init(.tertiaryLabel))
                     }
-                    .padding(.vertical, 10)
+                    .padding(.vertical, 5)
                 }
             }
             .listStyle(.insetGrouped)
@@ -40,13 +41,10 @@ struct Tags: View {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "xmark")
+                        Text("Done")
                             .font(.footnote)
-                            .frame(height: 50)
-                            .padding(.leading, 40)
-                            .contentShape(Rectangle())
                     }
-                    .foregroundStyle(.secondary)
+                    .buttonStyle(.bordered)
                 }
             }
         }

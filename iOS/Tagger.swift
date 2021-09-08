@@ -20,12 +20,13 @@ struct Tagger: View {
                 HStack {
                     ForEach(row, id: \.self) { tag in
                         ZStack {
-                            RoundedRectangle(cornerRadius: 4)
+                            Capsule()
                                 .fill(Color.orange)
                             Text(verbatim: "\(tag)")
-                                .font(.caption)
+                                .font(.footnote)
                                 .foregroundColor(.white)
-                                .padding(6)
+                                .padding(.vertical, 6)
+                                .padding(.horizontal, 12)
                         }
                         .fixedSize()
                     }

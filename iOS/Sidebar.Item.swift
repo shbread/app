@@ -38,11 +38,16 @@ extension Sidebar {
                             }
                             .disabled(disabled)
                             .privacySensitive()
+                            .padding(.bottom, 3)
+                        if !secret.tags.isEmpty {
+                            Tagger(secret: secret, tags: tags)
+                                .privacySensitive()
+                                .padding(.vertical, 5)
+                        }
                         Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
                             .font(.footnote)
                             .foregroundStyle(.tertiary)
-                        Tagger(secret: secret, tags: tags)
-                            .privacySensitive()
+                            .padding(.top, 3)
                     }
                     Spacer()
                 }

@@ -6,6 +6,7 @@ struct Reveal: View {
     let secret: Secret
     @State private var first = true
     @State private var editing = false
+    @State private var tags = false
     
     var body: some View {
         if editing {
@@ -22,47 +23,55 @@ struct Reveal: View {
                             .textSelection(.enabled)
                             .privacySensitive()
                         
+                        if !secret.tags.isEmpty {
+                            Tagger(secret: secret, tags: .init(geometry.size.width / 95))
+                                .privacySensitive()
+                                .padding(.vertical)
+                        }
+                        
                         Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
                             .font(.footnote)
                             .foregroundStyle(.tertiary)
                             .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
-                        
-                        Tagger(secret: secret, tags: .init(geometry.size.width / 75))
-                            .privacySensitive()
                     }
                     .padding(UIDevice.pad ? 80 : 30)
                 }
             }
             .toolbar {
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button("Copy") {
-                        UIPasteboard.general.string = secret.payload
-                        Task {
-                            await Notifications.send(message: "Secret copied!")
-                        }
+                    Button {
+                        tags = true
+                    } label: {
+                        Image(systemName: "tag.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.title3)
                     }
-                    .buttonStyle(.borderedProminent)
-                    .tint(.orange)
-                    .font(.callout)
                     
                     Spacer()
                     
                     Button(action: edit) {
                         Image(systemName: "pencil.circle.fill")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.title3)
                     }
                     
                     Spacer()
                     
-                    Button("Copy") {
+                    Button {
                         UIPasteboard.general.string = secret.payload
                         Task {
                             await Notifications.send(message: "Secret copied!")
                         }
+                    } label: {
+                        Label("Copy", systemImage: "doc.on.doc.fill")
+                            .symbolRenderingMode(.hierarchical)
                     }
                     .buttonStyle(.borderedProminent)
-                    .tint(.orange)
                     .font(.footnote)
                 }
+            }
+            .sheet(isPresented: $tags) {
+                Tags(index: index, secret: secret)
             }
             .onAppear {
                 if secret.payload.isEmpty && secret.name == "Untitled" && secret.tags.isEmpty && secret.date.timeIntervalSince(.now) > -2 {
