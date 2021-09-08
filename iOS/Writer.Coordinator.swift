@@ -3,7 +3,7 @@ import Combine
 import Secrets
 
 extension Writer {
-    final class Coordinator: UITextView, UITextViewDelegate {
+    final class Coordinator: UITextView {
         private var subs = Set<AnyCancellable>()
         
         required init?(coder: NSCoder) { nil }
@@ -19,13 +19,40 @@ extension Writer {
             backgroundColor = .clear
             tintColor = .label
             autocapitalizationType = .sentences
-            autocorrectionType = .no
-            spellCheckingType = .no
+            autocorrectionType = Defaults.correction ? .yes : .no
+            spellCheckingType = Defaults.spell ? .yes : .no
             alwaysBounceVertical = true
             allowsEditingTextAttributes = false
-            delegate = self
             text = secret.payload
             
+            if Defaults.tools {
+                tools()
+            }
+            
+            DispatchQueue
+                .main
+                .asyncAfter(deadline: .now() + 0.75) { [weak self] in
+                    self?.becomeFirstResponder()
+                }
+            
+            submit
+                .sink { [weak self] in
+                    guard let text = self?.text.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
+                    Task {
+                        await cloud.update(index: index, payload: text)
+                        await Notifications.send(message: "Edited secret!")
+                    }
+                }
+                .store(in: &subs)
+        }
+        
+        override func caretRect(for position: UITextPosition) -> CGRect {
+            var rect = super.caretRect(for: position)
+            rect.size.width = 2
+            return rect
+        }
+        
+        private func tools() {
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
             
             let cancel = UIButton()
@@ -76,28 +103,6 @@ extension Writer {
             asterisk.leftAnchor.constraint(equalTo: minus.rightAnchor).isActive = true
             
             inputAccessoryView = input
-            
-            DispatchQueue
-                .main
-                .asyncAfter(deadline: .now() + 0.5) { [weak self] in
-                    self?.becomeFirstResponder()
-                }
-            
-            submit
-                .sink { [weak self] in
-                    guard let text = self?.text.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
-                    Task {
-                        await cloud.update(index: index, payload: text)
-                        await Notifications.send(message: "Edited secret!")
-                    }
-                }
-                .store(in: &subs)
-        }
-        
-        override func caretRect(for position: UITextPosition) -> CGRect {
-            var rect = super.caretRect(for: position)
-            rect.size.width = 2
-            return rect
         }
         
         @objc private func asterisk() {
