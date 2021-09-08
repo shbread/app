@@ -39,6 +39,7 @@ struct Sidebar: View {
             }
             .listStyle(.sidebar)
             .symbolRenderingMode(.hierarchical)
+            .navigationTitle("Shortbread")
             .navigationBarTitleDisplayMode(.inline)
         }
         .toolbar {
@@ -62,7 +63,11 @@ struct Sidebar: View {
                 .tint(.pink)
             }
         }
-        .sheet(isPresented: $onboard, content: Onboard.init)
+        .sheet(isPresented: $onboard, onDismiss: {
+            Defaults.onboarded = true
+        }) {
+            Onboard(selected: $selected)
+        }
         .onAppear {
             if !Defaults.onboarded {
                 onboard = true

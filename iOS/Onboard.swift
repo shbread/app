@@ -2,6 +2,7 @@ import SwiftUI
 import Secrets
 
 struct Onboard: View {
+    @Binding var selected: Int?
     @State private var index = 0
     @State private var requested = false
     @Environment(\.dismiss) private var dismiss
@@ -193,8 +194,8 @@ struct Onboard: View {
                 .padding(.trailing)
                 
                 Button {
-                    Defaults.onboarded = true
-//                    session.modal.send(.settings)
+                    selected = Sidebar.Index.settings.rawValue
+                    dismiss()
                 } label: {
                     Image(systemName: "slider.horizontal.3")
                 }
@@ -205,7 +206,6 @@ struct Onboard: View {
             .padding(.vertical)
             
             Button {
-                Defaults.onboarded = true
                 dismiss()
             } label: {
                 Text("Done")

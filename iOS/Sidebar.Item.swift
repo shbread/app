@@ -34,6 +34,7 @@ extension Sidebar {
                             .onSubmit {
                                 Task {
                                     await cloud.update(index: index, name: name)
+                                    await Notifications.send(message: "Renamed secret!")
                                 }
                             }
                             .disabled(disabled)
