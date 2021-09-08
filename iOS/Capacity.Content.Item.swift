@@ -10,6 +10,7 @@ extension Capacity.Content {
             VStack {
                 HStack {
                     Image(product.id)
+                        .padding(.trailing)
                     Group {
                         Text(verbatim: product.displayName)
                             .foregroundColor(.primary)

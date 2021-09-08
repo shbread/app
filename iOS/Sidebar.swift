@@ -44,9 +44,8 @@ struct Sidebar: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
-                    withAnimation(.easeInOut(duration: 0.35)) {
-                        favourites.toggle()
-                    }
+                    UIApplication.shared.hide()
+                    favourites.toggle()
                 } label: {
                     Image(systemName: favourites ? "heart.fill" : "heart")
                         .symbolRenderingMode(.hierarchical)
@@ -73,11 +72,15 @@ struct Sidebar: View {
         .onChange(of: archive) {
             filtered = $0.filter(favourites: favourites, search: search)
         }
-        .onChange(of: favourites) {
-            filtered = archive.filter(favourites: $0, search: search)
+        .onChange(of: favourites) { favourites in
+            withAnimation(.easeInOut(duration: 0.35)) {
+                filtered = archive.filter(favourites: favourites, search: search)
+            }
         }
-        .onChange(of: search) {
-            filtered = archive.filter(favourites: favourites, search: $0)
+        .onChange(of: search) { search in
+            withAnimation(.easeInOut(duration: 0.35)) {
+                filtered = archive.filter(favourites: favourites, search: search)
+            }
         }
     }
     

@@ -6,17 +6,22 @@ struct Settings: View {
     @State private var enabled = true
     @Environment(\.dismiss) private var dismiss
     @AppStorage(Defaults._authenticate.rawValue) private var authenticate = false
+    @AppStorage(Defaults._tools.rawValue) private var tools = true
+    @AppStorage(Defaults._spell.rawValue) private var spell = true
+    @AppStorage(Defaults._correction.rawValue) private var correction = false
     
     var body: some View {
         List {
             header
             
-            if !requested || !enabled {
+//            if !requested || !enabled {
                 notifications
-            }
+//            }
             
-            face
+            security
+            edit
         }
+        .toggleStyle(SwitchToggleStyle(tint: .orange))
         .listStyle(.grouped)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
@@ -66,35 +71,59 @@ struct Settings: View {
         Section("Notifications") {
             Text(Copy.notifications)
                 .font(.footnote)
-            Button("Allow notifications") {
-                if requested {
-                    dismiss()
-                    UIApplication.shared.settings()
-                } else {
-                    Task {
-                        _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
-                        requested = true
-                        await check()
+            HStack {
+                Image(systemName: "app.badge")
+                    .symbolRenderingMode(.multicolor)
+                    .font(.title)
+                Button("Allow notifications") {
+                    if requested {
+                        dismiss()
+                        UIApplication.shared.settings()
+                    } else {
+                        Task {
+                            _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
+                            requested = true
+                            await check()
+                        }
                     }
                 }
+                .buttonStyle(.bordered)
+                .font(.callout)
             }
-            .buttonStyle(.bordered)
-            .font(.callout)
         }
-        .listRowBackground(Color.clear)
-        .listRowSeparator(.hidden)
     }
     
-    private var face: some View {
-        Section {
-            Toggle.init(isOn: $authenticate) {
+    private var security: some View {
+        Section("Security") {
+            Toggle(isOn: $authenticate) {
                 Image(systemName: "faceid")
                     .symbolRenderingMode(.multicolor)
                     .font(.title)
                 Text("Secure with Face ID")
                     .font(.callout)
             }
-            .toggleStyle(SwitchToggleStyle(tint: .orange))
         }
+    }
+    
+    private var edit: some View {
+        Section("Edit") {
+            Toggle(isOn: $tools) {
+                Image(systemName: "hammer")
+                    .foregroundStyle(Color.accentColor)
+                Text("Show toolbar above keyboard")
+            }
+            Toggle(isOn: $spell) {
+                Image(systemName: "text.book.closed")
+                    .foregroundStyle(Color.accentColor)
+                Text("Spell checking")
+            }
+            Toggle(isOn: $correction) {
+                Image(systemName: "ladybug")
+                    .foregroundStyle(Color.accentColor)
+                Text("Auto correction")
+            }
+        }
+        .symbolRenderingMode(.palette)
+        .font(.callout)
     }
 }
