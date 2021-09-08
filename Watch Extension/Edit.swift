@@ -1,7 +1,7 @@
 import SwiftUI
 import Secrets
 
-struct Reveal: View {
+struct Edit: View {
     let index: Int
     let secret: Secret
     

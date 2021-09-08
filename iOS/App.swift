@@ -54,7 +54,7 @@ let store = Store()
         UIApplication.shared.hide()
         if archive.available {
             Task {
-                selected = await cloud.new(secret: "")
+                selected = await cloud.secret()
             }
         } else {
             selected = Sidebar.Index.full.rawValue

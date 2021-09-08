@@ -15,13 +15,20 @@ struct Reveal: View {
             GeometryReader { geometry in
                 ScrollView {
                     VStack {
-                        Text(.init(secret.payload))
-                            .kerning(1)
-                            .font(.title3.weight(.regular))
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .greatestFiniteMagnitude, maxHeight: .greatestFiniteMagnitude, alignment: .topLeading)
-                            .textSelection(.enabled)
-                            .privacySensitive()
+                        if secret.payload.isEmpty {
+                            Text("Empty secret")
+                                .font(.callout)
+                                .foregroundStyle(.tertiary)
+                                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                        } else {
+                            Text(.init(secret.payload))
+                                .kerning(1)
+                                .font(.title3.weight(.regular))
+                                .foregroundStyle(.secondary)
+                                .frame(maxWidth: .greatestFiniteMagnitude, alignment: .leading)
+                                .textSelection(.enabled)
+                                .privacySensitive()
+                        }
                         
                         if !secret.tags.isEmpty {
                             Tagger(secret: secret, tags: .init(geometry.size.width / 95))

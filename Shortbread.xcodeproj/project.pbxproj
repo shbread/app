@@ -28,7 +28,6 @@
 		CE2DAFC226D8EB890009E974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2DAFC126D8EB890009E974 /* Assets.xcassets */; };
 		CE3DBE4826DA493C002AE5B0 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE3DBE4726DA493C002AE5B0 /* Media.xcassets */; };
 		CE6366D326DB927D0047EB1C /* Full.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6366D226DB927D0047EB1C /* Full.swift */; };
-		CE6C8DFA26E6528B00149D95 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8DF926E6528B00149D95 /* Create.swift */; };
 		CE6C8DFC26E67D7A00149D95 /* UISplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */; };
 		CE6F48A826DA5ADC00F778A9 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48A726DA5ADC00F778A9 /* Option.swift */; };
 		CE6F48AE26DA76E600F778A9 /* Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6F48AD26DA76E600F778A9 /* Tags.swift */; };
@@ -57,6 +56,8 @@
 		CEBC5E4526E277EE00118105 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4426E277EE00118105 /* Settings.swift */; };
 		CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4626E278AE00118105 /* Onboard.swift */; };
 		CECA765A26E8B34C000551CB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CECA765926E8B34C000551CB /* Settings.bundle */; };
+		CECA765C26E8F3C1000551CB /* Purchases.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA765B26E8F3C1000551CB /* Purchases.swift */; };
+		CECA765E26E90362000551CB /* Edit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA765D26E90362000551CB /* Edit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +145,6 @@
 		CE2DAFC126D8EB890009E974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE3DBE4726DA493C002AE5B0 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		CE6366D226DB927D0047EB1C /* Full.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Full.swift; sourceTree = "<group>"; };
-		CE6C8DF926E6528B00149D95 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
 		CE6C8DFB26E67D7A00149D95 /* UISplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISplitViewController.swift; sourceTree = "<group>"; };
 		CE6F48A726DA5ADC00F778A9 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
 		CE6F48AD26DA76E600F778A9 /* Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tags.swift; sourceTree = "<group>"; };
@@ -175,6 +175,8 @@
 		CEBC5E4426E277EE00118105 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CEBC5E4626E278AE00118105 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
 		CECA765926E8B34C000551CB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		CECA765B26E8F3C1000551CB /* Purchases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.swift; sourceTree = "<group>"; };
+		CECA765D26E90362000551CB /* Edit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Edit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,7 +226,8 @@
 				CE0C6DE826E3D31F00813563 /* Info.plist */,
 				CE0C6DF426E3D44A00813563 /* App.Delegate.swift */,
 				CE0C6DE126E3D31F00813563 /* App.swift */,
-				CE6C8DF926E6528B00149D95 /* Create.swift */,
+				CECA765D26E90362000551CB /* Edit.swift */,
+				CECA765B26E8F3C1000551CB /* Purchases.swift */,
 				CE0C6DF826E3D4A400813563 /* Reveal.swift */,
 				CE0C6DF626E3D47E00813563 /* Sidebar.swift */,
 			);
@@ -499,8 +502,9 @@
 				CE0C6DE226E3D31F00813563 /* App.swift in Sources */,
 				CE0C6DF726E3D47E00813563 /* Sidebar.swift in Sources */,
 				CE0C6DF926E3D4A400813563 /* Reveal.swift in Sources */,
+				CECA765C26E8F3C1000551CB /* Purchases.swift in Sources */,
 				CE0C6DF526E3D44A00813563 /* App.Delegate.swift in Sources */,
-				CE6C8DFA26E6528B00149D95 /* Create.swift in Sources */,
+				CECA765E26E90362000551CB /* Edit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

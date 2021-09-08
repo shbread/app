@@ -1,9 +1,6 @@
 import SwiftUI
-import Secrets
 
-struct Create: View {
-    let archive: Archive
-    
+struct Purchases: View {
     var body: some View {
         Circle()
     }
