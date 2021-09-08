@@ -57,23 +57,25 @@ Use 2 * to make a text bold.
 For example `**hello**` will be: **hello**.
 
 **— Italic**
-Use 1 * to make a text italic.
-For example `*hello*` will be: *hello*.
-
-**— Bold and Italic**
-Use 3 * to make a text bold and italic.
-For example `***hello***` will be: ***hello***.
+Use 1 _ to make a text italic.
+For example `_hello_` will be: _hello_.
 
 **— Strikethrough**
 Use 2 ~ to make a text strikethrough.
 For example `~~hello~~` will be: ~~hello~~.
 
 **— Monospaced**
-Use 1 \\` to make a text monospaced.
+Use 1 \\` to make a text monospaced, otherwise also known as code voice.
 For example \\`hello\\` will be: `hello`.
+
+**— Combine**
+You can combine styles.
+For example `**_hello_**` will be: **_hello_**.
 
 **— Links**
 You can add hyperlinks in your text, add a description text between [ and ], followed by the URL inside ( and ).
 \\[Wikipedia](https://wikipedia.org) will be: [Wikipedia](https://wikipedia.org).
+
+[Learn more](https://en.wikipedia.org/wiki/Markdown)
 """
 }

@@ -1,6 +1,7 @@
 import UIKit
 import Combine
 import Secrets
+import SwiftUI
 
 extension Writer {
     final class Coordinator: UITextView {
@@ -55,40 +56,36 @@ extension Writer {
         private func tools() {
             let input = UIInputView(frame: .init(x: 0, y: 0, width: 0, height: 48), inputViewStyle: .keyboard)
             
-            let cancel = UIButton()
-            cancel.setImage(UIImage(systemName: "xmark")?
-                                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 16)), for: .normal)
-            cancel.addTarget(self, action: #selector(resignFirstResponder), for: .touchUpInside)
-            cancel.imageView!.tintColor = .secondaryLabel
-            
-            let send = UIButton()
-            send.setImage(UIImage(systemName: "arrow.up.circle.fill")?
-                            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 25)), for: .normal)
-            send.imageView!.tintColor = .label
-//            send.addTarget(self, action: #selector(self.send), for: .touchUpInside)
-            
-            let number = UIButton()
-            number.setImage(UIImage(systemName: "number")?
-                                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .semibold)), for: .normal)
+            let number = UIButton(configuration: .bordered())
+            number.setTitle("#", for: .init())
             number.addTarget(self, action: #selector(self.number), for: .touchUpInside)
             
-            let minus = UIButton()
-            minus.setImage(UIImage(systemName: "minus")?
-                            .withConfiguration(UIImage.SymbolConfiguration(pointSize: 18, weight: .bold)), for: .normal)
+            let minus = UIButton(configuration: .bordered())
+            minus.setTitle("—", for: .init())
             minus.addTarget(self, action: #selector(self.minus), for: .touchUpInside)
             
-            let asterisk = UIButton()
-            asterisk.setImage(UIImage(systemName: "staroflife.fill")?
-                                .withConfiguration(UIImage.SymbolConfiguration(pointSize: 14, weight: .light)), for: .normal)
+            let underscore = UIButton(configuration: .bordered())
+            underscore.setTitle("_", for: .init())
+            underscore.addTarget(self, action: #selector(self.underscore), for: .touchUpInside)
+            
+            let backquote = UIButton(configuration: .bordered())
+            backquote.setTitle("`", for: .init())
+            backquote.addTarget(self, action: #selector(self.backquote), for: .touchUpInside)
+            
+            let asterisk = UIButton(configuration: .bordered())
+            asterisk.setTitle("*", for: .init())
             asterisk.addTarget(self, action: #selector(self.asterisk), for: .touchUpInside)
             
-            [cancel, send, number, minus, asterisk].forEach {
+            [number, minus, underscore, backquote, asterisk].forEach {
+                $0.titleLabel!.font = .monospacedSystemFont(ofSize: 20, weight: .regular)
+                $0.setTitleColor(.label, for: .normal)
+                $0.setTitleColor(.tertiaryLabel, for: .highlighted)
                 $0.translatesAutoresizingMaskIntoConstraints = false
                 input.addSubview($0)
                 
-                $0.topAnchor.constraint(equalTo: input.topAnchor).isActive = true
-                $0.bottomAnchor.constraint(equalTo: input.bottomAnchor, constant: 5).isActive = true
-                $0.widthAnchor.constraint(equalToConstant: 64).isActive = true
+                $0.topAnchor.constraint(equalTo: input.topAnchor, constant: 8).isActive = true
+                $0.bottomAnchor.constraint(equalTo: input.bottomAnchor, constant: -8).isActive = true
+                $0.widthAnchor.constraint(equalToConstant: 54).isActive = true
             }
             
             [number, minus, asterisk]
@@ -96,11 +93,11 @@ extension Writer {
                     $0.imageView!.tintColor = .label
                 }
             
-            cancel.leftAnchor.constraint(equalTo: input.safeAreaLayoutGuide.leftAnchor).isActive = true
-            send.rightAnchor.constraint(equalTo: input.safeAreaLayoutGuide.rightAnchor).isActive = true
-            minus.centerXAnchor.constraint(equalTo: input.centerXAnchor).isActive = true
-            number.rightAnchor.constraint(equalTo: minus.leftAnchor).isActive = true
-            asterisk.leftAnchor.constraint(equalTo: minus.rightAnchor).isActive = true
+            number.rightAnchor.constraint(equalTo: minus.leftAnchor, constant: -8).isActive = true
+            minus.rightAnchor.constraint(equalTo: underscore.leftAnchor, constant: -8).isActive = true
+            underscore.centerXAnchor.constraint(equalTo: input.centerXAnchor).isActive = true
+            backquote.leftAnchor.constraint(equalTo: underscore.rightAnchor, constant: 8).isActive = true
+            asterisk.leftAnchor.constraint(equalTo: backquote.rightAnchor, constant: 8).isActive = true
             
             inputAccessoryView = input
         }
@@ -111,6 +108,14 @@ extension Writer {
         
         @objc private func minus() {
             insertText("—")
+        }
+        
+        @objc private func underscore() {
+            insertText("_")
+        }
+        
+        @objc private func backquote() {
+            insertText("`")
         }
         
         @objc private func number() {
