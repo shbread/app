@@ -6,7 +6,7 @@ extension Transaction {
         let purchase = Purchase(rawValue: productID)!
         if revocationDate == nil {
             await cloud.add(purchase: purchase)
-            await Notifications.send(message: "Purchase successful!")
+            await UNUserNotificationCenter.send(message: "Purchase successful!")
         } else {
             await cloud.remove(purchase: purchase)
         }

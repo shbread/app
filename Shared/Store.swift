@@ -44,7 +44,7 @@ struct Store {
                 }
             case .pending:
                 await load()
-                await Notifications.send(message: "Purchase is pending...")
+                await UNUserNotificationCenter.send(message: "Purchase is pending...")
             default:
                 await load()
             }

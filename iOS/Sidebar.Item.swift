@@ -34,7 +34,7 @@ extension Sidebar {
                             .onSubmit {
                                 Task {
                                     await cloud.update(index: index, name: name)
-                                    await Notifications.send(message: "Renamed secret!")
+                                    await UNUserNotificationCenter.send(message: "Renamed secret!")
                                 }
                             }
                             .disabled(disabled)
@@ -69,7 +69,7 @@ extension Sidebar {
                     }
                     Task {
                         await cloud.delete(index: index)
-                        await Notifications.send(message: "Deleted secret!")
+                        await UNUserNotificationCenter.send(message: "Deleted secret!")
                     }
                 }
             }
@@ -81,7 +81,7 @@ extension Sidebar {
                 } label: {
                     Label("Favourite", systemImage: secret.favourite ? "heart.slash" : "heart")
                 }
-                .tint(secret.favourite ? .gray : .pink)
+                .tint(secret.favourite ? .gray : .accentColor)
             }
             .swipeActions {
                 Button {

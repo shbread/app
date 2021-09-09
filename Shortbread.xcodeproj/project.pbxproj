@@ -40,6 +40,8 @@
 		CE75612326DFB5B500C094BA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612226DFB5B500C094BA /* CloudKit.framework */; };
 		CE75612526DFB5D900C094BA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE75612426DFB5D900C094BA /* StoreKit.framework */; };
 		CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75612626DFB62E00C094BA /* App.Delegate.swift */; };
+		CE76FEA626EA049100EC9CC2 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FEA526EA049100EC9CC2 /* Sidebar.Item.swift */; };
+		CE76FEA726EA06C300EC9CC2 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* UNUserNotificationCenter.swift */; };
 		CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027626E3AA4E007D0BBE /* Copy.swift */; };
 		CEB1027926E3ABA9007D0BBE /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027826E3ABA9007D0BBE /* UIApplication.swift */; };
 		CEB1027B26E3AF3E007D0BBE /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027A26E3AF3E007D0BBE /* Info.swift */; };
@@ -52,7 +54,7 @@
 		CEB5E76226D9154600648645 /* Reveal.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76126D9154600648645 /* Reveal.swift */; };
 		CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */; };
 		CEB5E76626D9227D00648645 /* Tagger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB5E76526D9227D00648645 /* Tagger.swift */; };
-		CEBC5E4326E2667600118105 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* Notifications.swift */; };
+		CEBC5E4326E2667600118105 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* UNUserNotificationCenter.swift */; };
 		CEBC5E4526E277EE00118105 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4426E277EE00118105 /* Settings.swift */; };
 		CEBC5E4726E278AE00118105 /* Onboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4626E278AE00118105 /* Onboard.swift */; };
 		CECA765A26E8B34C000551CB /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CECA765926E8B34C000551CB /* Settings.bundle */; };
@@ -158,6 +160,7 @@
 		CE75612226DFB5B500C094BA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE75612426DFB5D900C094BA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE75612626DFB62E00C094BA /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
+		CE76FEA526EA049100EC9CC2 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
 		CEB1027626E3AA4E007D0BBE /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		CEB1027826E3ABA9007D0BBE /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CEB1027A26E3AF3E007D0BBE /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -171,7 +174,7 @@
 		CEB5E76126D9154600648645 /* Reveal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reveal.swift; sourceTree = "<group>"; };
 		CEB5E76326D91CAD00648645 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
 		CEB5E76526D9227D00648645 /* Tagger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tagger.swift; sourceTree = "<group>"; };
-		CEBC5E4226E2667600118105 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
+		CEBC5E4226E2667600118105 /* UNUserNotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNUserNotificationCenter.swift; sourceTree = "<group>"; };
 		CEBC5E4426E277EE00118105 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CEBC5E4626E278AE00118105 /* Onboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboard.swift; sourceTree = "<group>"; };
 		CECA765926E8B34C000551CB /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 				CECA765D26E90362000551CB /* Edit.swift */,
 				CECA765B26E8F3C1000551CB /* Purchases.swift */,
 				CE0C6DF826E3D4A400813563 /* Reveal.swift */,
+				CE76FEA526EA049100EC9CC2 /* Sidebar.Item.swift */,
 				CE0C6DF626E3D47E00813563 /* Sidebar.swift */,
 			);
 			path = "Watch Extension";
@@ -320,10 +324,10 @@
 				CE2A54B626E239E10072A39F /* Configuration.storekit */,
 				CE6F48B726DA88D200F778A9 /* Container.swift */,
 				CEB1027626E3AA4E007D0BBE /* Copy.swift */,
-				CEBC5E4226E2667600118105 /* Notifications.swift */,
 				CE0ECE1C26E230D2009ED010 /* Store.State.swift */,
 				CE0F341726E22C18000388F3 /* Store.swift */,
 				CE0B965226E2596E00764AAE /* Transaction.swift */,
+				CEBC5E4226E2667600118105 /* UNUserNotificationCenter.swift */,
 				CE3DBE4726DA493C002AE5B0 /* Media.xcassets */,
 			);
 			path = Shared;
@@ -499,11 +503,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE76FEA726EA06C300EC9CC2 /* UNUserNotificationCenter.swift in Sources */,
 				CE0C6DE226E3D31F00813563 /* App.swift in Sources */,
 				CE0C6DF726E3D47E00813563 /* Sidebar.swift in Sources */,
 				CE0C6DF926E3D4A400813563 /* Reveal.swift in Sources */,
 				CECA765C26E8F3C1000551CB /* Purchases.swift in Sources */,
 				CE0C6DF526E3D44A00813563 /* App.Delegate.swift in Sources */,
+				CE76FEA626EA049100EC9CC2 /* Sidebar.Item.swift in Sources */,
 				CECA765E26E90362000551CB /* Edit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,7 +530,7 @@
 				CE6F48B226DA7C0900F778A9 /* Writer.swift in Sources */,
 				CE6F48AE26DA76E600F778A9 /* Tags.swift in Sources */,
 				CEB5E76226D9154600648645 /* Reveal.swift in Sources */,
-				CEBC5E4326E2667600118105 /* Notifications.swift in Sources */,
+				CEBC5E4326E2667600118105 /* UNUserNotificationCenter.swift in Sources */,
 				CEB5C8BF26E0F1300001EC96 /* Empty.swift in Sources */,
 				CE6F48B026DA7B6D00F778A9 /* Capacity.swift in Sources */,
 				CEB5E76426D91CAD00648645 /* Sidebar.Item.swift in Sources */,
@@ -711,7 +717,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -786,7 +791,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

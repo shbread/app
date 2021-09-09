@@ -81,7 +81,7 @@ struct Settings: View {
                         UIApplication.shared.settings()
                     } else {
                         Task {
-                            _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
+                            _ = await UNUserNotificationCenter.request()
                             requested = true
                             await check()
                         }

@@ -67,7 +67,7 @@ struct Reveal: View {
                     Button {
                         UIPasteboard.general.string = secret.payload
                         Task {
-                            await Notifications.send(message: "Secret copied!")
+                            await UNUserNotificationCenter.send(message: "Secret copied!")
                         }
                     } label: {
                         Label("Copy", systemImage: "doc.on.doc.fill")

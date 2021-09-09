@@ -129,7 +129,7 @@ struct Onboard: View {
             } else {
                 Button("Allow notifications") {
                     Task {
-                        _ = try? await UNUserNotificationCenter.current().requestAuthorization(options: [.alert])
+                        _ = await UNUserNotificationCenter.request()
                         requested = true
                     }
                 }

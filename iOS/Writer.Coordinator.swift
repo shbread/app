@@ -41,7 +41,7 @@ extension Writer {
                     guard let text = self?.text.trimmingCharacters(in: .whitespacesAndNewlines) else { return }
                     Task {
                         await cloud.update(index: index, payload: text)
-                        await Notifications.send(message: "Edited secret!")
+                        await UNUserNotificationCenter.send(message: "Edited secret!")
                     }
                 }
                 .store(in: &subs)
