@@ -15,26 +15,28 @@ struct Reveal: View {
             } else {
                 Text(.init(secret.payload))
                     .font(.callout)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.primary)
                     .fixedSize(horizontal: false, vertical: true)
                     .privacySensitive()
                     .listRowBackground(Color.clear)
             }
             
             if !secret.tags.isEmpty {
-                ForEach(secret.tags.sorted(), id: \.self) { tag in
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 4)
-                            .fill(.orange)
-                        Text(verbatim: "\(tag)")
-                            .foregroundColor(.white)
-                            .font(.caption2)
-                            .padding(6)
+                VStack(alignment: .leading) {
+                    ForEach(secret.tags.sorted(), id: \.self) { tag in
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 4)
+                                .fill(.orange)
+                            Text(verbatim: "\(tag)")
+                                .foregroundColor(.white)
+                                .font(.caption2)
+                                .padding(6)
+                        }
+                        .fixedSize()
+                        .privacySensitive()
                     }
-                    .fixedSize()
-                    .privacySensitive()
-                    .listRowBackground(Color.clear)
                 }
+                .listRowBackground(Color.clear)
             }
             
             Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
@@ -43,7 +45,7 @@ struct Reveal: View {
                 .listRowBackground(Color.clear)
             
             NavigationLink {
-                Edit(index: index, name: secret.name, payload: secret.payload)
+                Edit(name: secret.name, payload: secret.payload, index: index, secret: secret)
             } label: {
                 Label("Edit", systemImage: "pencil.circle.fill")
                     .symbolRenderingMode(.hierarchical)
