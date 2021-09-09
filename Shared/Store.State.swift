@@ -1,7 +1,7 @@
 import StoreKit
 
 extension Store {
-    enum State {
+    enum Status {
         case
         loading,
         error(String),

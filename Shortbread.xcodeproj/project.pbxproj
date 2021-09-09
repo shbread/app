@@ -42,6 +42,10 @@
 		CE75612726DFB62E00C094BA /* App.Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE75612626DFB62E00C094BA /* App.Delegate.swift */; };
 		CE76FEA626EA049100EC9CC2 /* Sidebar.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FEA526EA049100EC9CC2 /* Sidebar.Item.swift */; };
 		CE76FEA726EA06C300EC9CC2 /* UNUserNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBC5E4226E2667600118105 /* UNUserNotificationCenter.swift */; };
+		CE76FEA826EA1B4900EC9CC2 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0B965226E2596E00764AAE /* Transaction.swift */; };
+		CE76FEA926EA1B5000EC9CC2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F341726E22C18000388F3 /* Store.swift */; };
+		CE76FEAA26EA1B5700EC9CC2 /* Store.State.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0ECE1C26E230D2009ED010 /* Store.State.swift */; };
+		CE76FEAC26EA1BE100EC9CC2 /* Purchases.Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE76FEAB26EA1BE100EC9CC2 /* Purchases.Item.swift */; };
 		CEB1027726E3AA4E007D0BBE /* Copy.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027626E3AA4E007D0BBE /* Copy.swift */; };
 		CEB1027926E3ABA9007D0BBE /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027826E3ABA9007D0BBE /* UIApplication.swift */; };
 		CEB1027B26E3AF3E007D0BBE /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1027A26E3AF3E007D0BBE /* Info.swift */; };
@@ -161,6 +165,7 @@
 		CE75612426DFB5D900C094BA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.0.sdk/System/Library/Frameworks/StoreKit.framework; sourceTree = DEVELOPER_DIR; };
 		CE75612626DFB62E00C094BA /* App.Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.Delegate.swift; sourceTree = "<group>"; };
 		CE76FEA526EA049100EC9CC2 /* Sidebar.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.Item.swift; sourceTree = "<group>"; };
+		CE76FEAB26EA1BE100EC9CC2 /* Purchases.Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchases.Item.swift; sourceTree = "<group>"; };
 		CEB1027626E3AA4E007D0BBE /* Copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copy.swift; sourceTree = "<group>"; };
 		CEB1027826E3ABA9007D0BBE /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 		CEB1027A26E3AF3E007D0BBE /* Info.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Info.swift; sourceTree = "<group>"; };
@@ -230,6 +235,7 @@
 				CE0C6DF426E3D44A00813563 /* App.Delegate.swift */,
 				CE0C6DE126E3D31F00813563 /* App.swift */,
 				CECA765D26E90362000551CB /* Edit.swift */,
+				CE76FEAB26EA1BE100EC9CC2 /* Purchases.Item.swift */,
 				CECA765B26E8F3C1000551CB /* Purchases.swift */,
 				CE0C6DF826E3D4A400813563 /* Reveal.swift */,
 				CE76FEA526EA049100EC9CC2 /* Sidebar.Item.swift */,
@@ -508,9 +514,13 @@
 				CE0C6DF726E3D47E00813563 /* Sidebar.swift in Sources */,
 				CE0C6DF926E3D4A400813563 /* Reveal.swift in Sources */,
 				CECA765C26E8F3C1000551CB /* Purchases.swift in Sources */,
+				CE76FEA926EA1B5000EC9CC2 /* Store.swift in Sources */,
+				CE76FEAA26EA1B5700EC9CC2 /* Store.State.swift in Sources */,
 				CE0C6DF526E3D44A00813563 /* App.Delegate.swift in Sources */,
 				CE76FEA626EA049100EC9CC2 /* Sidebar.Item.swift in Sources */,
 				CECA765E26E90362000551CB /* Edit.swift in Sources */,
+				CE76FEAC26EA1BE100EC9CC2 /* Purchases.Item.swift in Sources */,
+				CE76FEA826EA1B4900EC9CC2 /* Transaction.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,7 +869,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = "$(MARKETING_VERSION).1";
+				CURRENT_PROJECT_VERSION = "$(MARKETING_VERSION)";
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -878,7 +888,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_OPTIMIZATION = time;
 				CLANG_ENABLE_MODULES = YES;
-				CURRENT_PROJECT_VERSION = "$(MARKETING_VERSION).1";
+				CURRENT_PROJECT_VERSION = "$(MARKETING_VERSION)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = YES;
 				GCC_OPTIMIZATION_LEVEL = fast;

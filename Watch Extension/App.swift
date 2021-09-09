@@ -3,6 +3,7 @@ import Archivable
 import Secrets
 
 let cloud = Cloud.new
+let store = Store()
 
 @main struct App: SwiftUI.App {
     @State private var archive = Archive.new

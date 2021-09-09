@@ -7,22 +7,21 @@ struct Reveal: View {
     
     var body: some View {
         List {
-            Section {
-                if secret.payload.isEmpty {
-                    Text("Empty secret")
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
-                } else {
-                    Text(.init(secret.payload))
-                        .font(.callout)
-                        .foregroundStyle(.secondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .privacySensitive()
-                }
+            if secret.payload.isEmpty {
+                Text("Empty secret")
+                    .font(.caption2)
+                    .foregroundStyle(.tertiary)
+                    .listRowBackground(Color.clear)
+            } else {
+                Text(.init(secret.payload))
+                    .font(.callout)
+                    .foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .privacySensitive()
+                    .listRowBackground(Color.clear)
             }
-            .listRowBackground(Color.clear)
             
-            Section {
+            if !secret.tags.isEmpty {
                 ForEach(secret.tags.sorted(), id: \.self) { tag in
                     ZStack {
                         RoundedRectangle(cornerRadius: 4)
@@ -34,26 +33,22 @@ struct Reveal: View {
                     }
                     .fixedSize()
                     .privacySensitive()
+                    .listRowBackground(Color.clear)
                 }
             }
-            .listRowBackground(Color.clear)
             
-            Section {
-                Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
-                    .foregroundColor(.secondary)
+            Text(verbatim: secret.date.formatted(.relative(presentation: .named, unitsStyle: .wide)))
+                .foregroundColor(.secondary)
+                .font(.caption2)
+                .listRowBackground(Color.clear)
+            
+            NavigationLink {
+                Edit(index: index, name: secret.name, payload: secret.payload)
+            } label: {
+                Label("Edit", systemImage: "pencil.circle.fill")
+                    .symbolRenderingMode(.hierarchical)
                     .font(.caption2)
-            }
-            .listRowBackground(Color.clear)
-            
-            Section {
-                NavigationLink {
-                    Purchases()
-                } label: {
-                    Label("Edit", systemImage: "pencil.circle.fill")
-                        .symbolRenderingMode(.hierarchical)
-                        .font(.caption2)
-                        .foregroundColor(.orange)
-                }
+                    .foregroundColor(.orange)
             }
         }
         .navigationTitle(secret.name)

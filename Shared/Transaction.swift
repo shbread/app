@@ -1,4 +1,5 @@
 import StoreKit
+import UserNotifications
 import Secrets
 
 extension Transaction {

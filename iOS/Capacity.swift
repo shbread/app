@@ -3,7 +3,7 @@ import Secrets
 
 struct Capacity: View {
     let archive: Archive
-    @State private var state = Store.State.loading
+    @State private var state = Store.Status.loading
     
     var body: some View {
         VStack(spacing: 0) {
@@ -24,7 +24,7 @@ struct Capacity: View {
                     .foregroundStyle(.secondary)
             }
         }
-        .onReceive(store.state) {
+        .onReceive(store.status) {
             state = $0
         }
         .task {

@@ -2,7 +2,7 @@ import SwiftUI
 
 extension Capacity {
     struct Content: View {
-        let state: Store.State
+        let state: Store.Status
         
         var body: some View {
             switch state {

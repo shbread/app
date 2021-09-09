@@ -1,9 +1,10 @@
 import StoreKit
+import UserNotifications
 import Combine
 import Secrets
 
 struct Store {
-    let state = CurrentValueSubject<State, Never>(.loading)
+    let status = CurrentValueSubject<Status, Never>(.loading)
     
     init() {
         Task
@@ -19,19 +20,19 @@ struct Store {
     @MainActor func load() async {
         do {
             let products = try await Product.products(for: Purchase.allCases.map(\.rawValue))
-            state.send(
+            status.send(
                 .products(
                     products
                         .sorted {
                             $0.price < $1.price
                         }))
         } catch let error {
-            state.send(.error("Unable to connect to the App Store.\n" + error.localizedDescription))
+            status.send(.error("Unable to connect to the App Store.\n" + error.localizedDescription))
         }
     }
     
     @MainActor func purchase(_ product: Product) async {
-        state.send(.loading)
+        status.send(.loading)
         
         do {
             switch try await product.purchase() {
@@ -40,7 +41,7 @@ struct Store {
                     await safe.process()
                     await load()
                 } else {
-                    state.send(.error("Purchase verification failed."))
+                    status.send(.error("Purchase verification failed."))
                 }
             case .pending:
                 await load()
@@ -49,7 +50,7 @@ struct Store {
                 await load()
             }
         } catch let error {
-            state.send(.error(error.localizedDescription))
+            status.send(.error(error.localizedDescription))
         }
     }
 }

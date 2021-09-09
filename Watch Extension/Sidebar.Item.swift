@@ -26,6 +26,9 @@ extension Sidebar {
             }
             .confirmationDialog("Delete secret?", isPresented: $delete) {
                 Button("Delete", role: .destructive) {
+                    selected = nil
+                    delete = false
+                    
                     Task {
                         await cloud.delete(index: index)
                         await UNUserNotificationCenter.send(message: "Deleted secret!")

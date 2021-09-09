@@ -12,17 +12,53 @@ struct Sidebar: View {
         NavigationView {
             List {
                 if search.isEmpty {
-                    header
+                    if archive.count == 0 {
+                        Text("Create your first secret")
+                            .font(.footnote)
+                            .listRowBackground(Color.clear)
+                    } else {
+                        Text(verbatim: "\(archive.count) / \(archive.capacity) " + (archive.capacity == 1 ? "secret" : "secrets"))
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                            .listRowBackground(Color.clear)
+                    }
                 }
                 
-                Section {
+                if !filtered.isEmpty && archive.count > 0 {
                     ForEach(filtered, id: \.self) {
                         Item(selected: $selected, index: $0, secret: archive[$0])
                     }
                 }
                 
                 if search.isEmpty {
-                    footer
+                    if archive.available {
+                        Button {
+                            Task {
+                                selected = await cloud.secret()
+                            }
+                        } label: {
+                            Image(systemName: "plus.circle.fill")
+                                .font(.largeTitle)
+                                .symbolRenderingMode(.hierarchical)
+                                .foregroundColor(.orange)
+                                .frame(maxWidth: .greatestFiniteMagnitude)
+                        }
+                        .listRowBackground(Color.clear)
+                    } else {
+                        Text("You reached the limit of secrets that you can keep.")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                            .listRowBackground(Color.clear)
+                    }
+                    
+                    NavigationLink(tag: -1, selection: $selected) {
+                        Purchases()
+                    } label: {
+                        Label("In-App Purchases", systemImage: "cart")
+                            .symbolRenderingMode(.hierarchical)
+                            .font(.caption2)
+                            .foregroundColor(.orange)
+                    }
                 }
             }
             .searchable(text: $search)
@@ -37,53 +73,6 @@ struct Sidebar: View {
             Task {
                 if await UNUserNotificationCenter.authorization == .notDetermined {
                     await UNUserNotificationCenter.request()
-                }
-            }
-        }
-    }
-    
-    private var header: some View {
-        Section {
-            if archive.count == 0 {
-                Text("Create your first secret")
-                    .font(.footnote)
-                    .listRowBackground(Color.clear)
-            } else {
-                Text(verbatim: "\(archive.count) / \(archive.capacity) " + (archive.capacity == 1 ? "secret" : "secrets"))
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                    .listRowBackground(Color.clear)
-            }
-        }
-    }
-    
-    private var footer: some View {
-        Section {
-            if archive.available {
-                Button {
-                    Task {
-                        selected = await cloud.secret()
-                    }
-                } label: {
-                    Image(systemName: "plus.circle.fill")
-                        .font(.largeTitle)
-                        .symbolRenderingMode(.hierarchical)
-                        .foregroundColor(.orange)
-                        .frame(maxWidth: .greatestFiniteMagnitude)
-                }
-                .listRowBackground(Color.clear)
-            } else {
-                Text("You reached the limit of secrets that you can keep.")
-                    .font(.caption2)
-                    .foregroundStyle(.secondary)
-                    .listRowBackground(Color.clear)
-                NavigationLink(tag: -1, selection: $selected) {
-                    Purchases()
-                } label: {
-                    Label("In-App Purchases", systemImage: "cart")
-                        .symbolRenderingMode(.hierarchical)
-                        .font(.caption2)
-                        .foregroundColor(.orange)
                 }
             }
         }
